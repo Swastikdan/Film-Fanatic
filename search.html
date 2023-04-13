@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Display Site</title>
+    <script
+     
+      src="https://cdn.tailwindcss.com"
+    ></script>
+  
+  </head>
+  <body class="bg-gray-100">
+
+    <div class="container mx-auto mt-10">
+        <h1 class="text-3xl font-bold mb-5">Movie Search</h1>
+
+        <!-- Search bar -->
+        <form id="search-form" class="mb-5">
+            <input type="text" id="search-input" class="border border-gray-400 py-2 px-4 rounded-md w-full" placeholder="Search for a movie...">
+            <button type="submit" id="search-button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md ml-2">Search</button>
+        </form>
+
+        <!-- Movie results -->
+        <div id="movie-container"></div>
+    </div>
+
+    <script src="js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&family=Sedgwick+Ave+Display&display=swap');
+
+
+.font-maven{
+    font-family: 'Maven Pro', sans-serif;
+    display: swap;
+}
+.font-sedgwick{
+    font-family: 'Sedgwick Ave Display', cursive; 
+    display: swap;
+}
+
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+

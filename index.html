@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Display Site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!--font-family: 'Maven Pro', sans-serif;
+font-family: 'Sedgwick Ave Display', cursive;-->
+  </head>
+  <body>
+    <nav class="flex items-center justify-between flex-wrap bg-blue-500 p-6">
+      <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <span class="font-semibold text-xl tracking-tight"
+          >Movie Display Site</span
+        >
+      </div>
+      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <div class="text-sm lg:flex-grow">
+          <input
+            type="text"
+            id="search-input"
+            class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="Search..."
+          />
+        </div>
+        <div>
+          <button
+            id="search-button"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto">
+      <h1 class="text-3xl font-bold my-8">Trending Movies</h1>
+
+      <div
+        class="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-8 lg:py-20"
+      >
+        <div
+          id="movies-container"
+          class="relative grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center"
+        ></div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

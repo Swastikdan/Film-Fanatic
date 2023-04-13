@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css" />
+
+    <!--font-family: 'Maven Pro', sans-serif;
+font-family: 'Sedgwick Ave Display', cursive;
+
+<div class="relative grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+    -->
+  </head>
+  <body class="">
+    <!-- <header id="header" class="font-maven top-0 sticky " >
+ <nav class="flex flex-wrap items-center justify-between  w-full py-3 md:py-4 px-5 md:px-10 text-lg text-gray-700 bg-white dark:text-gray-100 dark:bg-gray-900 ">
+          <div>
+            <a href="/" class="text-gray-900 dark:text-gray-100 inline-flex items-center gap-4 text-3xl font-bold md:text-4xl font-sedgwick " aria-label="logo">
+              <svg width="55" height="54" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.18C2 19.83 4.17 22 7.81 22H16.18C19.82 22 21.99 19.83 21.99 16.19V7.81C22 4.17 19.83 2 16.19 2ZM14.66 13.73L13.38 14.47L12.1 15.21C10.45 16.16 9.1 15.38 9.1 13.48V12V10.52C9.1 8.61 10.45 7.84 12.1 8.79L13.38 9.53L14.66 10.27C16.31 11.22 16.31 12.78 14.66 13.73Z" fill="#51565d"></path> </g></svg>
+        
+                Film Fanatic
+               
+              </a>
+              
+          </div>
+
+ 
+          <button id="menu-button" type="button" class="inline-flex items-center gap-2 rounded-lg bg-gray-200 px-2.5 py-2 text-sm font-semibold text-gray-500 ring-indigo-300 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base md:hidden block">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+            </svg>
+    
+            Menu
+          </button>
+
+          <button id="close-button" type="button" class="inline-flex items-center gap-2 rounded-lg bg-gray-200 px-2.5 py-2 text-sm font-semibold text-gray-500 ring-indigo-300 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base md:hidden hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" id="close-button" class="h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+    
+            Close
+          </button>
+     
+          <div class="hidden w-full md:flex md:items-center md:w-auto px-5 py-2 md:p-0 rounded-md bg-gray-400 dark:bg-gray-600 md:bg-inherit dark:md:bg-inherit" id="menu">
+            <ul class="pt-4 text-base text-gray-700 md:flex md:justify-between md:pt-0 items-center px-10 md:px-2">
+              <li>
+                <a href="#" class=" p-4 py-2 block text-lg font-semibold text-black dark:text-gray-200 transition duration-100 hover:bg-gray-200 rounded-md md:hover:bg-transparent dark:hover:bg-gray-700 md:dark:hover:bg-transparent   md:hover:text-indigo-500 md:active:text-indigo-700 md:dark:hover:text-indigo-400 md:dark:active:text-indigo-600 ">Home</a>
+              </li>
+              <li>
+                <a href="#" class=" p-4 py-2 block text-lg font-semibold text-black dark:text-gray-200 transition duration-100 hover:bg-gray-200 rounded-md md:hover:bg-transparent dark:hover:bg-gray-700 md:dark:hover:bg-transparent   md:hover:text-indigo-500 md:active:text-indigo-700 md:dark:hover:text-indigo-400 md:dark:active:text-indigo-600 ">Now showing</a>
+              </li>
+              <li>
+                <a href="#" class=" p-4 py-2 block text-lg font-semibold text-black dark:text-gray-200 transition duration-100 hover:bg-gray-200 rounded-md md:hover:bg-transparent dark:hover:bg-gray-700 md:dark:hover:bg-transparent   md:hover:text-indigo-500 md:active:text-indigo-700 md:dark:hover:text-indigo-400 md:dark:active:text-indigo-600 ">Category</a>
+              </li>
+              <li>
+                <a href="#" class=" p-4 py-2 block text-lg font-semibold text-black dark:text-gray-200 transition duration-100 hover:bg-gray-200 rounded-md md:hover:bg-transparent dark:hover:bg-gray-700 md:dark:hover:bg-transparent   md:hover:text-indigo-500 md:active:text-indigo-700 md:dark:hover:text-indigo-400 md:dark:active:text-indigo-600 ">Up-coming movies</a>
+              </li>
+              <button id="theme-toggle" type="button" class="my-2">
+
+
+                <div id="theme-toggle-dark-icon" type="button" class=" hidden inline-flex items-center gap-2 rounded-lg bg-gray-200 px-2.5 py-2 text-sm font-semibold text-gray-500 hover:text-gray-100 ring-indigo-300 hover:bg-gray-400 focus-visible:ring active:text-gray-700 md:text-base">
+                    <svg  class=" w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            
+                  Light
+                </div>
+                <div id="theme-toggle-light-icon" type="button" class=" hidden inline-flex items-center gap-2 rounded-lg bg-gray-700 px-2.5 py-2 text-sm font-semibold text-gray-500 hover:text-gray-300 ring-indigo-300 hover:bg-gray-800 focus-visible:ring active:text-gray-200 md:text-base">
+                    <svg  class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            
+                   Dark
+                </div>
+        
+                
+            </button> 
+            </ul>
+            
+          </div>
+          
+        </nav> 
+      </header>
+      <hr> -->
+
+    <!-- <script>
+        const menuButton = document.querySelector('#menu-button');
+        const closeButton = document.querySelector('#close-button');
+        const menu = document.querySelector('#menu');
+      
+        menuButton.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+          menuButton.classList.toggle('hidden');
+          closeButton.classList.toggle('hidden');
+        });
+      
+        closeButton.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+          menuButton.classList.toggle('hidden');
+          closeButton.classList.toggle('hidden');
+        });
+      </script> -->
+
+    <!-- <button id="theme-toggle" type="button" class=" top-0 right-0  text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+    </button> -->
+
+    <header
+      id="header"
+      class="border-b-2 border-black dark:border-gray-200"
+    ></header>
+
+    <div class="bg-gray-200 dark:bg-gray-800 py-5 sm:py-8 lg:py-10 font-maven">
+      <div class="mx-auto max-w-screen-2xl px-4  md:px-8">
+        <div
+          class="rounded-lg bg-gray-100 dark:bg-gray-600 px-4 py-6 md:py-8 lg:py-12"
+        >
+          <h2
+            class="mb-4 text-center text-3xl font-bold text-gray-800 dark:text-gray-200 md:mb-6 md:text-4xl lg:text-5xl"
+          >
+            Experience the magic of cinema with
+            <span class="text-indigo-500 dark:text-indigo-300 cursor-pointer  "
+              >Film Fanatic</span
+            >
+          </h2>
+
+          <p
+            class="mx-auto max-w-screen-md text-center text-gray-500 dark:text-gray-100 md:text-lg"
+          >
+            Watch trailers, sneak peeks, and your favorite movies and TV shows.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col py-3 px-4 md:px-8 space-y-10 bg-gray-200 dark:bg-gray-800"
+    >
+      <span
+        class="text-2xl md:text-3xl lg:text-4xl font-bold  text-gray-900 dark:text-gray-200 font-maven"
+        >Now Playing</span
+      >
+
+      <div class="relative grid  sm:grid-cols-2 lg:grid-cols-4">
+
+
+        <!-- <a href="#" class="<span class="relative mr-3 mb-3 inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-gray-200 backdrop-blur md:px-3 md:text-sm">VR</span> flex h-48 items-end justify-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-96">
+          <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+  
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+  
+          <span class="relative mr-3 mb-3 inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-gray-200 backdrop-blur md:px-3 md:text-sm">VR</span>
+        </a> -->
+
+        <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 drop-shadow-lg">
+          <div class="group relative flex overflow-hidden">
+          <img class="object-cover w-full h-full object-center transition duration-200 hover:scale-110" src="https://image.tmdb.org/t/p/w500//qVdrYN8qu7xUtsdEFeGiIVIaYd.jpg" loading="lazy" alt="avatar">
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+        </div>
+      
+          <div class="py-5 text-center">
+              <a href="#" class="block text-xl font-bold text-gray-800 dark:text-white" tabindex="0" role="link">John Doe</a>
+              <span class="text-sm text-gray-700 dark:text-gray-200">Software Engineer</span>
+          </div>
+      </div>
+
+
+      
+    </div>
+
+    <div class="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-8 lg:py-20">
+
+      <div class="relative grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center ">
+        <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-900 drop-shadow-lg font-maven">
+          <a href="#" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+            <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+    
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+    
+           
+              
+            <span class="relative flex items-center gap-1.5  mr-3 mb-3 inline-block rounded-lg  px-2 py-1 text-green-600 font-bold text-md bg-green-100 backdrop-blur md:px-3 "><svg aria-hidden="true" class="w-5 h-5  text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>  VR</span>
+          </a>
+      
+          <div class="py-5 text-left px-5 flex flex-col ">
+           
+              <span class="text-2xl text-black dark:text-gray-100 font-semibold  ">The Super Mario Bros. </span> 
+
+            <div class="flex justify-between pt-5">
+              <span class="text-sm text-gray-700 dark:text-gray-200">2020</span>
+              <span class="relative  inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-gray-600 dark:text-gray-200 backdrop-blur md:px-3 md:text-sm">VR</span></div>
+          </div>
+      </div>
+
+      <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-900 drop-shadow-lg font-maven">
+        <a href="#" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+          <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+  
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+  
+         
+            
+          <span class="relative flex items-center gap-1.5  mr-3 mb-3 inline-block rounded-lg  px-2 py-1 text-green-600 font-bold text-md bg-green-100 backdrop-blur md:px-3 "><svg aria-hidden="true" class="w-5 h-5  text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>  VR</span>
+        </a>
+    
+        <div class="py-5 text-left px-5 flex flex-col ">
+         
+            <span class="text-2xl text-black dark:text-gray-100 font-semibold  ">The Super Mario Bros. </span> 
+
+          <div class="flex justify-between pt-5">
+            <span class="text-sm text-gray-700 dark:text-gray-200">2020</span>
+            <span class="relative  inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-gray-600 dark:text-gray-200 backdrop-blur md:px-3 md:text-sm">VR</span></div>
+        </div>
+    </div>
+
+    <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-900 drop-shadow-lg font-maven">
+      <a href="#" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+        <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+
+       
+          
+        <span class="relative flex items-center gap-1.5  mr-3 mb-3 inline-block rounded-lg  px-2 py-1 text-green-600 font-bold text-md bg-green-100 backdrop-blur md:px-3 "><svg aria-hidden="true" class="w-5 h-5  text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>  VR</span>
+      </a>
+  
+      <div class="py-5 text-left px-5 flex flex-col ">
+       
+          <span class="text-2xl text-black dark:text-gray-100 font-semibold  ">The Super Mario Bros. </span> 
+
+        <div class="flex justify-between pt-5">
+          <span class="text-sm text-gray-700 dark:text-gray-200">2020</span>
+          <span class="relative  inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-gray-600 dark:text-gray-200 backdrop-blur md:px-3 md:text-sm">VR</span></div>
+      </div>
+  </div>
+
+
+  <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-900 drop-shadow-lg font-maven">
+    <a href="#" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+      <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+
+     
+        
+      <span class="relative flex items-center gap-1.5  mr-3 mb-3 inline-block rounded-lg  px-2 py-1 text-green-600 font-bold text-md bg-green-100 backdrop-blur md:px-3 "><svg aria-hidden="true" class="w-5 h-5  text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>  VR</span>
+    </a>
+
+    <div class="py-5 text-left px-5 flex flex-col ">
+     
+        <span class="text-2xl text-black dark:text-gray-100 font-semibold  ">The Super Mario Bros. </span> 
+
+      <div class="flex justify-between pt-5">
+        <span class="text-sm text-gray-700 dark:text-gray-200">2020</span>
+        <span class="relative  inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-gray-600 dark:text-gray-200 backdrop-blur md:px-3 md:text-sm">VR</span></div>
+    </div>
+</div>
+
+
+<div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-900 drop-shadow-lg font-maven">
+  <a href="#" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+    <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+
+   
+      
+    <span class="relative flex items-center gap-1.5  mr-3 mb-3 inline-block rounded-lg  px-2 py-1 text-green-600 font-bold text-md bg-green-100 backdrop-blur md:px-3 "><svg aria-hidden="true" class="w-5 h-5  text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>  VR</span>
+  </a>
+
+  <div class="py-5 text-left px-5 flex flex-col ">
+   
+      <span class="text-2xl text-black dark:text-gray-100 font-semibold  ">The Super Mario Bros. </span> 
+
+    <div class="flex justify-between pt-5">
+      <span class="text-sm text-gray-700 dark:text-gray-200">2020</span>
+      <span class="relative  inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-gray-600 dark:text-gray-200 backdrop-blur md:px-3 md:text-sm">VR</span></div>
+  </div>
+</div>
+
+
+
+
+        <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-900 drop-shadow-lg font-maven">
+          <a href="#" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+            <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+    
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+    
+           
+              
+            <span class="relative flex items-center gap-1.5  mr-3 mb-3 inline-block rounded-lg  px-2 py-1 text-green-600 font-bold text-md bg-green-100 backdrop-blur md:px-3 "><svg aria-hidden="true" class="w-5 h-5  text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>  VR</span>
+          </a>
+      
+          <div class="py-5 text-left px-5 flex flex-col ">
+           
+              <span class="text-2xl text-black dark:text-gray-100 font-semibold  ">The Super Mario Bros. </span> 
+
+            <div class="flex justify-between pt-5">
+              <span class="text-sm text-gray-700 dark:text-gray-200">2020</span>
+              <span class="relative  inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-gray-600 dark:text-gray-200 backdrop-blur md:px-3 md:text-sm">VR</span></div>
+          </div>
+      </div>
+
+
+
+
+      <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-900 drop-shadow-lg font-maven">
+        <a href="#" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+          <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+  
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+  
+         
+            
+          <span class="relative flex items-center gap-1.5  mr-3 mb-3 inline-block rounded-lg  px-2 py-1 text-green-600 font-bold text-md bg-green-100 backdrop-blur md:px-3 "><svg aria-hidden="true" class="w-5 h-5  text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>  VR</span>
+        </a>
+    
+        <div class="py-5 text-left px-5 flex flex-col ">
+         
+            <span class="text-2xl text-black dark:text-gray-100 font-semibold  ">The Super Mario Bros. </span> 
+
+          <div class="flex justify-between pt-5">
+            <span class="text-sm text-gray-700 dark:text-gray-200">2020</span>
+            <span class="relative  inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-gray-600 dark:text-gray-200 backdrop-blur md:px-3 md:text-sm">VR</span></div>
+        </div>
+    </div>
+
+          <div class="p-5">
+            <div class="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-indigo-50">
+              <svg class="w-8 h-8 text-deep-purple-accent-400" stroke="currentColor" viewBox="0 0 52 52">
+                <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
+              </svg>
+            </div>
+            <p class="mb-2 font-bold">Martial Arts</p>
+            <p class="text-sm leading-5 text-gray-900">
+              Webtwo ipsum orkut reddit meebo skype vimeo jajah spock empressr zimbra, mobly napster.
+            </p>
+          </div>
+          <div class="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+      <div class="flex flex-1 justify-between sm:hidden">
+        <a href="#" class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Previous</a>
+        <a href="#" class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Next</a>
+      </div>
+      <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+        <div>
+          <p class="text-sm text-gray-700">
+            Showing
+            <span class="font-medium">1</span>
+            to
+            <span class="font-medium">10</span>
+            of
+            <span class="font-medium">97</span>
+            results
+          </p>
+        </div>
+        <div>
+          <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+            <a href="#" class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+              <span class="sr-only">Previous</span>
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <!-- Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" -->
+            <a href="#" aria-current="page" class="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">1</a>
+            <a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">2</a>
+            <a href="#" class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">3</a>
+            <span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
+            <a href="#" class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">8</a>
+            <a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">9</a>
+            <a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">10</a>
+            <a href="#" class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+              <span class="sr-only">Next</span>
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>
+
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas eligendi nihil porro nostrum velit vero voluptates odit quas dolorum eos quidem iusto dicta cum doloremque debitis, impedit cupiditate et consectetur culpa. Rerum officia deserunt est porro. Asperiores voluptatibus tenetur maxime commodi sit optio eligendi sed accusantium ipsum autem porro recusandae voluptatem praesentium est, quas nobis eveniet, amet ducimus. Ratione harum veniam, quidem nemo mollitia voluptate quasi inventore voluptatibus voluptatum perferendis earum beatae, ad adipisci. Expedita, dicta! Beatae voluptas id quaerat sapiente facilis deleniti ut, aspernatur molestiae quia laboriosam nemo, veniam tempore nihil iusto blanditiis quae accusamus. Error nam vel ex officia rem magni dolores cum sint sit nesciunt. Laborum, explicabo dolorum voluptate fugiat corporis libero tenetur voluptatem recusandae voluptatibus, nemo eligendi ipsa saepe porro velit odit at eius. Minima expedita nihil esse perspiciatis quod dignissimos, repudiandae rem architecto facere totam magnam ea sit, enim accusantium doloribus. Voluptates adipisci, corporis nulla possimus eius saepe ea sequi ut dolores veniam deleniti consequuntur dignissimos ipsam obcaecati cumque error ex! Itaque voluptas nemo maxime sit eos possimus, vero ea voluptatum sequi saepe tenetur molestias? Optio cupiditate esse saepe veritatis ipsum, facilis quaerat velit voluptate eveniet minus labore vero omnis nam excepturi deserunt. Excepturi natus nostrum voluptatem error sapiente? Placeat explicabo iusto temporibus fugit quae inventore vero, molestiae iure dolorum, doloribus rerum quos, esse neque reiciendis. Quo molestias incidunt architecto, a, molestiae repudiandae aliquid magnam reiciendis necessitatibus quia quas animi dolore atque voluptatum modi, vel sequi aperiam temporibus. Dolorem facilis doloremque ipsam iste debitis. Itaque unde, aspernatur possimus iste rem id, nulla pariatur consequuntur provident facere error ullam sint. Perspiciatis fuga illum itaque optio asperiores. Reiciendis laborum, cumque totam nostrum consequatur quis quia sunt delectus ea pariatur molestias consectetur culpa quisquam aspernatur praesentium maiores amet atque repellendus? Nam, provident odit iure rerum beatae ullam neque, hic quod quos corporis laudantium quas vitae illo eveniet obcaecati, aspernatur consequatur reiciendis? Voluptate placeat ad, odit repellendus vel, facere obcaecati quibusdam hic incidunt tempore eveniet mollitia id dolores, aliquam eius? Iure autem ratione rerum similique perspiciatis repellat at tempore illum blanditiis! Non natus delectus repellat sunt nobis quasi voluptatibus harum tempore eos. Aut dolores tenetur vero voluptates dolorem. Hic facilis exercitationem eligendi asperiores optio veritatis nemo, praesentium aliquam accusantium, at ipsum ea in culpa sed eius aspernatur, tempora vero! Numquam dolore eaque quaerat, magni, quae sequi veritatis cum impedit est dolorum sed laboriosam facere adipisci obcaecati eligendi aspernatur illo hic at ab fuga! Facilis accusantium corporis laboriosam porro ratione nulla nesciunt repellat tempore dolore placeat. Quam obcaecati quidem non aliquid aut? Explicabo perferendis aut blanditiis hic atque cumque, magnam ipsam. Aut consequuntur quam quia explicabo quos, vel id eius nam. Sit alias doloremque, dolorem ut maiores enim est tempora deleniti distinctio facilis saepe quasi molestias vero natus at consequatur? Placeat voluptates debitis aspernatur aliquid corrupti qui dignissimos eaque maiores, perspiciatis illo amet alias, autem consequuntur non rerum fuga quidem magnam enim! Consectetur ab aperiam dolor harum nobis natus tempora aspernatur. Sequi, officia. Eum autem corrupti adipisci consequuntur optio, voluptatum ipsum dolore reprehenderit explicabo molestiae cupiditate reiciendis velit nostrum ea, ut laboriosam expedita non iure voluptates at ipsa odit? Dolorem expedita facilis, fuga, commodi, inventore porro aliquid eius sunt ullam nam vero voluptate ea. Dolorem, iusto? Incidunt mollitia velit, pariatur magnam dolorum reiciendis eveniet harum eos, consequuntur quidem aliquid inventore odit accusamus vero sed minus iste, autem error. Labore ab aliquid tenetur commodi id maxime blanditiis eius accusantium beatae libero quisquam, debitis itaque quod suscipit dolorem qui dolores illum nesciunt ducimus architecto, magnam in natus! Impedit repudiandae pariatur quibusdam sequi sint, accusantium enim mollitia esse, quam, magnam dolor consequuntur. Temporibus suscipit rem quasi velit aspernatur dolore blanditiis nulla enim reiciendis optio, assumenda soluta asperiores, cumque cum molestiae eum sit ipsam, facere laboriosam amet ullam ad numquam veniam deleniti. Eaque officia quas eligendi placeat expedita, aperiam ab officiis itaque vel dolorum exercitationem laudantium laboriosam atque nemo aliquid voluptas est impedit perspiciatis hic incidunt debitis inventore! Ducimus quisquam minus a iusto natus doloribus doloremque illo iure quos assumenda tenetur eaque, minima praesentium laudantium aut. At, incidunt ipsa optio, vel facilis id ullam quis excepturi magni non eligendi ipsum rem asperiores, nesciunt consectetur. Consectetur error omnis harum, vitae, fuga molestias repellat ipsam commodi at dolorem vero accusamus atque laborum ex ipsum amet deserunt sequi quisquam? Eaque sequi ipsa cupiditate tempora, quasi harum sit magnam? Modi autem earum eius culpa perspiciatis amet, eos beatae doloribus? Et voluptates quos sunt? Quaerat molestiae minus dolorem cumque illo dolor dignissimos temporibus quibusdam quasi, porro inventore vero id dolore eum unde nam est veritatis modi pariatur autem incidunt minima! Aspernatur reprehenderit voluptas quisquam, fugit iste perspiciatis quis minus recusandae dignissimos, repellendus ullam adipisci, tempora officia eligendi et delectus inventore nihil sequi at ex repellat ut nobis dolore. A veritatis rem exercitationem laboriosam libero odio tenetur, voluptatem labore vel iste doloribus ipsum, officiis, ducimus laudantium atque hic repellendus voluptatum esse inventore. Exercitationem cum soluta harum iste quis ullam hic. Expedita aliquid omnis sequi inventore officia debitis odit reiciendis incidunt excepturi quod corporis sunt minima eveniet quisquam enim illo, placeat sit? Doloribus atque ipsam, nemo sunt nostrum pariatur. Aperiam nemo minima suscipit veritatis, est tempore natus quod dolor amet dolorem error impedit explicabo sapiente ullam perspiciatis magni voluptatibus odit velit. At, tempore, officia nam magni eaque earum enim labore repudiandae rem harum veniam culpa quasi delectus perspiciatis, ea facere provident quibusdam doloribus. Nulla ea nihil est quos molestiae neque tempora deserunt, alias accusantium itaque dolorum eius unde, praesentium, dolor labore. Quis dicta quidem consectetur autem veniam iusto, ratione in facilis alias deserunt porro atque animi velit sapiente perferendis fuga earum dolorum eligendi nostrum, dolorem maiores numquam excepturi a et! Id nostrum incidunt tenetur vitae vel. Aperiam perferendis magni aliquam mollitia numquam doloremque repellat in quisquam repellendus! Nulla ratione omnis cum modi! Dolor, consequuntur! Culpa ipsa dolore voluptatibus sed dolor eos doloribus consectetur, nihil eius mollitia doloremque corrupti id amet modi molestias quos debitis tenetur odio, est laborum? Aliquid cum quam earum hic ab esse voluptatem neque id tempore autem minus aspernatur alias, doloribus, placeat amet corrupti sit totam. Fugiat officiis magnam nisi culpa, dignissimos molestiae deserunt vel ut voluptatem adipisci perferendis. Consequatur accusantium voluptatibus corrupti ipsa reiciendis quos deserunt illum impedit natus esse omnis beatae, laudantium minus iure tenetur id dolorum iusto ex. Qui eligendi optio autem veniam, alias officiis eius voluptates temporibus tenetur quaerat maiores tempora vel perferendis adipisci nisi? Laboriosam pariatur similique amet animi, perspiciatis ad placeat totam rem, exercitationem est eum. Molestiae ut architecto rerum eius. Natus, odit! Voluptatibus earum quaerat hic alias, ut rerum. Ab cumque natus ipsum eveniet quo doloribus quaerat sequi similique quam illo omnis, fuga tenetur ducimus ea placeat voluptatum architecto, animi labore repellat quia quis iste magnam? Ducimus pariatur delectus tempore a aliquid. Sit saepe culpa laborum ipsum voluptatibus alias vero accusamus nobis delectus quaerat quae praesentium sequi cumque, hic amet, corporis consectetur facere eaque. Sequi impedit suscipit facere deleniti voluptate recusandae accusamus tempora molestiae quam natus maiores fuga repudiandae nam perferendis amet deserunt voluptatibus rem veritatis dolorum numquam, est dolore, odio adipisci id. Libero perferendis harum minus eligendi illum pariatur veritatis exercitationem sed laborum voluptatem ratione possimus natus asperiores quis tempora, est tenetur numquam dolorem, officia quae quaerat quibusdam atque deserunt modi. Accusamus, soluta optio ut saepe minima corporis ex. Officiis deserunt earum animi unde ex reiciendis distinctio corporis expedita accusantium aspernatur similique perferendis ducimus, explicabo quisquam soluta totam suscipit atque asperiores. Voluptatem, cupiditate? Sequi harum labore nemo, consectetur unde enim, non at suscipit quaerat saepe provident commodi ad, modi quos. Fugit ipsa id soluta quia voluptatem officia molestias autem sequi repellendus sed, dicta, ratione, incidunt quisquam iusto minima magnam vitae iste error. Placeat, asperiores repellat? Debitis commodi ipsa ratione quisquam quidem? Voluptatum vel id dignissimos facere dolorum consequatur reiciendis amet delectus temporibus officia quasi rerum maiores, laboriosam est pariatur doloribus excepturi officiis voluptas consectetur aliquam architecto quos itaque. Molestias, id? Corrupti distinctio molestiae, tenetur aliquam natus maxime nam facilis sit quisquam, explicabo fuga esse. Illo nostrum ex atque accusantium. Possimus, eum! Quis sunt molestias beatae, velit doloremque dolore ullam nisi veniam recusandae vitae rerum. Sint laboriosam in architecto! Nihil aliquam quis, sed eligendi aspernatur, reprehenderit voluptas perspiciatis voluptatem dolore tenetur, doloremque autem veniam labore. Amet voluptatem praesentium obcaecati sint esse nesciunt omnis explicabo unde pariatur exercitationem eveniet ratione eius dolorem consequatur asperiores, atque id molestiae dolor, rerum iste. Eaque quaerat unde aspernatur totam. Aut voluptas sit in ipsum sint consequatur sapiente provident tempore quas quod? Vero reiciendis distinctio quaerat? Sit cumque velit et aperiam ut perspiciatis eligendi harum sunt distinctio aspernatur! Eaque consectetur veniam magnam, repellat omnis animi quos quis laboriosam molestias repellendus adipisci harum voluptate laudantium quibusdam? Exercitationem eos inventore error quae aut. Ut pariatur, qui voluptate cupiditate dicta tenetur. Libero consequatur deleniti quas ratione quam architecto. Atque minus quibusdam tenetur accusantium culpa aliquam labore, laborum quia laudantium? Doloremque hic autem natus iure, ex fugit est dolores aspernatur soluta, aliquid eaque! Sed voluptas vitae, quam architecto, delectus error sequi doloremque iure quibusdam consectetur aliquid laudantium ut facere sapiente, cumque excepturi dicta. Nostrum quo aut voluptatem alias nisi, ratione, quam nulla vel quidem non quis deleniti praesentium doloremque eos magnam laudantium hic ipsa libero? Ea laudantium numquam quos et, placeat velit sit ducimus, molestias maiores eligendi necessitatibus dolorem dicta saepe. Labore, molestias soluta? Molestiae illum aperiam eius quibusdam tenetur impedit voluptatum quidem consectetur unde! Architecto impedit obcaecati tempora, deleniti quidem perferendis? Ipsam, animi voluptates explicabo itaque recusandae ducimus nemo dolores natus officia culpa enim temporibus ut rerum atque quod maiores voluptatibus aliquam perferendis ab voluptatem esse beatae qui illum iste. Numquam dolore impedit eum enim, similique vel dolor rem! Ullam, neque aut obcaecati impedit autem perspiciatis accusantium ea minima dignissimos ipsa. Doloribus id, quos quasi repellendus hic praesentium itaque maiores esse! Odio deserunt voluptates laudantium enim, eum beatae eveniet accusantium officiis quibusdam ratione, nisi officia excepturi. Voluptate incidunt veritatis, ex deleniti neque iure quos officiis numquam placeat dolores. Nesciunt quasi repellat eveniet, dolor tempora ut rerum explicabo minima libero, quidem quae exercitationem repudiandae officia quibusdam esse quaerat ea consequuntur molestias itaque. Quis, animi, accusantium enim placeat dignissimos nostrum expedita velit, quasi explicabo repudiandae quo? Voluptatibus mollitia similique consequuntur dolorem odit harum, commodi quos tenetur, unde voluptas voluptatum corrupti soluta autem eos porro libero nulla hic. Quo mollitia placeat inventore blanditiis eaque rerum dicta maxime aperiam nemo nobis sequi saepe reiciendis culpa neque, voluptatem porro vero impedit similique est architecto aliquid laudantium possimus? Assumenda ratione quis libero magnam soluta. Sunt quos veniam dolorem recusandae fugit repellendus architecto, quisquam modi necessitatibus explicabo eligendi sint esse quo neque odit excepturi, magnam facere corrupti veritatis nemo rerum placeat dignissimos. Molestias ratione veniam maiores dolor corrupti? Repellendus iure error voluptatem qui, sed repellat, hic eum tempore exercitationem corporis veritatis, aspernatur dolorem praesentium necessitatibus. Provident asperiores ratione inventore quisquam, dolore repellat maiores eum repellendus unde sequi tempora itaque, beatae eaque numquam dolorem, amet magnam suscipit harum nulla molestiae! Eaque maiores repellendus enim distinctio exercitationem provident, fugit dolore ex minima iure quia aliquid quisquam repellat. Perspiciatis officiis veniam maxime autem corrupti, id aliquid! Voluptatibus similique, magnam ducimus quam dolorum nemo, consequatur explicabo hic ex praesentium dolores commodi suscipit dicta quod. Aspernatur dolore soluta minima libero maxime architecto inventore minus a beatae atque voluptatibus odit earum magni, iure cum? Veniam inventore nobis laborum a recusandae dolorum asperiores unde distinctio quasi, impedit at quidem eligendi consequatur aliquam. Reprehenderit illo, fugiat nobis commodi accusantium alias dignissimos soluta error excepturi totam exercitationem culpa vitae amet sequi quia debitis nostrum incidunt, praesentium veritatis aliquam asperiores itaque possimus enim doloremque. Tenetur nulla exercitationem sapiente ex libero odit beatae, porro amet sed soluta, incidunt debitis officiis! Iusto, hic tenetur vel ducimus sunt dolores expedita recusandae quos fuga nesciunt? Nisi porro voluptates esse eaque, eum ipsam laudantium pariatur nemo accusamus atque maxime quasi numquam alias adipisci architecto necessitatibus natus ipsum accusantium dolores exercitationem. Temporibus saepe autem impedit tempora eos officiis sint possimus excepturi repellat minus repellendus, ea labore alias cum? Ipsam ea, repellendus est dolor, labore hic, deserunt itaque reprehenderit atque veniam nostrum blanditiis omnis.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="./js/header.js"></script>
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+
+    <script>
+      var themeToggleDarkIcon = document.getElementById(
+        "theme-toggle-dark-icon"
+      );
+      var themeToggleLightIcon = document.getElementById(
+        "theme-toggle-light-icon"
+      );
+
+      // Change the icons inside the button based on previous settings
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        themeToggleLightIcon.classList.remove("hidden");
+      } else {
+        themeToggleDarkIcon.classList.remove("hidden");
+      }
+
+      var themeToggleBtn = document.getElementById("theme-toggle");
+
+      themeToggleBtn.addEventListener("click", function () {
+        // toggle icons inside button
+        themeToggleDarkIcon.classList.toggle("hidden");
+        themeToggleLightIcon.classList.toggle("hidden");
+
+        // if set via local storage previously
+        if (localStorage.getItem("color-theme")) {
+          if (localStorage.getItem("color-theme") === "light") {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          }
+
+          // if NOT set via local storage previously
+        } else {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
