@@ -4,15 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="output.css" />
-  </head>
-  <body class="">
+    <title>Film Fanatic | Experience the magic of cinema and Tv Series</title>
+    <link rel="shortcut icon" href="/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/style.css" />
+   
+
+     <script async src="./tab.js"></script>
+    </head>
+    
+    
+  
+  <body class=" bg-gray-200 dark:bg-gray-900 block">
+    
     <header
       id="header"
-      class="border-b-2 border-black dark:border-gray-200"
+      class="z-20 font-maven top-0 sticky border-b-2 border-black dark:border-gray-200"
     ></header>
-    <div class="bg-gray-200 dark:bg-gray-800 py-5 sm:py-8 lg:py-10 font-maven">
+    <button id="back-to-top"
+    class="inline-block rounded-full bg-gray-200 hover:bg-white p-2 text-black dark:text-white shadow transition dark:bg-gray-600 dark:hover:bg-gray-950  border-2 border-black dark:border-white sm:p-3 lg:p-4 bottom-4 hidden right-4 fixed z-20"
+    
+  >
+    <span class="sr-only">Back to top</span>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-5 w-5"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+        clip-rule="evenodd"
+      />
+    </svg>
+  </button>
+    <div class="bg-gray-200 dark:bg-gray-900 py-5 sm:py-8 lg:py-10 font-maven">
       <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
         <div
           class="rounded-lg bg-gray-100 dark:bg-gray-600 px-4 py-6 md:py-8 lg:py-12"
@@ -34,45 +61,126 @@
         </div>
       </div>
     </div>
-    <div
-      class="py-5 px-5 md:px-8 lg:px-12 flex flex-wrap justify-center bg-gray-200 dark:bg-gray-800 font-maven"
+    <form
+      class="py-5 px-5 md:px-8 lg:px-12 flex flex-wrap justify-center bg-gray-200 dark:bg-gray-900 font-maven"
     >
-      <label for="videoLink" class="sr-only">Search Movie , TV Series...</label>
-      <input
-      type="search" id="search-input"
-        class="w-full text-black dark:text-black rounded-lg border-2 text-xl border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-1/2"
-        placeholder="Search Movie , TV Series..."
-      />
-      <button
-        id="search-button"
-        class="mt-4 inline-block items-center rounded-md bg-blue-600 px-7 py-2 text-md md:text-xl text-white hover:bg-blue-500 space-x-3 duration-300 shadow-xl md:ml-4 md:mt-0"
-      >
-        Search
-      </button>
-    </div>
+    <label for="videoLink" class="sr-only">👀 What movie or show? Let's find it! together!</label>
+    <input
+      type="search"
+      id="search-input"
+      class="w-full text-black dark:text-black rounded-lg border-2 text-xl border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-1/2"
+      placeholder="👀 What movie or show? Let's find it! together!"
+    />
+    <button
+      id="search-button"
+      class="mt-4 inline-block items-center rounded-md bg-blue-600 px-7 py-2 text-md md:text-xl text-white hover:bg-blue-500 space-x-3 duration-300 shadow-xl md:ml-4 md:mt-0"
+    >
+      Search
+    </button>
+  
+    </form>
 
+      <div id="loading" class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-8 lg:py-5 items-center">
+        <div class="relative grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center">
+          <div class="w-full  p-2">
+            <a class="flex flex-col h-96 relative w-full bg-white overflow-hidden card translate-3d-none-after  card translate-3d-none-after rounded-xl border border-gray-300">
+            <div class="relative group text-primary-500 " style="padding-top: 70%">
+              <div class="absolute top-0 left-0 h-full w-full"><span class="skeleton-box  transition-transform transform-center block h-full "></span></div></div>
+            <div class="flex flex-col flex-grow">
+              <div class="pl-4 pr-4 pt-4 mb-4 text-left relative flex-grow">
+                <h3
+                    class="text-lg font-bold text-gray-darkest mr-10"><span class="skeleton-box h-5 w-1/6 inline-block rounded-xl"></span>
+                  <span class="skeleton-box h-5 w-1/2 inline-block rounded-xl"></span>
+                  <span class="skeleton-box h-5 w-2/4 inline-block rounded-xl"></span>
+                  <span class="skeleton-box h-5 w-2/5 inline-block rounded-xl"></span>
+                </h3>
+              </div>        
+          </div>
+          </a>
+          </div>
+          <div class="w-full  p-2">
+            <a class="flex flex-col h-96 relative w-full bg-white overflow-hidden card translate-3d-none-after  card translate-3d-none-after rounded-xl border border-gray-300">
+            <div class="relative group text-primary-500 " style="padding-top: 70%">
+              <div class="absolute top-0 left-0 h-full w-full"><span class="skeleton-box  transition-transform transform-center block h-full "></span></div></div>
+            <div class="flex flex-col flex-grow">
+              <div class="pl-4 pr-4 pt-4 mb-4 text-left relative flex-grow">
+                <h3
+                    class="text-lg font-bold text-gray-darkest mr-10"><span class="skeleton-box h-5 w-1/6 inline-block rounded-xl"></span>
+                  <span class="skeleton-box h-5 w-1/2 inline-block rounded-xl"></span>
+                  <span class="skeleton-box h-5 w-2/4 inline-block rounded-xl"></span>
+                  <span class="skeleton-box h-5 w-2/5 inline-block rounded-xl"></span>
+                </h3>
+              </div>        
+          </div>
+          </a>
+          </div>
+          <div class="w-full  p-2">
+            <a class="flex flex-col h-96 relative w-full bg-white overflow-hidden card translate-3d-none-after  card translate-3d-none-after rounded-xl border border-gray-300">
+            <div class="relative group text-primary-500 " style="padding-top: 70%">
+              <div class="absolute top-0 left-0 h-full w-full"><span class="skeleton-box  transition-transform transform-center block h-full "></span></div></div>
+            <div class="flex flex-col flex-grow">
+              <div class="pl-4 pr-4 pt-4 mb-4 text-left relative flex-grow">
+                <h3
+                    class="text-lg font-bold text-gray-darkest mr-10"><span class="skeleton-box h-5 w-1/6 inline-block rounded-xl"></span>
+                  <span class="skeleton-box h-5 w-1/2 inline-block rounded-xl"></span>
+                  <span class="skeleton-box h-5 w-2/4 inline-block rounded-xl"></span>
+                  <span class="skeleton-box h-5 w-2/5 inline-block rounded-xl"></span>
+                </h3>
+              </div>        
+          </div>
+          </a>
+          </div>
+          <div class="w-full  p-2">
+            <a class="flex flex-col h-96 relative w-full bg-white overflow-hidden card translate-3d-none-after  card translate-3d-none-after rounded-xl border border-gray-300">
+            <div class="relative group text-primary-500 " style="padding-top: 70%">
+              <div class="absolute top-0 left-0 h-full w-full"><span class="skeleton-box  transition-transform transform-center block h-full "></span></div></div>
+            <div class="flex flex-col flex-grow">
+              <div class="pl-4 pr-4 pt-4 mb-4 text-left relative flex-grow">
+                <h3
+                    class="text-lg font-bold text-gray-darkest mr-10"><span class="skeleton-box h-5 w-1/6 inline-block rounded-xl"></span>
+                  <span class="skeleton-box h-5 w-1/2 inline-block rounded-xl"></span>
+                  <span class="skeleton-box h-5 w-2/4 inline-block rounded-xl"></span>
+                  <span class="skeleton-box h-5 w-2/5 inline-block rounded-xl"></span>
+                </h3>
+              </div>        
+          </div>
+          </a>
+          </div>
+
+        </div>
+
+        <span class="sr-only">Loading...</span>
+    </div>
+    
+    
+    <section id="mian-content">
+
+    
     <div
-      class="flex flex-col py-3 px-4 md:px-8 space-y-10 bg-gray-200 dark:bg-gray-800"
+      id="Home"
+      class="tabcontent flex flex-col py-3 px-4 md:px-8 space-y-5 bg-gray-200 dark:bg-gray-900  active  text-center"
     >
       <span
         class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-200 font-maven"
-        >Now Playing</span
+        >Trending Now</span
       >
+  
 
       <div
-        class="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-8 lg:py-20"
+        class="relative px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-8 lg:py-5 items-center"
       >
+
         <div
-          id="movies-container"
+          id="trending-container"
           class="relative grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center"
         ></div>
 
         <div
-          class="flex justify-center space-x-24 bg-gray-200 dark:bg-gray-800 font-maven py-5"
+          class="flex justify-center space-x-24 bg-gray-200 dark:bg-gray-900 font-maven py-5"
         >
           <button
             id="prev-button"
-            class="px-4 py-2 mx-1 text-gray-500 transition-colors duration-300 transform bg-white rounded-md dark:bg-gray-600 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200 shadow-lg  drop-shadow-lg"
+            class="cursor-pointer px-4 py-2 mx-1 text-gray-500 transition-colors duration-100 transform bg-white rounded-md dark:bg-gray-600 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200 shadow-lg drop-shadow-lg"
           >
             <div class="flex items-center -mx-1">
               <svg
@@ -90,13 +198,13 @@
                 />
               </svg>
 
-              <span class="mx-1"> previous </span>
+              <span class="mx-1"> Previous </span>
             </div>
           </button>
 
           <button
             id="next-button"
-            class="px-4 py-2 mx-1 text-gray-500 transition-colors duration-300 transform bg-white rounded-md dark:bg-gray-600 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200 shadow-lg  drop-shadow-lg"
+            class="px-4 py-2 mx-1 text-gray-500 transition-colors duration-100 transform bg-white rounded-md dark:bg-gray-600 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200 shadow-lg drop-shadow-lg"
           >
             <div class="flex items-center -mx-1">
               <span class="mx-1"> Next </span>
@@ -120,68 +228,212 @@
         </div>
       </div>
     </div>
-    <script src="js/main.js"></script>
-    <script src="./js/header.js"></script>
-    <script>
-      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-      if (
-        localStorage.getItem("color-theme") === "dark" ||
-        (!("color-theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    </script>
 
-    <script>
-      var themeToggleDarkIcon = document.getElementById(
-        "theme-toggle-dark-icon"
-      );
-      var themeToggleLightIcon = document.getElementById(
-        "theme-toggle-light-icon"
-      );
+    <div
+      id="Now"
+      class="tabcontent flex flex-col py-3 px-4 md:px-8 space-y-5 bg-gray-200 dark:bg-gray-900 text-center"
+    >
+      <span
+        class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-200 font-maven"
+        >Now Playing</span
+      >
 
-      // Change the icons inside the button based on previous settings
-      if (
-        localStorage.getItem("color-theme") === "dark" ||
-        (!("color-theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        themeToggleLightIcon.classList.remove("hidden");
-      } else {
-        themeToggleDarkIcon.classList.remove("hidden");
-      }
+      <div
+        class="relative px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-8 lg:py-5"
+      >
+        <div
+          id="now-playing-container"
+          class="relative grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center"
+        ></div>
 
-      var themeToggleBtn = document.getElementById("theme-toggle");
+        <div
+          class="flex justify-center space-x-24 bg-gray-200 dark:bg-gray-900 font-maven py-5"
+        >
+          <button
+            id="prev-button1"
+            class="cursor-pointer px-4 py-2 mx-1 text-gray-500 transition-colors duration-100 transform bg-white rounded-md dark:bg-gray-600 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200 shadow-lg drop-shadow-lg"
+          >
+            <div class="flex items-center -mx-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6 mx-1 rtl:-scale-x-100"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 16l-4-4m0 0l4-4m-4 4h18"
+                />
+              </svg>
 
-      themeToggleBtn.addEventListener("click", function () {
-        // toggle icons inside button
-        themeToggleDarkIcon.classList.toggle("hidden");
-        themeToggleLightIcon.classList.toggle("hidden");
+              <span class="mx-1"> Previous </span>
+            </div>
+          </button>
 
-        // if set via local storage previously
-        if (localStorage.getItem("color-theme")) {
-          if (localStorage.getItem("color-theme") === "light") {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("color-theme", "dark");
-          } else {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("color-theme", "light");
-          }
+          <button
+            id="next-button1"
+            class="px-4 py-2 mx-1 text-gray-500 transition-colors duration-100 transform bg-white rounded-md dark:bg-gray-600 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200 shadow-lg drop-shadow-lg"
+          >
+            <div class="flex items-center -mx-1">
+              <span class="mx-1"> Next </span>
 
-          // if NOT set via local storage previously
-        } else {
-          if (document.documentElement.classList.contains("dark")) {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("color-theme", "light");
-          } else {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("color-theme", "dark");
-          }
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6 mx-1 rtl:-scale-x-100"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+
+<div class="px-20 py-10">
+<div id="Genre" class="tabcontent rounded-2xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 shadow-xl "
+>
+  <a class="block rounded-xl bg-white p-4 sm:p-6 lg:p-8" href="">
+    <div class="mt-16">
+      <h3 class="text-md  text-gray-900 sm:text-xl">
+        👋 Hi there! We're still working on one section, but please feel free to check out  rest of the content in the meantime! <br> Thanks for your understanding. 🚀
+      </h3>
+
+ 
+       
+      </p>
+    </div>
+  </a>
+</div></div>
+
+</div>
+
+    <div
+      id="Coming"
+      class="tabcontent flex flex-col py-3 px-4 md:px-8 space-y-5 bg-gray-200 dark:bg-gray-900 text-center"
+    >
+      <span
+        class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-200 font-maven"
+        >Upcoming Movies</span
+      >
+
+      <div
+        class="relative px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-8 lg:py-5"
+      >
+        <div
+          id="upcoming-container"
+          class="relative grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center"
+        ></div>
+
+        <div
+          class="flex justify-center space-x-24 bg-gray-200 dark:bg-gray-900 font-maven py-5"
+        >
+          <button
+            id="prev-button2"
+            class="cursor-pointer px-4 py-2 mx-1 text-gray-500 transition-colors duration-100 transform bg-white rounded-md dark:bg-gray-600 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200 shadow-lg drop-shadow-lg"
+          >
+            <div class="flex items-center -mx-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6 mx-1 rtl:-scale-x-100"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 16l-4-4m0 0l4-4m-4 4h18"
+                />
+              </svg>
+
+              <span class="mx-1"> Previous </span>
+            </div>
+          </button>
+
+          <button
+            id="next-button2"
+            class="px-4 py-2  mx-1 text-gray-500 transition-colors duration-100 transform bg-white rounded-md dark:bg-gray-600 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200 shadow-lg drop-shadow-lg"
+          >
+            <div class="flex items-center -mx-1">
+              <span class="mx-1"> Next </span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6 mx-1 rtl:-scale-x-100"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+ 
+
+  <footer id="footer" aria-label="Site Footer" class="bg-gray-100 border-t border-gray-200 shadow  md:p-6 dark:bg-gray-800 dark:border-gray-600 bottom-0 left-0 ">
+
+
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script  type="module" src="./index.js"></script>
+    <!-- <script>
+
+      function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
         }
-      });
-    </script>
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+      }
+      window.onload = function () {
+        var defaultOpen = document.getElementById("defaultOpen");
+        if (defaultOpen) {
+          defaultOpen.click();
+        }
+      };
+    </script> -->
   </body>
 </html>

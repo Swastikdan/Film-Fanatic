@@ -1,0 +1,4 @@
+https://api.themoviedb.org/3/movie/1726?api_key=f6f845f4c051289b806ce5fd5434aac1&language=en-US&&append_to_response=videos
+
+https://api.themoviedb.org/3/discover/movie?api_key=77e8d7def6af64532e8616ab67f7735b&with_genres=28,18
+https://api.themoviedb.org/3/find/tt1375666?api_key=f6f845f4c051289b806ce5fd5434aac1&external_source=imdb_id&append_to_response=videos
