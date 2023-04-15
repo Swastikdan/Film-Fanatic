@@ -2,7 +2,7 @@
 const API_KEY = "f6f845f4c051289b806ce5fd5434aac1";
 const BASE_URL = "https://api.themoviedb.org/3/";
 const IMAGE_URL = "https://image.tmdb.org/t/p/original/";
-
+const CDN = "https://res.cloudinary.com/dubqnzagc/image/fetch/f_auto,q_10/"
 const trendingContainer = document.getElementById("trending-container");
 const nowplayingContainer = document.getElementById("now-playing-container");
 const upcomingContainer = document.getElementById("upcoming-container");
@@ -58,7 +58,7 @@ function fetchTrendingMovies(page) {
         <a href="movie.html?id=${
           movie.id
         }" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
-          <img src="${IMAGE_URL}${movie.poster_path}" loading="lazy" alt="${
+          <img src="${CDN}${IMAGE_URL}${movie.poster_path}" loading="lazy" alt="${
           movie.title
         }" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
           <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-70">
@@ -167,7 +167,7 @@ function fetchnowplayingMovies(page) {
         <a href="movie.html?id=${
           movie1.id
         }" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
-          <img src="${IMAGE_URL}${movie1.poster_path}" loading="lazy" alt="${
+          <img src="${CDN}${IMAGE_URL}${movie1.poster_path}" loading="lazy" alt="${
           movie1.title
         }" class="absolute inset-0 h-full w-full object-cover object-center transition duration-100 group-hover:scale-110" />
           <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-70">
@@ -274,7 +274,7 @@ function upcomingMovies(page) {
         <a href="movie.html?id=${
           movie2.id
         }" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
-          <img src="${IMAGE_URL}${movie2.poster_path}" loading="lazy" alt="${
+          <img src="${CDN}${IMAGE_URL}${movie2.poster_path}" loading="lazy" alt="${
           movie2.title
         }" class="absolute inset-0 h-full w-full object-cover object-center transition duration-100 group-hover:scale-110" />
           <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-70">
