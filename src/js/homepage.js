@@ -26,7 +26,7 @@ function fetchTrendingMovies(page) {
   var mainDiv = document.getElementById("mian-content");
   contentDiv.style.display = "block";
   mainDiv.style.display = "none";
-  fetch(`${BASE_URL}trending/all/week?api_key=${API_KEY}&page=${page}`)
+  fetch(`${BASE_URL}trending/all/week?sort_by=popularity.desc&api_key=${API_KEY}&page=${page}`)
     .then((response) => response.json())
     .then((data) => {
       // Set the total pages
@@ -194,7 +194,7 @@ function fetchnowplayingMovies(page) {
           <div class="flex justify-between pt-5">
             <span class="text-sm  text-black dark:text-gray-100">${year}</span>
             <div class="flex space-x-5 ">
-            <span  class="relative   inline-block rounded-lg border border-blue-500 bg-blue-200 px-2 py-1 text-xs text-blue-700 dark:text-blue-500 backdrop-blur md:px-3 md:text-sm uppercase">${movie1.media_type}</span>
+            <span  class="relative   inline-block rounded-lg border border-blue-500 bg-blue-200 px-2 py-1 text-xs text-blue-700 dark:text-blue-500 backdrop-blur md:px-3 md:text-sm uppercase">MOVIE</span>
             <span class="relative  inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-black dark:text-gray-100 backdrop-blur md:px-3 md:text-sm uppercase">${
               movie1.original_language
             }</span>
@@ -301,7 +301,7 @@ function upcomingMovies(page) {
           <div class="flex justify-between pt-5">
             <span class="text-sm  text-black dark:text-gray-100">${year}</span>
             <div class="flex space-x-5 ">
-            <span  class="relative   inline-block rounded-lg border border-blue-500 bg-blue-200 px-2 py-1 text-xs text-blue-700 dark:text-blue-500 backdrop-blur md:px-3 md:text-sm uppercase">${movie2.media_type}</span>
+            <span  class="relative   inline-block rounded-lg border border-blue-500 bg-blue-200 px-2 py-1 text-xs text-blue-700 dark:text-blue-500 backdrop-blur md:px-3 md:text-sm uppercase">MOVIE</span>
             <span class="relative  inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-black dark:text-gray-100 backdrop-blur md:px-3 md:text-sm uppercase">${
               movie2.original_language
             }</span>
