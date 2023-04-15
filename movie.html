@@ -2,12 +2,27 @@
 <html>
 <head>
   <title>Movie Display Site</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-<body>
+<link rel="stylesheet" href="style.css">
+<body> 
   <div class="container mx-auto">
-    <div id="movie-details" class="my-8"></div>
+    <div class="px-20 py-10">
+      <div  class=" rounded-2xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 shadow-xl "
+      >
+        <a class="block rounded-xl bg-white p-4 sm:p-6 lg:p-8" href="/">
+          <div class="mt-16">
+            <h3 class="text-md  text-gray-900 sm:text-xl">
+            Hi there! We're still working on one section, but please feel free to check out  rest of the content in the meantime! <br> Thanks for your understanding.
+            </h3>
+      
+       
+             
+            </p>
+          </div>
+        </a>
+      </div></div>
+    <div id="movie-details" class="my-8 mx-10 flex flex-col items-center space-y-5"></div>
   </div>
-<span class="text-2xl md:text-4xl text-center">Coming soon </span>
-  <script src="./src/js/movie.js"></script>
+
+  <script type="module" src="./src/js/movie.js"></script>
 </body>
 </html>

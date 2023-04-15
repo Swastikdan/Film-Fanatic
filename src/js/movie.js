@@ -43,7 +43,7 @@ fetch(`${BASE_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`)
 const API_KEY = "f6f845f4c051289b806ce5fd5434aac1";
 const BASE_URL = "https://api.themoviedb.org/3/";
 const IMAGE_URL = "https://image.tmdb.org/t/p/original/";
-
+const CDN = "https://res.cloudinary.com/dubqnzagc/image/fetch/f_auto,q_auto/"
 // Get the movie ID from the URL query string
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -68,8 +68,8 @@ fetch(`https://www.omdbapi.com/?i=${movie.imdb_id}&apikey=22b88799`)
     // Create the movie details HTML, including the trailer
     console.log(youtubeId)
     const movieDetailsHTML = `
-      <div class="movie-poster my-4">
-        <img src="${IMAGE_URL}${movie.poster_path}" alt="${movie.title}">
+      <div class="movie-poster my-4 ">
+        <img class="w-60" src="${CDN}${IMAGE_URL}${movie.poster_path}" alt="${movie.title}">
       </div>
       <div class="movie-details my-4">
         <h2 class="movie-title">${movie.title}</h2>

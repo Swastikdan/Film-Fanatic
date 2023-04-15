@@ -1,182 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie Display Site</title>
-    <!-- <script
-     
-      src="https://cdn.tailwindcss.com"
-    ></script> -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" href="/logo.png" type="image/x-icon">
+  <title>Search Movies</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="/assets/darkmode.js"></script>
-  </head>
-  <body class="bg-gray-200 dark:bg-gray-900 font-maven">
+  <script defer="defer" src="/assets/darkmode.js"></script>
+</head>
 
-    <header id="header" class="z-20 font-maven top-0 sticky border-b-2 border-black dark:border-gray-200" >
-      
- <nav class="flex flex-wrap flex-col sm:flex-row items-center justify-between  w-full py-3 md:py-4 px-5 md:px-10 text-lg text-gray-700 bg-gray-200 dark:text-gray-100 dark:bg-gray-950 ">
-  <div>
-    <a href="/" class="text-gray-900 dark:text-gray-100 inline-flex items-center gap-4 text-3xl font-black md:text-4xl font-maven" aria-label="logo">
-      <img class="w-10 h-10" src="/logo.png" alt="logo">
-    
-          Film Fanatic
-         
-        </a>
-      
-  </div>
-  
-<div class="flex space-x-5 items-center mt-3">
-<a
-  class="group relative inline-block focus:outline-none focus:ring  rounded-xl"
-  href="/"
->
-  <span
-    class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-blue-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0 rounded-xl"
-  ></span>
-
-  <span
-    class="relative inline-block border-2 border-black dark:border-white px-8 py-3 text-xs sm:text-sm font-bold uppercase tracking-widest text-black  group-active:text-opacity-75 rounded-xl"
-  >
-    Go Back To Home
-  </span>
-</a>
-
-
-
-  <button id="theme-toggle" type="button" class="my-2 rounded-lg border border-gray-950 dark:border-gray-200 ">
-  
-  
-    <div id="theme-toggle-dark-icon" type="button" class=" hidden inline-flex items-center gap-2 rounded-lg bg-gray-200 px-4 py-3 text-sm font-semibold text-gray-500 hover:text-gray-100 ring-indigo-300 hover:bg-gray-400 focus-visible:ring  active:text-gray-700 md:text-base">
-        <svg  class=" w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-
-      Light
-    </div>
-    <div id="theme-toggle-light-icon" type="button" class=" hidden inline-flex items-center gap-2 rounded-lg bg-gray-700 px-4 py-3 text-sm font-semibold text-gray-500 dark:text-gray-300 hover:text-gray-300 ring-indigo-300 hover:bg-gray-800 focus-visible:ring active:text-gray-200 md:text-base">
-        <svg  class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-
-       Dark
-    </div>
-
-    
-</button> 
-  
-
-</div>
-  </nav>
-    </header>
-
-    <button id="back-to-top"
-    class="inline-block rounded-full bg-gray-200 hover:bg-white p-2 text-black dark:text-white shadow transition dark:bg-gray-600 dark:hover:bg-gray-950  border-2 border-black dark:border-white sm:p-3 lg:p-4 bottom-4 hidden right-4 fixed z-20"
-    
-  >
-    <span class="sr-only">Back to top</span>
-
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="h-5 w-5"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-    >
-      <path
-        fill-rule="evenodd"
+<body class="bg-gray-200 dark:bg-gray-900 font-maven">
+  <header id="header" class="z-20 font-maven top-0 sticky border-b-2 border-black dark:border-gray-200">
+    <nav
+      class="flex flex-wrap flex-col sm:flex-row items-center justify-between w-full py-3 md:py-4 px-5 md:px-10 text-lg text-gray-700 bg-gray-200 dark:text-gray-100 dark:bg-gray-950">
+      <div><a href="/"
+          class="text-gray-900 dark:text-gray-100 inline-flex items-center gap-4 text-3xl font-black md:text-4xl font-maven"
+          aria-label="logo"><img class="w-10 h-10" src="/logo.png" alt="logo"> Film Fanatic</a></div>
+      <div class="flex space-x-5 items-center mt-3"><a
+          class="group relative inline-block focus:outline-none focus:ring rounded-xl" href="/"><span
+            class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-blue-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0 rounded-xl"></span><span
+            class="relative inline-block border-2 border-black dark:border-white px-8 py-3 text-xs sm:text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75 rounded-xl">Go
+            Back To Home</span></a><button id="theme-toggle" type="button"
+          class="my-2 rounded-lg border border-gray-950 dark:border-gray-200">
+          <div id="theme-toggle-dark-icon" type="button"
+            class="hidden inline-flex items-center gap-2 rounded-lg bg-gray-200 px-4 py-3 text-sm font-semibold text-gray-500 hover:text-gray-100 ring-indigo-300 hover:bg-gray-400 focus-visible:ring active:text-gray-700 md:text-base">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>Light</div>
+          <div id="theme-toggle-light-icon" type="button"
+            class="hidden inline-flex items-center gap-2 rounded-lg bg-gray-700 px-4 py-3 text-sm font-semibold text-gray-500 dark:text-gray-300 hover:text-gray-300 ring-indigo-300 hover:bg-gray-800 focus-visible:ring active:text-gray-200 md:text-base">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>Dark</div>
+        </button></div>
+    </nav>
+  </header><button id="back-to-top"
+    class="inline-block rounded-full bg-gray-200 hover:bg-white p-2 text-black dark:text-white shadow transition dark:bg-gray-600 dark:hover:bg-gray-950 border-2 border-black dark:border-white sm:p-3 lg:p-4 bottom-4 hidden right-4 fixed z-20"><span
+      class="sr-only">Back to top</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+      fill="currentColor">
+      <path fill-rule="evenodd"
         d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
-        clip-rule="evenodd"
-      />
-    </svg>
-  </button>
-
-    <div class="container mx-auto mt-10 flex flex-col justify-center px-10  ">
-    
-        <!-- Search bar -->
-
-        <form id="search-form" 
-        class="py-5 px-5 md:px-8 lg:px-12 flex flex-wrap justify-center mb-5"
-      >
-        <label for="videoLink" class="sr-only">👀 What movie or show? Let's find it! together!</label>
-        <input
-          type="search"
-          id="search-input"
-          class="w-full text-black dark:text-black rounded-lg border-2 text-xl border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-1/2"
-          placeholder="👀 What movie or show? Let's find it! together!"
-        />
-        <button
-          id="search-button"
-          class="mt-4 inline-block items-center rounded-md bg-blue-600 px-7 py-2 text-md md:text-xl text-white hover:bg-blue-500 space-x-3 duration-300 shadow-xl md:ml-4 md:mt-0"
-        >
-          Search
-        </button>
-      
-        </form>
-        <!-- Movie results -->
-        <div  id="movie-container" class=" flex flex-col space-y-10 items-center">
-
-        </div>
-
-
-
-<button id="view-more-button"
-  class="my-8 group relative block mx-auto  text-lg font-medium text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 rounded-xl"
-  
->
-  <span
-    class="absolute inset-0 translate-x-1 translate-y-1 bg-indigo-600 transition-transform group-hover:translate-y-0 group-hover:translate-x-0 rounded-xl"
-  ></span>
-
-  <span class="relative block border border-current bg-white px-8 py-3 rounded-xl">
-    View More  
-  </span>
-</button>
-
-
-    </div>
-
-
-
-    <footer id="footer" aria-label="Site Footer" class="bg-gray-100 border-t border-gray-200 shadow  md:p-6 dark:bg-gray-800 dark:border-gray-600 bottom-0 left-0 ">
-
-
-    </footer>
-  
-
-
-    
-
-
-
-
-
-
-
-
-
-
-<script>
-
-</script>
-
-<!-- <script>// script 1
-  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-  if (
-    localStorage.getItem("color-theme") === "dark" ||
-    (!("color-theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-
-
-</script>
-    
-    
-    <script src="./src/js/footer.js"></script>
-    <script src="./src/js/back-to-top.js"></script> -->
-    <!-- <script type="module" src="./src/js/search.js"></script> -->
-
-    <script type="module" src="./search-main.js"></script>
-
-
+        clip-rule="evenodd" />
+    </svg></button>
+  <div class="container mx-auto mt-10 flex flex-col justify-center px-10">
+    <form id="search-form" class="py-5 px-5 md:px-8 lg:px-12 flex flex-wrap justify-center mb-5"><label for="videoLink"
+        class="sr-only">👀 What movie or show? Let's find it! together!</label><input type="search" id="search-input"
+        class="w-full text-black dark:text-black rounded-lg border-2 text-sm md:text-md xl:text-xl border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-1/2"
+        placeholder="👀 What movie or show? Let's find it! together!"><button id="search-button"
+        class="mt-4 inline-block items-center rounded-md bg-blue-600 px-7 py-2 text-md md:text-xl text-white hover:bg-blue-500 space-x-3 duration-300 shadow-xl md:ml-4 md:mt-0">Search</button>
+    </form>
+    <div id="movie-container" class="flex flex-col space-y-10 items-center"></div><button id="view-more-button"
+      class="my-8 group relative block mx-auto text-lg font-medium text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 rounded-xl"><span
+        class="absolute inset-0 translate-x-1 translate-y-1 bg-indigo-600 transition-transform group-hover:translate-y-0 group-hover:translate-x-0 rounded-xl"></span><span
+        class="relative block border border-current bg-white px-8 py-3 rounded-xl">View More</span></button>
+  </div>
+  <footer id="footer" aria-label="Site Footer"
+    class="bg-gray-100 border-t border-gray-200 shadow md:p-6 dark:bg-gray-800 dark:border-gray-600 bottom-0 left-0">
+  </footer>
+  <script></script>
+  <script type="module" src="./search-main.js"></script>
 </body>
+
 </html>

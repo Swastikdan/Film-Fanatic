@@ -1,6 +1,7 @@
 const BASE_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "f6f845f4c051289b806ce5fd5434aac1";
 const IMG_URL = "https://image.tmdb.org/t/p/original";
+const CDN = "https://res.cloudinary.com/dubqnzagc/image/fetch/f_auto,q_20/"
 
 const urlParams = new URLSearchParams(window.location.search);
 const searchTerm = urlParams.get("query");
@@ -161,7 +162,7 @@ function showMovies(movies) {
       class="w-full md:w-1/3 bg-g-gray-100 dark:bg-gray-900 block grid place-items-center py-3"
     >
       <img
-        src="${IMG_URL + movies[0].poster_path}"
+        src="${CDN}${IMG_URL + movies[0].poster_path}"
         alt="${Title}"
         class="rounded-3xl max-h-96 w-96 object-cover"
       />
@@ -179,7 +180,7 @@ function showMovies(movies) {
       ${truncateOverview(movies[0].overview)}
       </p>
       <div class="flex justify-between  items-center justify-start text-xs md:text-sm pb-3">
-      <div class="flex items-center  px-3 py-2 ring-1 ring-gray-950 dark:ring-1 dark:ring-gray-100 bg-gray-100 rounded-xl max-w-[11rem] md:max-w-[13rem]">
+      <div class="flex items-center px-2 md:px-3 py-2 ring-1 ring-gray-950 dark:ring-1 dark:ring-gray-100 bg-gray-100 rounded-xl max-w-[11rem] md:max-w-[13rem]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5 text-yellow-500"
@@ -201,10 +202,10 @@ function showMovies(movies) {
       </div>
 
       <div class="flex items-center space-x-3">
-      <span  class="relative   inline-block rounded-xl border px-4 md:px-6 py-2 border-blue-500 bg-blue-200   text-blue-700 dark:text-blue-500 backdrop-blur   uppercase">${
+      <span  class="relative   inline-block rounded-xl border  px-3  md:px-6 py-2 border-blue-500 bg-blue-200   text-blue-700 dark:text-blue-500 backdrop-blur   uppercase">${
         movies[0].media_type
       }</span>
-      <span  class="relative   inline-block rounded-xl border px-4 md:px-6 py-2 border-blue-500 bg-blue-200   text-blue-700 dark:text-blue-500 backdrop-blur   uppercase">${
+      <span  class="relative   inline-block rounded-xl border  px-3 md:px-6 py-2 border-blue-500 bg-blue-200   text-blue-700 dark:text-blue-500 backdrop-blur   uppercase">${
         movies[0].original_language
       }</span></div>
       
@@ -305,7 +306,7 @@ ${innerHtml}
             class="w-full md:w-1/3 bg-g-gray-100 dark:bg-gray-900 block grid place-items-center py-3"
           >
             <img
-              src="${IMG_URL + movies[i].poster_path}"
+              src="${CDN}${IMG_URL + movies[i].poster_path}"
               alt="${Title}"
               class="rounded-3xl max-h-96 w-96 object-cover"
             />
