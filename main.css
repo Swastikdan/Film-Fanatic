@@ -108,6 +108,11 @@
               transform: translateX(100%);
     }
   }
+
+  .play-button {
+    background: url('/download.svg') no-repeat center center;
+    background-size: contain;
+  }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

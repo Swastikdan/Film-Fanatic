@@ -2,12 +2,13 @@
 module.exports = {
   mode: 'jit',
   content: ["./index.html" ,"./search.html" ,"./movie.html","./src/**/*.{html,js}" , "node_modules/preline/dist/*.js"],
+
   darkMode: 'class',
   theme: {
     extend: {},
   },
   plugins: [
-    require('preline/plugin'),
+   
 ],
 }
 

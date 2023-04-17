@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Display Site</title>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="/logo.png" type="image/x-icon">
+<script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+<script
+  async
+  src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@latest/dist/lazyload.min.js"
+></script>
+
+
+
+
+
+
+
+<style>.embed-youtube {
+  background-color: #000;
+  margin-bottom: 30px;
+  position: relative;
+  padding-top: 56.25%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.embed-youtube img {
+  width: 100%;
+  top: -16.84%;
+  left: 0;
+  opacity: 0.7;
+}
+.embed-youtube .embed-youtube-play {
+  width: 68px;
+  height: 48px;
+  background-color: #333;
+  box-shadow: 0 0 30px rgba( 0,0,0,0.6 );
+  z-index: 1;
+  opacity: 0.8;
+  border-radius: 6px;
+}
+.embed-youtube .embed-youtube-play:before {
+  content: "";
+  border-style: solid;
+  border-width: 15px 0 15px 26.0px;
+  border-color: transparent transparent transparent #fff;
+}
+.embed-youtube img,
+.embed-youtube .embed-youtube-play {
+  cursor: pointer;
+}
+.embed-youtube img,
+.embed-youtube iframe,
+.embed-youtube .embed-youtube-play,
+.embed-youtube .embed-youtube-play:before {
+  position: absolute;
+}
+.embed-youtube .embed-youtube-play,
+.embed-youtube .embed-youtube-play:before {
+  top: 50%;
+  left: 50%;
+  transform: translate3d( -50%, -50%, 0 );
+}
+.embed-youtube iframe {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.embed-youtube .embed-youtube-play:hover {
+  background-color: #f00;
+}</style>
+
+
+<body class="bg-gray-200 dark:bg-gray-900 font-maven">
+  <header id="header" class="z-20 font-maven top-0 sticky border-b-2 border-black dark:border-gray-200">
+    <nav
+      class="flex flex-wrap flex-col sm:flex-row items-center justify-between w-full py-3 md:py-4 px-5 md:px-10 text-lg text-gray-700 bg-gray-200 dark:text-gray-100 dark:bg-gray-950">
+      <div><a href="/"
+          class="text-gray-900 dark:text-gray-100 inline-flex items-center gap-4 text-3xl font-black md:text-4xl font-maven"
+          aria-label="logo"><img class="w-10 h-10" src="/logo.png" alt="logo"> Film Fanatic</a></div>
+      <div class="flex space-x-5 items-center mt-3"><a
+          class="group relative inline-block focus:outline-none focus:ring rounded-xl" href="/"><span
+            class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-blue-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0 rounded-xl"></span><span
+            class="relative inline-block border-2 border-black dark:border-white px-8 py-3 text-xs sm:text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75 rounded-xl">Go
+            Back To Home</span></a><button id="theme-toggle" type="button"
+          class="my-2 rounded-lg border border-gray-950 dark:border-gray-200">
+          <div id="theme-toggle-dark-icon" type="button"
+            class="hidden inline-flex items-center gap-2 rounded-lg bg-gray-200 px-4 py-3 text-sm font-semibold text-gray-500 hover:text-gray-100 ring-indigo-300 hover:bg-gray-400 focus-visible:ring active:text-gray-700 md:text-base">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>Light</div>
+          <div id="theme-toggle-light-icon" type="button"
+            class="hidden inline-flex items-center gap-2 rounded-lg bg-gray-700 px-4 py-3 text-sm font-semibold text-gray-500 dark:text-gray-300 hover:text-gray-300 ring-indigo-300 hover:bg-gray-800 focus-visible:ring active:text-gray-200 md:text-base">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>Dark</div>
+        </button></div>
+    </nav>
+  </header><button id="back-to-top"
+    class="inline-block rounded-full bg-gray-200 hover:bg-white p-2 text-black dark:text-white shadow transition dark:bg-gray-600 dark:hover:bg-gray-950 border-2 border-black dark:border-white sm:p-3 lg:p-4 bottom-4 hidden right-4 fixed z-20"><span
+      class="sr-only">Back to top</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+      fill="currentColor">
+      <path fill-rule="evenodd"
+        d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+        clip-rule="evenodd" />
+    </svg></button>
+ 
+    <section class="px-5 md:px-8 lg:px-10">
+
+
+<div class="title-info p-10" >
+
+</div>
+<div class=" w-full  lg:w-4/5 xl:w-3/5   h-96  rounded-xl"> 
+  <div class="swiffy-slider slider-item-reveal slider-item-snapstart slider-nav-caretfill slider-nav-outside slider-item-first-visible slider-indicators-dark slider-indicators-outside slider-indicators-highlight  rounded-xl" id="movie-details">
+
+    <button type="button" class="slider-nav"></button>
+    <button type="button" class="slider-nav slider-nav-next"></button>
+
+    <ul class="slider-indicators">
+        <li class=""></li>
+        <li></li>
+        <li class=""></li>
+        <li></li>
+        <li></li>
+        <li class="active"></li>
+        <li class=""></li>
+        <li class=""></li>
+        <li class=""></li>
+    </ul>
+    </div>  
+    </div>
+
+
+      <!-- <div class="image-text" id="movie-details">
+
+
+
+      </div> -->
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+      <script>(function(){
+        let YouTubeContainers = document.querySelectorAll(".embed-youtube");
+      
+        // Iterate over every YouTube container you may have
+        for (let i = 0; i < YouTubeContainers.length; i++) {
+          let container = YouTubeContainers[i];
+          let imageSource = "https://img.youtube.com/vi/"+ container.dataset.videoId +"/sddefault.jpg"; 
+      
+          // Load the Thumbnail Image asynchronously
+          let image = new Image();
+          image.src = imageSource;
+          image.addEventListener("load", function() {
+            container.appendChild(image);
+          });
+      
+          // When the user clicks on the container, load the embedded YouTube video
+          container.addEventListener("click", function() {
+            let iframe = document.createElement( "iframe" );
+      
+            iframe.setAttribute("frameborder", "0");
+            iframe.setAttribute("allowfullscreen", "");
+            iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+            // Important: add the autoplay GET parameter, otherwise the user would need to click over the YouTube video again to play it 
+            iframe.setAttribute("src", "https://www.youtube.com/embed/"+ this.dataset.videoId +"?rel=0&showinfo=0&autoplay=1");
+      
+            // Clear Thumbnail and load the YouTube iframe
+            this.innerHTML = "";
+            this.appendChild( iframe );
+          });
+        }
+      })();</script>
+
+
+
+ 
+ 
+
+    <!-- <div class=" w-full  lg:w-4/5 xl:w-3/5   h-96  rounded-xl"> 
+    <div class="swiffy-slider slider-item-reveal slider-item-snapstart slider-nav-caretfill slider-nav-outside slider-item-first-visible slider-indicators-dark slider-indicators-outside slider-indicators-highlight  rounded-xl">
+
+      <ul class="slider-container  rounded-xl">
+        <li>
+            <div class="youtube-video relative cursor-pointer inline-block w-full  " data-video-id="gardMnJszqc">
+      <img class="rounded-xl object-cover w-full  h-96" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+      <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 "></div>
+    </div>
+        </li>
+        <li>
+            <div class="youtube-video relative cursor-pointer inline-block w-full  " data-video-id="gardMnJszqc">
+      <img class="rounded-xl object-cover w-full  h-96" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+      <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 "></div>
+    </div>
+        </li>
+        <li>
+            <div class="youtube-video relative cursor-pointer inline-block w-full  " data-video-id="gardMnJszqc">
+      <img class="rounded-xl object-cover w-full  h-96" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+      <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 "></div>
+    </div>
+        </li>
+        <li>
+            <div class="youtube-video relative cursor-pointer inline-block w-full  " data-video-id="gardMnJszqc">
+      <img class="rounded-xl object-cover w-full  h-96" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+      <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 "></div>
+    </div>
+        </li>
+        <li>
+            <div class="youtube-video relative cursor-pointer inline-block w-full  " data-video-id="gardMnJszqc">
+      <img class="rounded-xl object-cover w-full  h-96" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+      <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 "></div>
+    </div>
+        </li>
+        <li>
+            <div class="youtube-video relative cursor-pointer inline-block w-full  " data-video-id="gardMnJszqc">
+      <img class="rounded-xl object-cover w-full  h-96" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+      <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 "></div>
+    </div>
+        </li>
+        <li>
+            <div class="youtube-video relative cursor-pointer inline-block w-full  " data-video-id="gardMnJszqc">
+      <img class="rounded-xl object-cover w-full  h-96" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+      <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 "></div>
+    </div>
+        </li>
+        <li>
+            <div class="youtube-video relative cursor-pointer inline-block w-full  " data-video-id="gardMnJszqc">
+      <img class="rounded-xl object-cover w-full  h-96" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+      <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 "></div>
+    </div>
+        </li>
+        <li>
+            <div class="youtube-video relative cursor-pointer inline-block w-full  " data-video-id="gardMnJszqc">
+      <img class="rounded-xl object-cover w-full  h-96" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+      <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 "></div>
+    </div>
+        </li>
+    </ul>
+
+    <button type="button" class="slider-nav"></button>
+    <button type="button" class="slider-nav slider-nav-next"></button>
+
+    <ul class="slider-indicators">
+        <li class=""></li>
+        <li></li>
+        <li class=""></li>
+        <li></li>
+        <li></li>
+        <li class="active"></li>
+        <li class=""></li>
+        <li class=""></li>
+        <li class=""></li>
+    </ul>
+
+      </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ <!-- <div class="youtube-video relative cursor-pointer inline-block w-full md:w-1/2 lg:w-1/3 xl:w-1/4" data-video-id="gardMnJszqc">
+  <img class="w-full h-96 rounded-xl" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+  <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16"></div>
+</div> -->
+
+
+
+
+ 
+ <!-- <div class=" w-full md:w-4/5  lg:w-3/5 h-64 sm:h-96  border-2 border-black rounded-xl">
+<div class="swiffy-slider   slider-nav-caretfill    slider-item-snapstart slider-nav-outside slider-indicators-inside lider-nav-visible slider-nav-animation slider-nav-animation-scale slider-item-first-visible slider-item-ratio slider-item-ratio-21x9">
+  <ul class="slider-container">
+    <li><div class="youtube-video relative cursor-pointer inline-block w-full  " data-video-id="gardMnJszqc">
+      <img class="rounded-xl object-cover w-full h-64 sm:h-96" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+      <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 "></div>
+    </div>
+     </li>
+     <li><div class="youtube-video relative cursor-pointer inline-block w-full  " data-video-id="gardMnJszqc">
+      <img class="rounded-xl object-cover w-full h-64 sm:h-96" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+      <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 "></div>
+    </div>
+     </li>
+     <li><div class="youtube-video relative cursor-pointer inline-block w-full  " data-video-id="gardMnJszqc">
+      <img class="rounded-xl object-cover w-full h-64 sm:h-96" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+      <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16   "></div>
+    </div>
+     </li>
+     <li><div class="youtube-video relative cursor-pointer inline-block w-full  " data-video-id="gardMnJszqc">
+      <img class="rounded-xl object-cover w-full h-64 sm:h-96" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+      <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 "></div>
+    </div>
+     </li>
+  </ul>
+
+  <button type="button" class="slider-nav"></button>
+  <button type="button" class="slider-nav slider-nav-next"></button>
+
+
+</div>
+</div> -->
+ <!-- <div class="">
+ 
+<div class="  rounded-xl w-2/3 h-1/3 "  >
+ 
+ <div class="swiffy-slider h-100 slider-item-reveal slider-indicators-outside slider-indicators-round slider-nav-outside-expand slider-nav-visible slider-nav-animation slider-nav-animation-scale slider-item-first-visible" data-slider-nav-animation-threshold="0.4">
+  <ul class="slider-container">
+ <li> <div class="youtube-video relative cursor-pointer inline-block w-full md:w-1/2 lg:w-1/3 xl:w-1/4" data-video-id="gardMnJszqc">
+  <img height="400px" width="700px" class=" rounded-xl" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+  <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16"></div>
+</div></li>
+
+<li> <div class="youtube-video relative cursor-pointer inline-block w-full md:w-1/2 lg:w-1/3 xl:w-1/4" data-video-id="gardMnJszqc">
+  <img height="400px" width="700px" class=" rounded-xl" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+  <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16"></div>
+</div></li>
+<li> <div class="youtube-video relative cursor-pointer inline-block w-full md:w-1/2 lg:w-1/3 xl:w-1/4" data-video-id="gardMnJszqc">
+  <img height="400px" width="700px" class=" rounded-xl" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+  <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16"></div>
+</div></li>
+<li> <div class="youtube-video relative cursor-pointer inline-block w-full md:w-1/2 lg:w-1/3 xl:w-1/4" data-video-id="gardMnJszqc">
+  <img height="400px" width="700px" class=" rounded-xl" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+  <div class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16"></div>
+</div></li>
+</ul>
+                            <button type="button" class="slider-nav" aria-label="Go to previous"></button>
+                            <button type="button" class="slider-nav slider-nav-next" aria-label="Go to next"></button>
+
+                        </div>
+ 
+ 
+ 
+ 
+                      </div>
+ 
+ </div> -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<!--  
+ 
+ <li> <iframe class="w-full h-96 rounded-xl" src="https://www.youtube.com/embed/gardMnJszqc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe></li>
+ <li> <iframe class="w-full h-96 rounded-xl" src="https://www.youtube.com/embed/gardMnJszqc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe></li>
+ <li> <iframe class="w-full h-96 rounded-xl" src="https://www.youtube.com/embed/gardMnJszqc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe></li>
+ <li> <iframe class="w-full h-96 rounded-xl" src="https://www.youtube.com/embed/gardMnJszqc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe></li>
+
+
+
+
+
+
+
+
+
+  <li><div class="youtube-video relative cursor-pointer inline-block w-full sm:w-1/2 md:w-1/3 lg:w-1/4" data-video-id="gardMnJszqc">
+  <img class="w-full h-64 sm:h-96 rounded-xl" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <svg class="w-16 h-16 sm:w-20 sm:h-20 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm3.793 10.914l-5.5 3.5a1 1 0 0 1-1.486-1.086V9.672a1 1 0 0 1 1.486-1.086l5.5 3.5a1 1 0 0 1 0 1.728z"/>
+      </svg>
+  </div>
+</div></li>
+  -->
+ 
+ 
+    <!-- <div class="container mx-auto">
+    <div class="px-20 py-10">
+      <div  class=" rounded-2xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 shadow-xl "
+      >
+        <a class="block rounded-xl bg-white p-4 sm:p-6 lg:p-8" href="/">
+          <div class="mt-16">
+            <h3 class="text-md  text-gray-900 sm:text-xl">
+            Hi there! We're still working on one section, but please feel free to check out  rest of the content in the meantime! <br> Thanks for your understanding.
+            </h3>
+      
+       
+             
+            </p>
+          </div>
+        </a>
+      </div></div>
+    <div id="movie-details" class="my-8 mx-10 flex flex-col items-center space-y-5"></div>
+  </div> -->
+
+
+
+
+<!-- 1. Video Wrapper Container -->
+<div class="embed-youtube" data-video-id="2knO_yUy2hE">
+  <!-- 2. The preview button that will contain the Play icon -->
+  <div class="embed-youtube-play"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+  <script>
+
+// youtube video code
+document.querySelector('.youtube-video').addEventListener('click', function () {
+const videoId = this.getAttribute('data-video-id');
+const iframe = document.createElement('iframe');
+iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+iframe.allowfullscreen = true;
+iframe.classList.add('w-full', 'h-56', 'rounded-xl');
+this.innerHTML = '';
+this.appendChild(iframe);
+});
+</script> -->
+
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const youtubeVideos = document.querySelectorAll('.youtube-video');
+  
+    youtubeVideos.forEach(function (video) {
+      video.addEventListener('click', function () {
+        const videoId = this.dataset.videoId;
+        const iframe = document.createElement('iframe');
+        
+        iframe.setAttribute('src', `https://www.youtube.com/embed/\${videoId}?autoplay=1`);
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+        iframe.setAttribute('allowfullscreen', '');
+        
+        this.innerHTML = '';
+        this.appendChild(iframe);
+      });
+    });
+  });
+  </script> -->
+
+
+  <!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const youtubeVideos = document.querySelectorAll('.youtube-video');
+    
+      youtubeVideos.forEach(function (video) {
+        video.addEventListener('click', function () {
+          const videoId = this.dataset.videoId;
+          const iframe = document.createElement('iframe');
+          
+          iframe.setAttribute('src', `https://www.youtube.com/embed/\\${videoId}?autoplay=1`);
+          iframe.setAttribute('frameborder', '0');
+          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+          iframe.setAttribute('allowfullscreen', '');
+          iframe.setAttribute('class', 'w-full h-96 rounded-xl ');
+          
+          this.innerHTML = '';
+          this.appendChild(iframe);
+        });
+      });
+    });
+    </script> -->
+
+
+<!-- 
+      <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script> -->
+<script defer="defer" src="/assets/darkmode.js"></script>
+
+  <script  src="./src/js/movie.js"></script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Responsive Video</title>
+</head>
+<body>
+    <div class="youtube-video relative cursor-pointer inline-block w-full sm:w-1/2 md:w-1/3 lg:w-1/4" data-video-id="gardMnJszqc">
+        <img class="w-full h-64 sm:h-96 rounded-xl" src="https://i.ytimg.com/vi/gardMnJszqc/maxresdefault.jpg" alt="Video Thumbnail">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <svg class="w-16 h-16 sm:w-20 sm:h-20 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm3.793 10.914l-5.5 3.5a1 1 0 0 1-1.486-1.086V9.672a1 1 0 0 1 1.486-1.086l5.5 3.5a1 1 0 0 1 0 1.728z"/>
+            </svg>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.youtube-video').addEventListener('click', function () {
+            var videoId = this.getAttribute('data-video-id');
+            var iframe = document.createElement('iframe');
+            iframe.setAttribute('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1');
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.setAttribute('class', 'w-full h-64 sm:h-96 rounded-xl');
+            this.replaceWith(iframe);
+        });
+    </script>
+</body>
+</html> -->

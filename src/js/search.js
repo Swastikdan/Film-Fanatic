@@ -220,7 +220,7 @@ ${innerHtml}
       
       <a
       href="movie.html?id=${movies[0].id}"
-      class="group flex flex-col rounded-xl hover:bg-gray-200 hover:dark:bg-black  px-5 py-3   hover:transition-shadow hover:shadow-lg w-60  text-blue-600 hover:text-blue-500 dark:text-blue-200 hover:dark:text-white"
+      class="group flex flex-col rounded-xl hover:dark:bg-gray-200 hover:bg-gray-950 px-5 py-3   hover:transition-shadow hover:shadow-lg w-60  text-blue-600 hover:text-gray-50 dark:text-gray-50 hover:dark:text-black"
     >
       <div
         class=" inline-flex items-center gap-2 "

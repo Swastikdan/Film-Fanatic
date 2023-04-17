@@ -10,6 +10,14 @@
   <link rel="stylesheet" href="/style.css">
   <script async src="/assets/tab.js"></script>
   <script defer="defer" src="/assets/darkmode.js"></script>
+  <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+</script>
 </head>
 
 <body class="bg-gray-200 dark:bg-gray-900 ">
@@ -249,7 +257,7 @@
   <footer id="footer" aria-label="Site Footer"
     class="bg-gray-100 border-t border-gray-200 shadow md:p-6 dark:bg-gray-800 dark:border-gray-600 bottom-0 left-0 font-maven">
   </footer>
-  <script></script>
+
   <script type="module" src="./index.js"></script>
 </body>
 
