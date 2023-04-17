@@ -12,9 +12,22 @@ const movieId = urlParams.get('id');
 const movieDetailsContainer = document.getElementById('movie-details');
 const movieTrailerContainer = document.getElementById('trailer');
 
-// Display loading message
-movieDetailsContainer.innerHTML = '<p>Loading...</p>';
-movieTrailerContainer.innerHTML = '<p>Loading...</p>';
+// // Display loading message
+// movieDetailsContainer.innerHTML = '<p>Loading...</p>';
+// movieTrailerContainer.innerHTML = `<li class="rounded-xl">
+// <div class="relative cursor-pointer inline-block rounded-xl">
+//   <div class="w-full h-full rounded-xl bg-gray-300 animate-pulse"></div>
+//   <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-70">
+//     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-500">
+//       <svg class="w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48">
+//         <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/>
+//         <path d="M45 24 27 14v20" fill="white"/>
+//       </svg>
+//     </div>
+//   </div>
+// </div>
+// </li>
+// `;
 
 // Fetch the movie details
 fetch(`${BASE_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US&append_to_response=videos`)
@@ -41,7 +54,8 @@ const trailersHTML= videoKeys.map(videoKey => {
     return `
     <li class=" rounded-xl">
     <div class="relative cursor-pointer inline-block rounded-xl  " data-video-id="${videoKey}" onclick="loadVideo(this)">
-    <img class="w-full h-full rounded-xl" src="https://img.youtube.com/vi/${videoKey}/maxresdefault.jpg" alt="Thumbnail">
+    <img class="w-full h-full rounded-xl " load="lazy" src="https://img.youtube.com/vi/${videoKey}/maxresdefault.jpg" alt="${movie.belongs_to_collection.poster_path}">
+    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-70 rounded-xl">
     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-500">
     <svg class="w-20 h-20 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>
     </div>

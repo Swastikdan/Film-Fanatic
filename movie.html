@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Movie Display Site</title>
-<link rel="stylesheet" href="style.css">
-<link rel="shortcut icon" href="/logo.png" type="image/x-icon">
-<script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
-<link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="/logo.png" type="image/x-icon">
+  <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous"
+    defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
+    crossorigin="anonymous">
 
 
 
@@ -27,17 +30,19 @@
             class="hidden inline-flex items-center gap-2 rounded-lg bg-gray-200 px-4 py-3 text-sm font-semibold text-gray-500 hover:text-gray-100 ring-indigo-300 hover:bg-gray-400 focus-visible:ring active:text-gray-700 md:text-base">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-            </svg>Light</div>
+            </svg>Light
+          </div>
           <div id="theme-toggle-light-icon" type="button"
             class="hidden inline-flex items-center gap-2 rounded-lg bg-gray-700 px-4 py-3 text-sm font-semibold text-gray-500 dark:text-gray-300 hover:text-gray-300 ring-indigo-300 hover:bg-gray-800 focus-visible:ring active:text-gray-200 md:text-base">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
                 fill-rule="evenodd" clip-rule="evenodd"></path>
-            </svg>Dark</div>
+            </svg>Dark
+          </div>
         </button></div>
     </nav>
-</header>
+  </header>
   <button id="back-to-top"
     class="inline-block rounded-full bg-gray-200 hover:bg-white p-2 text-black dark:text-white shadow transition dark:bg-gray-600 dark:hover:bg-gray-950 border-2 border-black dark:border-white sm:p-3 lg:p-4 bottom-4 hidden right-4 fixed z-20"><span
       class="sr-only">Back to top</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
@@ -46,16 +51,12 @@
         d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
         clip-rule="evenodd" />
     </svg></button>
- 
-    <section class="px-5 md:px-8 lg:px-10">
 
+  <section class="px-5 md:px-8 lg:px-10">
 
-<div class="title-info p-10" >
-
-</div>
-<div class=" w-3/5 h-96 rounded-xl">
+    <!-- <div class=" w-3/5 h-96 rounded-xl">
   <div class="swiffy-slider slider-item-reveal slider-item-snapstart slider-nav-caretfill slider-nav-outside slider-item-first-visible slider-indicators-dark slider-indicators-outside slider-indicators-highlight  rounded-xl">
-    <ul class="slider-container  " id="trailer">
+    <ul class="slider-container rounded-xl " id="trailer">
     </ul> 
 
     <button type="button" class="slider-nav"></button>
@@ -63,22 +64,177 @@
 
     
     </div>  
+    </div> -->
+
+    <!-- <div class="upper-section flex ">
+
+  <div class="img-hidden-before-md w-auto h-96 rounded-xl">
+<img src="https://image.tmdb.org/t/p/original/ytdebEE0ndYLSTEctPgh8e0vaBs.jpg" alt="">
+<div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-70 rounded-xl"></div>
+  </div>
+
+
+  <div class=" w-3/5 h-96 rounded-xl">
+  
+      </div>
+
+
+</div>   -->
+
+    <div class=" py-5 poster-and-trailer ">
+      <div class="mx-auto max-w-screen-2xl   ">
+
+        <div class="flex flex-row space-x-5  ">
+          <!-- image - start -->
+          <div
+            class="group relative hidden lg:flex w-1/3  items-end overflow-hidden rounded-xl bg-gray-100 shadow-lg   ">
+            <div
+              class="absolute inset-0 flex items-center justify-center bg-gray-500 dark:bg-gray-950  rounded-xl animate-pulse -z-10">
+            </div>
+            <img src="https://res.cloudinary.com/dubqnzagc/image/fetch/f_auto,q_1/https://image.tmdb.org/t/p/original/ytdebEE0ndYLSTEctPgh8e0vaBs.jpg"
+              loading="lazy" alt="Photo by Minh Pham"
+              class="absolute inset-0 h-full w-full  object-cover object-center transition duration-200 group-hover:scale-110" />
+          </div>
+          <div
+            class="group relative w-full lg:w-2/3  flex  items-end overflow-hidden rounded-xl  md:col-span-1  ">
+            <div
+              class="swiffy-slider  slider-item-snapstart slider-nav-caretfill slider-nav-inside   rounded-xl  h-96   ">
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-gray-500 dark:bg-gray-950 -z-10 rounded-xl animate-pulse "> </div>
+                <ul class="slider-container rounded-xl ">
+                  <li class=" rounded-xl">
+                    <!-- <iframe class="rounded-xl w-full h-96" src="https://www.youtube.com/embed/y_0CaX66H9M?autoplay=0"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen=""></iframe> -->
+                  </li>
+             
+                    <!-- <iframe class="rounded-xl w-full h-96" src="https://www.youtube.com/embed/y_0CaX66H9M?autoplay=0"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen=""></iframe> -->
+                  </li>
+                </ul>
+                <button type="button" class="slider-nav"></button>
+                <button type="button" class="slider-nav slider-nav-next"></button>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+<div class="image-information py-5">
+
+  <div class="mx-auto max-w-screen-2xl   ">
+
+    <div class="flex flex-row space-x-5  ">
+      <!-- image - start -->
+      <div
+        class="group relative hidden lg:flex w-1/5  items-end overflow-hidden rounded-xl bg-gray-100 shadow-lg   ">
+        <div
+          class="absolute inset-0 flex items-center justify-center bg-gray-500 dark:bg-gray-950  rounded-xl animate-pulse -z-10">
+        </div>
+        <img src="https://res.cloudinary.com/dubqnzagc/image/fetch/f_auto,q_1/https://image.tmdb.org/t/p/original/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg"
+          loading="lazy" alt="Photo by Minh Pham"
+          class="absolute inset-0 h-full w-full  object-cover object-center transition duration-200 group-hover:scale-110" />
+      </div>
+      <div
+        class="group relative w-full lg:w-4/5  flex  items-end overflow-hidden rounded-xl  md:col-span-1  ">
+        <div
+          class="swiffy-slider  slider-item-snapstart slider-nav-caretfill slider-nav-inside   rounded-xl  h-96   ">
+          <div
+            class="absolute inset-0 flex items-center justify-center bg-gray-500 dark:bg-gray-950 -z-10 rounded-xl animate-pulse "> </div>
+            <ul class="slider-container rounded-xl ">
+              <li class=" rounded-xl">
+               
+              </li>
+         
+
+              </li>
+            </ul>
+
+          </div>
+        </div>
     </div>
   </div>
 
-      <div class="image-text" id="movie-details">
+</div>
 
+    <!-- <div class="upper-section flex  justify-between">
+  <div class="img-hidden-before-md  rounded-xl">
+    <img  class="h-52 " src="https://image.tmdb.org/t/p/original/ytdebEE0ndYLSTEctPgh8e0vaBs.jpg" alt="">
+  </div>
+  <div class="w-3/5 h-96 rounded-xl">
 
+    <div class="swiffy-slider slider-item-reveal slider-item-snapstart slider-nav-caretfill slider-nav-outside slider-item-first-visible slider-indicators-dark slider-indicators-outside slider-indicators-highlight  rounded-xl">
+      <ul class="slider-container rounded-xl " >
 
+    <li class=" rounded-xl">
+      <div class="relative cursor-pointer inline-block rounded-xl  " data-video-id="y_0CaX66H9M" onclick="loadVideo(this)">
+      <img class="w-full h-full rounded-xl " load="lazy" src="https://img.youtube.com/vi/y_0CaX66H9M/maxresdefault.jpg" alt="Avatar: The Way of Water">
+      <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-70 rounded-xl">
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-500">
+      <svg class="w-20 h-20 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>
       </div>
-
-
+    </div>
+    </li>
+  
+    
       
-    </section>
-
-
+      <li class=" rounded-xl">
+      <div class="relative cursor-pointer inline-block rounded-xl  " data-video-id="aw6OY4q8-xU" onclick="loadVideo(this)">
+      <img class="w-full h-full rounded-xl " load="lazy" src="https://img.youtube.com/vi/aw6OY4q8-xU/maxresdefault.jpg" alt="Avatar: The Way of Water">
+      <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-70 rounded-xl">
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-500">
+      <svg class="w-20 h-20 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>
       </div>
-    <script>
+    </div>
+    </li>
+      </ul> 
+  
+      <button type="button" class="slider-nav"></button>
+      <button type="button" class="slider-nav slider-nav-next"></button>
+  
+      
+      </div>
+  </div>
+</div> -->
+    <!-- <li class=" rounded-xl">
+          <div class="relative cursor-pointer inline-block rounded-xl h-96  " data-video-id="y_0CaX66H9M" onclick="loadVideo(this)">
+          <img class="object-cover object-center rounded-xl " load="lazy" src="https://img.youtube.com/vi/y_0CaX66H9M/maxresdefault.jpg" alt="Avatar: The Way of Water">
+          <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-70 rounded-xl">
+          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-500">
+          <svg class="w-20 h-20 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>
+          </div>
+        </div>
+        </li> -->
+
+  </section>
+
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var youtubeThumbnails = document.querySelectorAll('.youtube-thumbnail');
+
+      youtubeThumbnails.forEach(function (thumbnail) {
+        thumbnail.addEventListener('click', function (event) {
+          event.preventDefault();
+
+          var videoId = event.currentTarget.href.split('?v=')[1];
+          var youtubePlayer = event.currentTarget.parentNode.querySelector('.youtube-player');
+
+          youtubePlayer.innerHTML = '<iframe class="h-96 w-full rounded-xl" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+          youtubePlayer.style.display = 'block';
+          event.currentTarget.style.display = 'none';
+        });
+      });
+    });
+  </script>
+
+
+  <!-- <script>
 function loadVideo(element) {
   var videoId = element.getAttribute("data-video-id");
   var iframe = document.createElement("iframe");
@@ -86,14 +242,14 @@ function loadVideo(element) {
   iframe.setAttribute("frameborder", "0");
   iframe.setAttribute("allowfullscreen", "");
   iframe.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture");
-  iframe.setAttribute('class', 'w-full h-96 rounded-xl');
+  iframe.setAttribute('class', 'h-96 w-full rounded-xl');
   element.parentNode.replaceChild(iframe, element);
 }
       
       </script>
-      
+       -->
 
-<!-- <script>  // init Swiper:
+  <!-- <script>  // init Swiper:
   const swiper = new Swiper('.swiper', {
     // configure Swiper to use modules
     modules: [Navigation, Pagination],
@@ -135,10 +291,11 @@ function loadVideo(element) {
   <script>
 
   </script>
-<script defer="defer" src="/assets/darkmode.js"></script>
+  <script defer="defer" src="/assets/darkmode.js"></script>
 
-  <script  type="module"  src="./movie-main.js"></script>
+  <script type="module" src="./movie-main.js"></script>
 </body>
+
 </html>
 
 <!-- <!DOCTYPE html>

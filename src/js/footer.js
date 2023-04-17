@@ -7,8 +7,8 @@ class="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24 item
 <div class="lg:flex lg:items-end lg:justify-between">
   <div>
     <div class="flex justify-center  lg:justify-start">
-      <a href="/" class="text-gray-900 dark:text-gray-100 inline-flex items-center gap-4 text-3xl font-bold md:text-4xl font-sedgwick " aria-label="logo">
-        <img class="w-10 h-10" src="/logo.png" alt="logo">
+      <a href="/" class="text-gray-900 dark:text-gray-100 inline-flex items-center gap-4 text-3xl font-bold md:text-4xl lg:text-5xl font-sedgwick " aria-label="logo">
+        <img class="w-10 h-10 lg:w-14 lg:h-14" src="/logo.png" alt="logo">
       
             Film Fanatic
            
@@ -46,7 +46,7 @@ class="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24 item
   </nav>
 </div>
 <p class="mt-12 ">
-<p class="mt-8 text-base  leading-6 md:text-right text-center dark:text-white text-black ">Copyright © <span id="year"></span>&nbsp;. &nbsp; Made with <span class="text-red-600" >❤</span> By <a target=" _blank" rel="noopener noreferrer" class="hover:underline hover:underline-offset-4" href="https://www.linkedin.com/in/swastikdan">Swastik Dan</span>
+<p class="mt-8 text-base  leading-6 lg:text-right text-center dark:text-white text-black ">Copyright © <span id="year"></span>&nbsp;. &nbsp; Made with <span class="text-red-600" >❤</span> By <a target=" _blank" rel="noopener noreferrer" class="hover:underline hover:underline-offset-4" href="https://www.linkedin.com/in/swastikdan">Swastik Dan</span>
 </span> 
 
 </div>`;
