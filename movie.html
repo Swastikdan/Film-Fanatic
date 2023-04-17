@@ -10,66 +10,6 @@
 
 
 
-
-
-
-<style>.embed-youtube {
-  background-color: #000;
-  margin-bottom: 30px;
-  position: relative;
-  padding-top: 56.25%;
-  overflow: hidden;
-  cursor: pointer;
-}
-.embed-youtube img {
-  width: 100%;
-  top: -16.84%;
-  left: 0;
-  opacity: 0.7;
-}
-.embed-youtube .embed-youtube-play {
-  width: 68px;
-  height: 48px;
-  background-color: #333;
-  box-shadow: 0 0 30px rgba( 0,0,0,0.6 );
-  z-index: 1;
-  opacity: 0.8;
-  border-radius: 6px;
-}
-.embed-youtube .embed-youtube-play:before {
-  content: "";
-  border-style: solid;
-  border-width: 15px 0 15px 26.0px;
-  border-color: transparent transparent transparent #fff;
-}
-.embed-youtube img,
-.embed-youtube .embed-youtube-play {
-  cursor: pointer;
-}
-.embed-youtube img,
-.embed-youtube iframe,
-.embed-youtube .embed-youtube-play,
-.embed-youtube .embed-youtube-play:before {
-  position: absolute;
-}
-.embed-youtube .embed-youtube-play,
-.embed-youtube .embed-youtube-play:before {
-  top: 50%;
-  left: 50%;
-  transform: translate3d( -50%, -50%, 0 );
-}
-.embed-youtube iframe {
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-}
-
-.embed-youtube .embed-youtube-play:hover {
-  background-color: #f00;
-}</style>
-
-
 <body class="bg-gray-200 dark:bg-gray-900 font-maven">
   <header id="header" class="z-20 font-maven top-0 sticky border-b-2 border-black dark:border-gray-200">
     <nav
@@ -97,7 +37,8 @@
             </svg>Dark</div>
         </button></div>
     </nav>
-  </header><button id="back-to-top"
+</header>
+  <button id="back-to-top"
     class="inline-block rounded-full bg-gray-200 hover:bg-white p-2 text-black dark:text-white shadow transition dark:bg-gray-600 dark:hover:bg-gray-950 border-2 border-black dark:border-white sm:p-3 lg:p-4 bottom-4 hidden right-4 fixed z-20"><span
       class="sr-only">Back to top</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
       fill="currentColor">
@@ -112,16 +53,18 @@
 <div class="title-info p-10" >
 
 </div>
-<!-- <div class=" w-full  lg:w-4/5 xl:w-3/5   h-96  rounded-xl"> 
+<div class=" w-3/5 h-96 rounded-xl">
   <div class="swiffy-slider slider-item-reveal slider-item-snapstart slider-nav-caretfill slider-nav-outside slider-item-first-visible slider-indicators-dark slider-indicators-outside slider-indicators-highlight  rounded-xl">
+    <ul class="slider-container  " id="trailer">
+    </ul> 
 
     <button type="button" class="slider-nav"></button>
     <button type="button" class="slider-nav slider-nav-next"></button>
 
     
     </div>  
-    </div> -->
-
+    </div>
+  </div>
 
       <div class="image-text" id="movie-details">
 
@@ -133,37 +76,68 @@
       
     </section>
 
-    <div class=" w-full  lg:w-4/5 xl:w-3/5   h-96  rounded-xl" > 
 
-      <div class="swiffy-slider slider-item-reveal slider-item-snapstart slider-nav-caretfill slider-nav-outside slider-item-first-visible slider-indicators-dark slider-indicators-outside slider-indicators-highlight" id="trailer">
-      
-  
-          <button type="button" class="slider-nav"></button>
-          <button type="button" class="slider-nav slider-nav-next"></button>
-      
-         
       </div>
-  </div>
-  
-
-
-
     <script>
-      function loadVideo(element) {
-        var videoId = element.getAttribute("data-video-id");
-        var iframe = document.createElement("iframe");
-        iframe.setAttribute("src", "https://www.youtube.com/embed/" + videoId + "?autoplay=1");
-        iframe.setAttribute("frameborder", "0");
-        iframe.setAttribute("allowfullscreen", "");
-        iframe.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture");
-        iframe.setAttribute('class', 'w-3/5 h-96 rounded-xl');
-        element.parentNode.replaceChild(iframe, element);
-      }
+function loadVideo(element) {
+  var videoId = element.getAttribute("data-video-id");
+  var iframe = document.createElement("iframe");
+  iframe.setAttribute("src", "https://www.youtube.com/embed/" + videoId + "?autoplay=1");
+  iframe.setAttribute("frameborder", "0");
+  iframe.setAttribute("allowfullscreen", "");
+  iframe.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture");
+  iframe.setAttribute('class', 'w-full h-96 rounded-xl');
+  element.parentNode.replaceChild(iframe, element);
+}
       
       </script>
+      
+
+<!-- <script>  // init Swiper:
+  const swiper = new Swiper('.swiper', {
+    // configure Swiper to use modules
+    modules: [Navigation, Pagination],
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 0,
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    // And if we need scrollbar
+    scrollbar: {
+        el: '.swiper-scrollbar',
+    },
+
+    // breakpoints: {
+    //     640: {
+    //         slidesPerView: 2,
+
+    //     },
+    //     768: {
+    //         slidesPerView: 3,
+    //     },
+    //     1024: {
+    //         slidesPerView: 4,
+    //     },
+    // }
+
+
+  });   </script> -->
+  <script>
+
+  </script>
 <script defer="defer" src="/assets/darkmode.js"></script>
 
-  <script  src="./src/js/movie.js"></script>
+  <script  type="module"  src="./movie-main.js"></script>
 </body>
 </html>
 
