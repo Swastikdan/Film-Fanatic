@@ -9,18 +9,11 @@
   <link rel="shortcut icon" href="/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="/style.css">
   <script async src="/assets/tab.js"></script>
-  <script defer="defer" src="/assets/darkmode.js"></script>
-  <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark')
-    }
-</script>
+  
+
 </head>
 
-<body class="bg-gray-200 dark:bg-gray-900 ">
+<body class="bg-gray-200 dark:bg-gray-950 ">
 
 
   <header id="header" class="z-20 font-maven top-0 sticky border-b-2 border-black dark:border-gray-200">
@@ -84,7 +77,7 @@
         d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
         clip-rule="evenodd" />
     </svg></button>
-  <div class="bg-gray-200 dark:bg-gray-900 py-5 sm:py-8 lg:py-10 font-maven">
+  <div class="bg-gray-200 dark:bg-gray-950 py-5 sm:py-8 lg:py-10 font-maven">
     <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
       <div class="rounded-lg bg-gray-300 dark:bg-gray-600 px-4 py-6 md:py-8 lg:py-12">
         <h2
@@ -96,13 +89,13 @@
       </div>
     </div>
   </div>
-  <form class="py-5 px-5 md:px-8 lg:px-12 flex flex-wrap justify-center bg-gray-200 dark:bg-gray-900 font-maven"><label
-      for="videoLink" class="sr-only">👀 What movie or show? Let's find it! together!</label><input type="search"
+  <div class="py-5 px-5 md:px-8 lg:px-12 flex flex-wrap justify-center bg-gray-200 dark:bg-gray-950 font-maven"><label
+      for="videoLink" class="sr-only">👀 What movie or show? Let's find it!</label><input type="search"
       id="search-input"
       class="w-full text-black dark:text-black rounded-lg border-2 text-sm md:text-md xl:text-xl border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-1/2"
-      placeholder="👀 What movie or show? Let's find it! together!"><button id="search-button"
+      placeholder="👀 What movie or show? Let's find it!"><button id="search-button"
       class="mt-4 inline-block items-center rounded-md bg-blue-600 px-7 py-2 text-md md:text-xl text-white hover:bg-blue-500 space-x-3 duration-300 shadow-xl md:ml-4 md:mt-0">Search</button>
-  </form>
+  </div>
   <div id="loading"
     class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-8 lg:py-5 items-center">
     <div class="relative grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center">
@@ -212,14 +205,14 @@
   </div>
   <section id="mian-content">
     <div id="Home"
-      class="tabcontent flex flex-col py-3 px-4 md:px-8 space-y-5 bg-gray-200 dark:bg-gray-900 active text-center"><span
+      class="tabcontent flex flex-col py-3 px-4 md:px-8 space-y-5 bg-gray-200 dark:bg-gray-950 active text-center"><span
         class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-200 font-maven">Trending
         Now</span>
       <div
         class="relative px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-8 lg:py-5 items-center">
         <div id="trending-container" class="relative grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center">
         </div>
-        <div class="flex justify-center space-x-24 bg-gray-200 dark:bg-gray-900 font-maven py-5"><button
+        <div class="flex justify-center space-x-24 bg-gray-200 dark:bg-gray-950 font-maven py-5"><button
             id="prev-button"
             class="cursor-pointer px-4 py-2 mx-1 text-gray-500 transition-colors duration-100 transform bg-white rounded-md dark:bg-gray-600 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200 shadow-lg drop-shadow-lg">
             <div class="flex items-center -mx-1"><svg xmlns="http://www.w3.org/2000/svg"
@@ -235,13 +228,13 @@
           </button></div>
       </div>
     </div>
-    <div id="Now" class="tabcontent flex flex-col py-3 px-4 md:px-8 space-y-5 bg-gray-200 dark:bg-gray-900 text-center">
+    <div id="Now" class="tabcontent flex flex-col py-3 px-4 md:px-8 space-y-5 bg-gray-200 dark:bg-gray-950 text-center">
       <span class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-200 font-maven">Now
         Playing</span>
       <div class="relative px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-8 lg:py-5">
         <div id="now-playing-container"
           class="relative grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center"></div>
-        <div class="flex justify-center space-x-24 bg-gray-200 dark:bg-gray-900 font-maven py-5"><button
+        <div class="flex justify-center space-x-24 bg-gray-200 dark:bg-gray-950 font-maven py-5"><button
             id="prev-button1"
             class="cursor-pointer px-4 py-2 mx-1 text-gray-500 transition-colors duration-100 transform bg-white rounded-md dark:bg-gray-600 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200 shadow-lg drop-shadow-lg">
             <div class="flex items-center -mx-1"><svg xmlns="http://www.w3.org/2000/svg"
@@ -269,13 +262,13 @@
         </a></div>
     </div>
     <div id="Coming"
-      class="tabcontent flex flex-col py-3 px-4 md:px-8 space-y-5 bg-gray-200 dark:bg-gray-900 text-center"><span
+      class="tabcontent flex flex-col py-3 px-4 md:px-8 space-y-5 bg-gray-200 dark:bg-gray-950 text-center"><span
         class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-200 font-maven">Upcoming
         Movies</span>
       <div class="relative px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-8 lg:py-5">
         <div id="upcoming-container" class="relative grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center">
         </div>
-        <div class="flex justify-center space-x-24 bg-gray-200 dark:bg-gray-900 font-maven py-5"><button
+        <div class="flex justify-center space-x-24 bg-gray-200 dark:bg-gray-950 font-maven py-5"><button
             id="prev-button2"
             class="cursor-pointer px-4 py-2 mx-1 text-gray-500 transition-colors duration-100 transform bg-white rounded-md dark:bg-gray-600 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200 shadow-lg drop-shadow-lg">
             <div class="flex items-center -mx-1"><svg xmlns="http://www.w3.org/2000/svg"
@@ -293,8 +286,17 @@
     </div>
   </section>
   <footer id="footer" aria-label="Site Footer"
-    class="bg-gray-100 border-t border-gray-200 shadow md:p-6 dark:bg-gray-800 dark:border-gray-600 bottom-0 left-0 font-maven">
+    class="bg-gray-100 border-t border-gray-200 shadow md:p-6 dark:bg-gray-950 dark:border-gray-600 bottom-0 left-0 font-maven">
   </footer>
+  <script src="/assets/darkmode.js"></script>
+  <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+</script>
 
   <script type="module" src="./index.js"></script>
 </body>

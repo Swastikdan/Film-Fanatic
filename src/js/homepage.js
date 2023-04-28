@@ -54,7 +54,7 @@ function fetchTrendingMovies(page) {
         movieElement.classList.add("movie");
       
         movieElement.innerHTML = `
-        <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-black drop-shadow-lg font-maven">
+        <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-900 drop-shadow-lg font-maven">
         <a href="movie.html?id=${
           movie.id
         }" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
