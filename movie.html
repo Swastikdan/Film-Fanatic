@@ -10,7 +10,7 @@
     defer></script>
   <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
     crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
 
 
@@ -56,7 +56,7 @@
   <section id="all" class="px-5 md:px-8 lg:px-10 items-center">
 
 
-    <div  class=" py-10 ">
+    <div class=" py-10 ">
       <div class="mx-auto max-w-screen-2xl">
         <div id="movie-preview" class="flex flex-row lg:space-x-5 ">
 
@@ -77,7 +77,7 @@
 
 
           <div class="group relative w-full   flex  items-end overflow-hidden rounded-xl  md:col-span-1  ">
-            <div
+            <!-- <div
               class="swiffy-slider slider-item slider-item-show2 slider-item-nogap slider-nav-visible slider-nav-animation slider-nav-animation-scale slider-nav-caretfill slider-nav-visible   rounded-xl  h-96   ">
               <div class="absolute inset-0 flex items-center justify-center rounded-xl -z-10">
               </div>
@@ -86,6 +86,16 @@
               </ul>
               <button type="button" class="slider-nav"></button>
               <button type="button" class="slider-nav slider-nav-next"></button>
+            </div> -->
+
+
+            <div class="swiper mySwiper">
+              <div id="trailer" class="swiper-wrapper">
+
+              </div>
+              <div class="swiper-button-next"> </div>
+              <div class="swiper-button-prev"></div>
+          
             </div>
           </div>
         </div>
@@ -97,119 +107,91 @@
 
     </div>
 
-    
 
 
-<div hidden id="more-like-container"></div>
+
+    <div hidden ></div>
 
     <div class=" py-5 poster-and-trailer rounded-xl ">
       <div class="mx-auto max-w-screen-2xl rounded-xl  ">
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-black dark:text-gray-100  ">More Like This</h2>
 
-        <div class="swiffy-slider slider-item slider-item-show5 slider-item-show3-sm slider-nav-caretfill slider-nav-visible slider-nav-animation">
-     
-          <ul  class="slider-container">
-            
-              <li class="">
-       
-                  <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
-                    <!-- Skeleton for the image -->
-                    <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                    
-                    <!-- Skeleton for the rating badge -->
-                    <div class="absolute bottom-3 right-3">
-                      <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
-                    </div>
-                  </div>
-
-                
-              </li>
- 
-
-              <li class="">
-       
-                <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
-                  <!-- Skeleton for the image -->
-                  <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                  
-                  <!-- Skeleton for the rating badge -->
-                  <div class="absolute bottom-3 right-3">
-                    <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
-                  </div>
-                </div>
-
-              
-            </li>
-            <li class="">
-       
-              <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
-                <!-- Skeleton for the image -->
-                <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                
-                <!-- Skeleton for the rating badge -->
-                <div class="absolute bottom-3 right-3">
-                  <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
-                </div>
-              </div>
-
-            
-          </li>
-                        <li class="">
-       
-                  <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
-                    <!-- Skeleton for the image -->
-                    <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                    
-                    <!-- Skeleton for the rating badge -->
-                    <div class="absolute bottom-3 right-3">
-                      <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
-                    </div>
-                  </div>
-
-                
-              </li>
-                            <li class="">
-       
-                  <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
-                    <!-- Skeleton for the image -->
-                    <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                    
-                    <!-- Skeleton for the rating badge -->
-                    <div class="absolute bottom-3 right-3">
-                      <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
-                    </div>
-                  </div>
-
-                
-              </li>
-                            <li class="">
-       
-                  <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
-                    <!-- Skeleton for the image -->
-                    <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                    
-                    <!-- Skeleton for the rating badge -->
-                    <div class="absolute bottom-3 right-3">
-                      <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
-                    </div>
-                  </div>
-
-                
-              </li>
 
 
-              
+  <!-- Swiper -->
+  <div class="swiper mySwiper2">
+    <div id="more-like-container" class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
+          <!-- Skeleton for the image -->
+          <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
 
-
-
-              
-          </ul>
-        
-          <button type="button" class="slider-nav"></button>
-          <button type="button" class="slider-nav slider-nav-next"></button>
+          <!-- Skeleton for the rating badge -->
+          <div class="absolute bottom-3 right-3">
+            <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
+          </div>
+        </div>
       </div>
+      <div class="swiper-slide">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
+          <!-- Skeleton for the image -->
+          <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
 
+          <!-- Skeleton for the rating badge -->
+          <div class="absolute bottom-3 right-3">
+            <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
+          <!-- Skeleton for the image -->
+          <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
 
+          <!-- Skeleton for the rating badge -->
+          <div class="absolute bottom-3 right-3">
+            <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
+          <!-- Skeleton for the image -->
+          <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
+
+          <!-- Skeleton for the rating badge -->
+          <div class="absolute bottom-3 right-3">
+            <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
+          <!-- Skeleton for the image -->
+          <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
+
+          <!-- Skeleton for the rating badge -->
+          <div class="absolute bottom-3 right-3">
+            <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
+          <!-- Skeleton for the image -->
+          <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
+
+          <!-- Skeleton for the rating badge -->
+          <div class="absolute bottom-3 right-3">
+            <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next"> </div>
+    <div class="swiper-button-prev"></div>
+
+  </div>
 
 
 
@@ -223,155 +205,13 @@
 
 
 
-  <!-- Swiper -->
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">              </li>
-                            <li class="">
-       
-                  <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
-                    <!-- Skeleton for the image -->
-                    <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                    
-                    <!-- Skeleton for the rating badge -->
-                    <div class="absolute bottom-3 right-3">
-                      <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
-                    </div>
-                  </div>
 
-                
-              </li></div>
-      <div class="swiper-slide">              </li>
-                            <li class="">
-       
-                  <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
-                    <!-- Skeleton for the image -->
-                    <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                    
-                    <!-- Skeleton for the rating badge -->
-                    <div class="absolute bottom-3 right-3">
-                      <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
-                    </div>
-                  </div>
-
-                
-              </li></div>
-      <div class="swiper-slide">              </li>
-                            <li class="">
-       
-                  <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
-                    <!-- Skeleton for the image -->
-                    <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                    
-                    <!-- Skeleton for the rating badge -->
-                    <div class="absolute bottom-3 right-3">
-                      <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
-                    </div>
-                  </div>
-
-                
-              </li></div>
-      <div class="swiper-slide">              </li>
-                            <li class="">
-       
-                  <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
-                    <!-- Skeleton for the image -->
-                    <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                    
-                    <!-- Skeleton for the rating badge -->
-                    <div class="absolute bottom-3 right-3">
-                      <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
-                    </div>
-                  </div>
-
-                
-              </li></div>
-      <div class="swiper-slide">              </li>
-                            <li class="">
-       
-                  <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
-                    <!-- Skeleton for the image -->
-                    <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                    
-                    <!-- Skeleton for the rating badge -->
-                    <div class="absolute bottom-3 right-3">
-                      <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
-                    </div>
-                  </div>
-
-                
-              </li></div>
-      <div class="swiper-slide">              </li>
-                            <li class="">
-       
-                  <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
-                    <!-- Skeleton for the image -->
-                    <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                    
-                    <!-- Skeleton for the rating badge -->
-                    <div class="absolute bottom-3 right-3">
-                      <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
-                    </div>
-                  </div>
-
-                
-              </li></div>
-      <div class="swiper-slide">              </li>
-                            <li class="">
-       
-                  <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
-                    <!-- Skeleton for the image -->
-                    <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                    
-                    <!-- Skeleton for the rating badge -->
-                    <div class="absolute bottom-3 right-3">
-                      <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
-                    </div>
-                  </div>
-
-                
-              </li></div>
-      <div class="swiper-slide">              </li>
-                            <li class="">
-       
-                  <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
-                    <!-- Skeleton for the image -->
-                    <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                    
-                    <!-- Skeleton for the rating badge -->
-                    <div class="absolute bottom-3 right-3">
-                      <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
-                    </div>
-                  </div>
-
-                
-              </li></div>
-      <div class="swiper-slide">              </li>
-                            <li class="">
-       
-                  <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 animate-pulse rounded-xl h-96">
-                    <!-- Skeleton for the image -->
-                    <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                    
-                    <!-- Skeleton for the rating badge -->
-                    <div class="absolute bottom-3 right-3">
-                      <div class="inline-block bg-gray-300 animate-pulse w-40 h-6 rounded-xl"></div>
-                    </div>
-                  </div>
-
-                
-              </li></div>
-    </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-   
-  </div>
 
 
 
   <footer id="footer" aria-label="Site Footer"
-  class="bg-gray-100 border-t border-gray-200 shadow md:p-6 dark:bg-gray-900 dark:border-gray-600 bottom-0 left-0 mt-20">
-</footer>
+    class="bg-gray-100 border-t border-gray-200 shadow md:p-6 dark:bg-gray-900 dark:border-gray-600 bottom-0 left-0 mt-20">
+  </footer>
 
 
 
@@ -383,13 +223,45 @@
 
   <!-- Initialize Swiper -->
   <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 5,
+    var swiper = new Swiper(".mySwiper2", {
+      slidesPerView: 2,
       spaceBetween: 30,
-
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+        },
+        1536: {
+          slidesPerView: 5,
+          spaceBetween: 30,
+        },
+      },
+
+
+    });
+    var swiper2 = new Swiper(".mySwiper", {
+      spaceBetween: 50,
+      slidesPerView: 1,
+   
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+
+        1024: {
+  slidesPerView: 2,
+  spaceBetween: 30,
+},
       },
     });
   </script>

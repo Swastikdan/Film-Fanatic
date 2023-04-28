@@ -2,7 +2,7 @@
 const API_KEY = "f6f845f4c051289b806ce5fd5434aac1";
 const BASE_URL = "https://api.themoviedb.org/3/";
 const IMAGE_URL = "https://image.tmdb.org/t/p/original/";
-const CDN = "https://res.cloudinary.com/dubqnzagc/image/fetch/f_auto,q_1/"
+const CDN = "https://res.cloudinary.com/dubqnzagc/image/fetch/f_auto,q_auto/"
 const trendingContainer = document.getElementById("trending-container");
 const nowplayingContainer = document.getElementById("now-playing-container");
 const upcomingContainer = document.getElementById("upcoming-container");
@@ -16,10 +16,6 @@ const prevButton2 = document.getElementById("prev-button2");
 const nextButton2 = document.getElementById("next-button2");
 let currentPage = 1;
 let totalPages = 1;
-
-
-
-
 // Fetch the trending movies
 function fetchTrendingMovies(page) {
   var contentDiv = document.getElementById("loading");
@@ -54,10 +50,10 @@ function fetchTrendingMovies(page) {
         movieElement.classList.add("movie");
       
         movieElement.innerHTML = `
-        <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-900 drop-shadow-lg font-maven">
+        <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-900 drop-shadow-lg font-maven">
         <a href="movie.html?id=${
           movie.id
-        }" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+        }&type=${movie.media_type}" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
           <img src="${CDN}${IMAGE_URL}${movie.poster_path}" loading="lazy" alt="${
           movie.title
         }" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
@@ -166,7 +162,7 @@ function fetchnowplayingMovies(page) {
         <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-black drop-shadow-lg font-maven">
         <a href="movie.html?id=${
           movie1.id
-        }" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+        }&type=${movie1.media_type}" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
           <img src="${CDN}${IMAGE_URL}${movie1.poster_path}" loading="lazy" alt="${
           movie1.title
         }" class="absolute inset-0 h-full w-full object-cover object-center transition duration-100 group-hover:scale-110" />
@@ -271,9 +267,7 @@ function upcomingMovies(page) {
         movieElement2.classList.add("movie2");
         movieElement2.innerHTML = `
         <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-black drop-shadow-lg font-maven">
-        <a href="movie.html?id=${
-          movie2.id
-        }" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+        <a href="movie.html?id=${movie2.id}&type=${movie2.media_type}" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
           <img src="${CDN}${IMAGE_URL}${movie2.poster_path}" loading="lazy" alt="${
           movie2.title
         }" class="absolute inset-0 h-full w-full object-cover object-center transition duration-100 group-hover:scale-110" />

@@ -7,6 +7,9 @@ const CDN = "https://res.cloudinary.com/dubqnzagc/image/fetch/f_auto,q_auto/";
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const movieId = urlParams.get("id");
+const movieType = urlParams.get("type");
+
+
 
 // Select the movie details container from the DOM
 const allContainer = document.getElementById("all");
@@ -42,24 +45,24 @@ movieDetailsContainer.innerHTML = `   <h2 class="text-3xl md:text-4xl lg:text-5x
 
         </div>
       </div>`;
-movieTrailerContainer.innerHTML = `<li class=" rounded-xl">
+movieTrailerContainer.innerHTML = `<div class="swiper-slide rounded-xl">
 <div
 class="absolute inset-0 flex items-center justify-center bg-gray-300 dark:bg-gray-800 -z-10 rounded-xl animate-pulse ">
 </div>
 
-</li>
-<li class=" rounded-xl">
+</div>
+<div class="swiper-slide rounded-xl">
 <div
 class="absolute inset-0 flex items-center justify-center bg-gray-300 dark:bg-gray-800 -z-10 rounded-xl animate-pulse ">
 </div>
 
-</li>
-<li class=" rounded-xl">
+</div>
+<div class="swiper-slide rounded-xl">
 <div
 class="absolute inset-0 flex items-center justify-center bg-gray-300 dark:bg-gray-800 -z-10 rounded-xl animate-pulse ">
 </div>
 
-</li>`;
+</div>`;
 
 fetch(
   `${BASE_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US&append_to_response=videos`
@@ -74,9 +77,8 @@ fetch(
     }
     const trailersHTML = videoKeys
       .map((videoKey) => {
-        // const youtubeUrl = `https://www.youtube.com/embed/${videoKey}`;
         return `
-<li class=" rounded-xl">
+<div class="swiper-slide rounded-xl">
     <div
     class="absolute inset-0 flex items-center justify-center bg-gray-300 dark:bg-gray-800 -z-10 rounded-xl animate-pulse ">
   </div>
@@ -84,7 +86,7 @@ fetch(
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen=""></iframe>
-  </li>
+  </div>
     `;
       })
       .join("");
@@ -252,7 +254,8 @@ fetch(
       
             console.log(truncatedTitle);
       
-            const movieElement = document.createElement('li');
+            const movieElement = document.createElement('div');
+            movieElement.classList.add('swiper-slide');
       
             movieElement.innerHTML = `
             <a href="movie.html?id=${trend.id}" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96 rounded-xl">
