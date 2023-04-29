@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Movie Display Site</title>
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="shortcut icon" href="/logo.png" type="image/x-icon">
+  <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous"
+    defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+
+
+<body class="bg-gray-50 dark:bg-gray-950 font-maven">
+  <header id="header" class="z-20 font-maven top-0 sticky border-b-2 border-black dark:border-gray-200">
+    <nav
+      class="flex flex-wrap flex-col sm:flex-row items-center justify-between w-full py-3 md:py-4 px-5 md:px-10 text-lg text-gray-700 bg-gray-200 dark:text-gray-100 dark:bg-gray-950">
+      <div><a href="/"
+          class="text-gray-900 dark:text-gray-100 inline-flex items-center gap-4 text-3xl font-black md:text-4xl font-maven"
+          aria-label="logo"><img class="w-10 h-10" src="/logo.png" alt="logo"> Film Fanatic</a></div>
+      <div class="flex space-x-5 items-center mt-3"><a
+          class="group relative inline-block focus:outline-none focus:ring rounded-xl" href="/"><span
+            class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-blue-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0 rounded-xl"></span><span
+            class="relative inline-block border-2 border-black dark:border-white px-8 py-3 text-xs sm:text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75 rounded-xl">Go
+            Back To Home</span></a><button id="theme-toggle" type="button"
+          class="my-2 rounded-lg border border-gray-950 dark:border-gray-200">
+          <div id="theme-toggle-dark-icon" type="button"
+            class="hidden inline-flex items-center gap-2 rounded-lg bg-gray-200 px-4 py-3 text-sm font-semibold text-gray-500 hover:text-gray-100 ring-indigo-300 hover:bg-gray-400 focus-visible:ring active:text-gray-700 md:text-base">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>Light
+          </div>
+          <div id="theme-toggle-light-icon" type="button"
+            class="hidden inline-flex items-center gap-2 rounded-lg bg-gray-700 px-4 py-3 text-sm font-semibold text-gray-500 dark:text-gray-300 hover:text-gray-300 ring-indigo-300 hover:bg-gray-800 focus-visible:ring active:text-gray-200 md:text-base">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>Dark
+          </div>
+        </button></div>
+    </nav>
+  </header>
+  <button id="back-to-top"
+    class="inline-block rounded-full bg-gray-200 hover:bg-white p-2 text-black dark:text-white shadow transition dark:bg-gray-600 dark:hover:bg-gray-950 border-2 border-black dark:border-white sm:p-3 lg:p-4 bottom-4 hidden right-4 fixed z-20"><span
+      class="sr-only">Back to top</span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+      fill="currentColor">
+      <path fill-rule="evenodd"
+        d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+        clip-rule="evenodd" />
+    </svg></button>
+
+  <section id="all" class="px-5 md:px-8 lg:px-10 items-center">
+
+
+    <div class=" py-10 ">
+      <div class="mx-auto max-w-screen-2xl">
+        <div id="movie-preview" class="flex flex-row lg:space-x-5 ">
+
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+    <div class=" py-5 poster-and-trailer rounded-xl ">
+      <div class="mx-auto max-w-screen-2xl rounded-xl  ">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-black dark:text-gray-100  ">Videos</h2>
+        <div class="flex flex-row space-x-5 rounded-xl  ">
+
+
+          <div class="group relative w-full   flex  items-end overflow-hidden rounded-xl  md:col-span-1  ">
+            <!-- <div
+              class="swiffy-slider slider-item slider-item-show2 slider-item-nogap slider-nav-visible slider-nav-animation slider-nav-animation-scale slider-nav-caretfill slider-nav-visible   rounded-xl  h-96   ">
+              <div class="absolute inset-0 flex items-center justify-center rounded-xl -z-10">
+              </div>
+              <ul class="slider-container rounded-xl " id="trailer">
+
+              </ul>
+              <button type="button" class="slider-nav"></button>
+              <button type="button" class="slider-nav slider-nav-next"></button>
+            </div> -->
+
+
+            <div class="swiper mySwiper">
+              <div id="trailer" class="swiper-wrapper">
+
+              </div>
+              <div class="swiper-button-next"> </div>
+              <div class="swiper-button-prev"></div>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="movie-details" class="movieinformation  rounded-lg max-w-screen-2xl text-black dark:text-gray-100  ">
+
+    </div>
+
+
+
+
+    <div hidden ></div>
+
+    <div class=" py-5 poster-and-trailer rounded-xl ">
+      <div class="mx-auto max-w-screen-2xl rounded-xl  ">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-black dark:text-gray-100  ">More Like This</h2>
+
+
+
+  <!-- Swiper -->
+  <div class="swiper mySwiper2">
+    <div id="more-like-container" class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 dark:bg-gray-800 animate-pulse rounded-xl h-96">
+          <!-- Skeleton for the image -->
+          <div class="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse"></div>
+
+          <!-- Skeleton for the rating badge -->
+          <div class="absolute bottom-3 right-3">
+            <div class="inline-block bg-gray-300 dark:bg-gray-900 animate-pulse w-40 h-6 rounded-xl"></div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 dark:bg-gray-800 animate-pulse rounded-xl h-96">
+          <!-- Skeleton for the image -->
+          <div class="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse"></div>
+
+          <!-- Skeleton for the rating badge -->
+          <div class="absolute bottom-3 right-3">
+            <div class="inline-block bg-gray-300 dark:bg-gray-900 animate-pulse w-40 h-6 rounded-xl"></div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 dark:bg-gray-800 animate-pulse rounded-xl h-96">
+          <!-- Skeleton for the image -->
+          <div class="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse"></div>
+
+          <!-- Skeleton for the rating badge -->
+          <div class="absolute bottom-3 right-3">
+            <div class="inline-block bg-gray-300 dark:bg-gray-900 animate-pulse w-40 h-6 rounded-xl"></div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 dark:bg-gray-800 animate-pulse rounded-xl h-96">
+          <!-- Skeleton for the image -->
+          <div class="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse"></div>
+
+          <!-- Skeleton for the rating badge -->
+          <div class="absolute bottom-3 right-3">
+            <div class="inline-block bg-gray-300 dark:bg-gray-900 animate-pulse w-40 h-6 rounded-xl"></div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 dark:bg-gray-800 animate-pulse rounded-xl h-96">
+          <!-- Skeleton for the image -->
+          <div class="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse"></div>
+
+          <!-- Skeleton for the rating badge -->
+          <div class="absolute bottom-3 right-3">
+            <div class="inline-block bg-gray-300 dark:bg-gray-900 animate-pulse w-40 h-6 rounded-xl"></div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 dark:bg-gray-800 animate-pulse rounded-xl h-96">
+          <!-- Skeleton for the image -->
+          <div class="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse"></div>
+
+          <!-- Skeleton for the rating badge -->
+          <div class="absolute bottom-3 right-3">
+            <div class="inline-block bg-gray-300 dark:bg-gray-900 animate-pulse w-40 h-6 rounded-xl"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next"> </div>
+    <div class="swiper-button-prev"></div>
+
+  </div>
+
+
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+  <footer id="footer" aria-label="Site Footer"
+    class="bg-gray-100 border-t border-gray-200 shadow md:p-6 dark:bg-gray-900 dark:border-gray-600 bottom-0 left-0 mt-20">
+  </footer>
+
+
+
+
+
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper2", {
+      slidesPerView: 2,
+      spaceBetween: 30,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+        },
+        1536: {
+          slidesPerView: 5,
+          spaceBetween: 30,
+        },
+      },
+
+
+    });
+    var swiper2 = new Swiper(".mySwiper", {
+      spaceBetween: 50,
+      slidesPerView: 1,
+   
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+
+        1024: {
+  slidesPerView: 2,
+  spaceBetween: 30,
+},
+      },
+    });
+  </script>
+  <script defer="defer" src="./assets/darkmode.js"></script>
+
+  <script type="module" src="./movie-main.js"></script>
+</body>
+
+</html>

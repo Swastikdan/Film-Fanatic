@@ -9,9 +9,13 @@
   <link rel="shortcut icon" href="/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="/style.css">
   <script async src="/assets/tab.js"></script>
+  
+
 </head>
 
-<body class="bg-gray-200 dark:bg-gray-950">
+<body class="bg-gray-200 dark:bg-gray-950 ">
+
+
   <header id="header" class="z-20 font-maven top-0 sticky border-b-2 border-black dark:border-gray-200">
     <nav
       class="flex flex-wrap items-center justify-between w-full py-3 md:py-4 px-5 md:px-10 text-lg text-gray-700 bg-gray-200 dark:text-gray-100 dark:bg-gray-950">
@@ -51,14 +55,16 @@
               class="hidden inline-flex items-center gap-2 rounded-lg bg-gray-200 px-2.5 py-2 text-sm font-semibold text-gray-500 hover:text-gray-100 ring-indigo-300 hover:bg-gray-400 focus-visible:ring active:text-gray-700 md:text-base">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-              </svg>Dark</div>
+              </svg>Dark
+            </div>
             <div id="theme-toggle-light-icon" type="button"
               class="inline-flex items-center gap-2 rounded-lg bg-gray-700 px-2.5 py-2 text-sm font-semibold text-gray-500 dark:text-gray-300 hover:text-gray-300 ring-indigo-300 hover:bg-gray-800 focus-visible:ring active:text-gray-200 md:text-base">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
                   fill-rule="evenodd" clip-rule="evenodd"></path>
-              </svg>Light</div>
+              </svg>Light
+            </div>
           </button>
         </ul>
       </div>
@@ -76,7 +82,7 @@
       <div class="rounded-lg bg-gray-300 dark:bg-gray-600 px-4 py-6 md:py-8 lg:py-12">
         <h2
           class="mb-4 text-center text-3xl font-bold text-gray-800 dark:text-gray-200 md:mb-6 md:text-4xl lg:text-5xl">
-          Experience the magic of cinema with<span class="text-indigo-500 dark:text-indigo-300 cursor-pointer">Film
+          Experience the magic of cinema with <span class="text-indigo-500 dark:text-indigo-300 cursor-pointer">Film
             Fanatic</span></h2>
         <p class="mx-auto max-w-screen-md text-center text-gray-500 dark:text-gray-100 md:text-lg">Watch trailers, sneak
           peeks of your favorite movies and TV shows.</p>
@@ -93,82 +99,108 @@
   <div id="loading"
     class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-8 lg:py-5 items-center">
     <div class="relative grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center">
-      <div
-        class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-black drop-shadow-lg font-maven">
-        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 h-96">
+            <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-black drop-shadow-lg font-maven">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100  h-96">
+          <!-- Skeleton for the image -->
           <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
+          
+          <!-- Skeleton for the rating badge -->
           <div class="absolute bottom-3 right-3">
             <div class="inline-block bg-gray-200 animate-pulse w-16 h-6 rounded"></div>
           </div>
         </div>
-        <div class="py-5 text-left px-5 flex flex-col font-semibold">
+        <div class="py-5 text-left px-5 flex flex-col font-semibold ">
+          <!-- Skeleton for the title -->
           <div class="bg-gray-200 animate-pulse w-2/3 h-8 rounded"></div>
           <div class="flex justify-between pt-5">
+            <!-- Skeleton for the year -->
             <div class="bg-gray-200 animate-pulse w-12 h-4 rounded"></div>
             <div class="flex space-x-5">
+              <!-- Skeleton for the media type -->
               <div class="bg-gray-200 animate-pulse w-16 h-4 rounded"></div>
+              <!-- Skeleton for the original language -->
               <div class="bg-gray-200 animate-pulse w-12 h-4 rounded"></div>
             </div>
           </div>
         </div>
       </div>
-      <div
-        class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-black drop-shadow-lg font-maven">
-        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 h-96">
+      <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-black drop-shadow-lg font-maven">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100  h-96">
+          <!-- Skeleton for the image -->
           <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
+          
+          <!-- Skeleton for the rating badge -->
           <div class="absolute bottom-3 right-3">
             <div class="inline-block bg-gray-200 animate-pulse w-16 h-6 rounded"></div>
           </div>
         </div>
-        <div class="py-5 text-left px-5 flex flex-col font-semibold">
+        <div class="py-5 text-left px-5 flex flex-col font-semibold ">
+          <!-- Skeleton for the title -->
           <div class="bg-gray-200 animate-pulse w-2/3 h-8 rounded"></div>
           <div class="flex justify-between pt-5">
+            <!-- Skeleton for the year -->
             <div class="bg-gray-200 animate-pulse w-12 h-4 rounded"></div>
             <div class="flex space-x-5">
+              <!-- Skeleton for the media type -->
               <div class="bg-gray-200 animate-pulse w-16 h-4 rounded"></div>
+              <!-- Skeleton for the original language -->
               <div class="bg-gray-200 animate-pulse w-12 h-4 rounded"></div>
             </div>
           </div>
         </div>
       </div>
-      <div
-        class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-black drop-shadow-lg font-maven">
-        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 h-96">
+      <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-black drop-shadow-lg font-maven">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100  h-96">
+          <!-- Skeleton for the image -->
           <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
+          
+          <!-- Skeleton for the rating badge -->
           <div class="absolute bottom-3 right-3">
             <div class="inline-block bg-gray-200 animate-pulse w-16 h-6 rounded"></div>
           </div>
         </div>
-        <div class="py-5 text-left px-5 flex flex-col font-semibold">
+        <div class="py-5 text-left px-5 flex flex-col font-semibold ">
+          <!-- Skeleton for the title -->
           <div class="bg-gray-200 animate-pulse w-2/3 h-8 rounded"></div>
           <div class="flex justify-between pt-5">
+            <!-- Skeleton for the year -->
             <div class="bg-gray-200 animate-pulse w-12 h-4 rounded"></div>
             <div class="flex space-x-5">
+              <!-- Skeleton for the media type -->
               <div class="bg-gray-200 animate-pulse w-16 h-4 rounded"></div>
+              <!-- Skeleton for the original language -->
               <div class="bg-gray-200 animate-pulse w-12 h-4 rounded"></div>
             </div>
           </div>
         </div>
       </div>
-      <div
-        class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-black drop-shadow-lg font-maven">
-        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100 h-96">
+
+            <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-black drop-shadow-lg font-maven">
+        <div class="relative flex items-end justify-end overflow-hidden bg-gray-100  h-96">
+          <!-- Skeleton for the image -->
           <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
+          
+          <!-- Skeleton for the rating badge -->
           <div class="absolute bottom-3 right-3">
             <div class="inline-block bg-gray-200 animate-pulse w-16 h-6 rounded"></div>
           </div>
         </div>
-        <div class="py-5 text-left px-5 flex flex-col font-semibold">
+        <div class="py-5 text-left px-5 flex flex-col font-semibold ">
+          <!-- Skeleton for the title -->
           <div class="bg-gray-200 animate-pulse w-2/3 h-8 rounded"></div>
           <div class="flex justify-between pt-5">
+            <!-- Skeleton for the year -->
             <div class="bg-gray-200 animate-pulse w-12 h-4 rounded"></div>
             <div class="flex space-x-5">
+              <!-- Skeleton for the media type -->
               <div class="bg-gray-200 animate-pulse w-16 h-4 rounded"></div>
+              <!-- Skeleton for the original language -->
               <div class="bg-gray-200 animate-pulse w-12 h-4 rounded"></div>
             </div>
           </div>
         </div>
       </div>
+      
     </div><span class="sr-only">Loading...</span>
   </div>
   <section id="mian-content">
@@ -257,7 +289,15 @@
     class="bg-gray-100 border-t border-gray-200 shadow md:p-6 dark:bg-gray-950 dark:border-gray-600 bottom-0 left-0 font-maven">
   </footer>
   <script src="/assets/darkmode.js"></script>
-  <script>"dark" === localStorage.getItem("color-theme") || !("color-theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches ? document.documentElement.classList.add("dark") : document.documentElement.classList.remove("dark")</script>
+  <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+</script>
+
   <script type="module" src="./index.js"></script>
 </body>
 

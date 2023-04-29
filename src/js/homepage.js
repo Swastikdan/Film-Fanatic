@@ -51,9 +51,9 @@ function fetchTrendingMovies(page) {
       
         movieElement.innerHTML = `
         <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-900 drop-shadow-lg font-maven">
-        <a href="movie.html?id=${
+        <a href="${movie.media_type}.html?id=${
           movie.id
-        }&type=${movie.media_type}" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+        }" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
           <img src="${CDN}${IMAGE_URL}${movie.poster_path}" loading="lazy" alt="${
           movie.title
         }" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
@@ -160,9 +160,9 @@ function fetchnowplayingMovies(page) {
         movieElement1.classList.add("movie1");
         movieElement1.innerHTML = `
         <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-black drop-shadow-lg font-maven">
-        <a href="movie.html?id=${
+        <a href="${movie1.media_type}.html?id=${
           movie1.id
-        }&type=${movie1.media_type}" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+        }" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
           <img src="${CDN}${IMAGE_URL}${movie1.poster_path}" loading="lazy" alt="${
           movie1.title
         }" class="absolute inset-0 h-full w-full object-cover object-center transition duration-100 group-hover:scale-110" />
@@ -267,7 +267,7 @@ function upcomingMovies(page) {
         movieElement2.classList.add("movie2");
         movieElement2.innerHTML = `
         <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-black drop-shadow-lg font-maven">
-        <a href="movie.html?id=${movie2.id}&type=${movie2.media_type}" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+        <a href="${movie2.media_type}.html?id=${movie2.id}&type=${movie2.media_type}" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
           <img src="${CDN}${IMAGE_URL}${movie2.poster_path}" loading="lazy" alt="${
           movie2.title
         }" class="absolute inset-0 h-full w-full object-cover object-center transition duration-100 group-hover:scale-110" />
