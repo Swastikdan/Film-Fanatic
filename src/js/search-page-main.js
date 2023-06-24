@@ -1,7 +1,7 @@
 const BASE_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "f6f845f4c051289b806ce5fd5434aac1";
 const IMG_URL = "https://image.tmdb.org/t/p/original";
-const CDN = "https://ik.imagekit.io/swastik/tr:f-auto,pr-true,q-10/";
+const CDN = "https://res.cloudinary.com/demo/image/fetch/f_auto,q_10/";
 
 const urlParams = new URLSearchParams(window.location.search);
 const searchTerm = urlParams.get("query");
