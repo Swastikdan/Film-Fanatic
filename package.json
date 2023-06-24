@@ -1,5 +1,5 @@
 {
-  "name": "tmdb-api",
+  "name": "Film_Fanatic",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -19,7 +19,7 @@
     "vite-plugin-html": "^3.2.0"
   },
   "dependencies": {
-    "preline": "^1.8.0",
+    "preline": "^1.9.0",
     "swiper": "^9.2.4"
   }
 }

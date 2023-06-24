@@ -1,8 +1,7 @@
-// Define variables
 const API_KEY = "f6f845f4c051289b806ce5fd5434aac1";
 const BASE_URL = "https://api.themoviedb.org/3/";
 const IMAGE_URL = "https://image.tmdb.org/t/p/original/";
-const CDN = "https://res.cloudinary.com/dubqnzagc/image/fetch/f_auto,q_auto/"
+const CDN = "https://ik.imagekit.io/swastik/tr:f-auto,pr-true,q-10/";
 const trendingContainer = document.getElementById("trending-container");
 const nowplayingContainer = document.getElementById("now-playing-container");
 const upcomingContainer = document.getElementById("upcoming-container");
@@ -18,11 +17,13 @@ let currentPage = 1;
 let totalPages = 1;
 // Fetch the trending movies
 function fetchTrendingMovies(page) {
-  var contentDiv = document.getElementById("loading");
+  var contentDiv = document.getElementById("loading-homepage");
   var mainDiv = document.getElementById("mian-content");
   contentDiv.style.display = "block";
   mainDiv.style.display = "none";
-  fetch(`${BASE_URL}trending/all/week?sort_by=popularity.desc&api_key=${API_KEY}&page=${page}`)
+  fetch(
+    `${BASE_URL}trending/all/week?sort_by=popularity.desc&api_key=${API_KEY}&page=${page}`
+  )
     .then((response) => response.json())
     .then((data) => {
       // Set the total pages
@@ -30,7 +31,7 @@ function fetchTrendingMovies(page) {
 
       // Clear the movies container
       trendingContainer.innerHTML = "";
-     
+
       // Display the movies
       data.results.forEach((movie) => {
         contentDiv.style.display = "none";
@@ -42,21 +43,20 @@ function fetchTrendingMovies(page) {
             ? movieTitle.substring(0, maxChars) + ".."
             : movieTitle;
 
-            const releaseDate = movie.release_date && movie.release_date.substring(0, 4);
-            const year = releaseDate || "Ongoing";
-          
+        const releaseDate =
+          movie.release_date && movie.release_date.substring(0, 4);
+        const year = releaseDate || "Ongoing";
 
         const movieElement = document.createElement("div");
         movieElement.classList.add("movie");
-      
+
         movieElement.innerHTML = `
         <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-900 drop-shadow-lg font-maven">
-        <a href="${movie.media_type}.html?id=${
-          movie.id
-        }" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
-          <img src="${CDN}${IMAGE_URL}${movie.poster_path}" loading="lazy" alt="${
-          movie.title
-        }" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+        <a href="${movie.media_type}.html?id=${movie.id
+          }" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+          <img src="${CDN}${IMAGE_URL}${movie.poster_path
+          }" loading="lazy" alt="${movie.title
+          }" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
           <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-70">
           <button class="opacity-0 group-hover:opacity-100 transition duration-100">
 
@@ -64,13 +64,17 @@ function fetchTrendingMovies(page) {
           </button>
         </div>
           <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>  
-          <span class="relative flex items-center gap-1.5 text-${getColor(movie.vote_average)}-600  mr-3 mb-3 inline-block rounded-lg  px-[3px] py-[3px] ${
+          <span class="relative flex items-center gap-1.5 text-${getColor(
             movie.vote_average
-          } font-bold text-md bg-${getColor(movie.vote_average)}-100 border-[2px] border-${getColor(movie.vote_average)}-300 backdrop-blur md:px-3 "><svg aria-hidden="true" class="w-5 h-5  text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>${
-          Math.round(movie.vote_average * 10)
+          )}-600  mr-3 mb-3 inline-block rounded-lg  px-[3px] py-[3px] ${movie.vote_average
+          } font-bold text-md bg-${getColor(
+            movie.vote_average
+          )}-100 border-[2px] border-${getColor(
+            movie.vote_average
+          )}-300 backdrop-blur md:px-3 "><svg aria-hidden="true" class="w-5 h-5  text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>${Math.round(movie.vote_average * 10)
             .toString()
             .replace(".", "") / 10
-        }/10
+          }/10
           </span>
         </a>
         
@@ -81,16 +85,16 @@ function fetchTrendingMovies(page) {
           <div class="flex justify-between pt-5">
             <span class="text-sm  text-black dark:text-gray-100">${year}</span>
             <div class="flex space-x-5 ">
-            <span  class="relative   inline-block rounded-lg border border-blue-500 bg-blue-200 px-2 py-1 text-xs text-blue-700 dark:text-blue-500 backdrop-blur md:px-3 md:text-sm uppercase">${movie.media_type}</span>
-            <span class="relative  inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-black dark:text-gray-100 backdrop-blur md:px-3 md:text-sm uppercase">${
-              movie.original_language
-            }</span>
+            <span  class="relative   inline-block rounded-lg border border-blue-500 bg-blue-200 px-2 py-1 text-xs text-blue-700 dark:text-blue-500 backdrop-blur md:px-3 md:text-sm uppercase">${movie.media_type
+          }</span>
+            <span class="relative  inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-black dark:text-gray-100 backdrop-blur md:px-3 md:text-sm uppercase">${movie.original_language
+          }</span>
     
             </div></div>
         </div>
         </div>
         `;
-        
+
         trendingContainer.appendChild(movieElement);
       });
 
@@ -154,18 +158,16 @@ function fetchnowplayingMovies(page) {
         const year = releaseDate || "";
 
         // do something with truncatedTitle and year
-      
 
         const movieElement1 = document.createElement("div");
         movieElement1.classList.add("movie1");
         movieElement1.innerHTML = `
         <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-black drop-shadow-lg font-maven">
-        <a href="${movie1.media_type}.html?id=${
-          movie1.id
-        }" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
-          <img src="${CDN}${IMAGE_URL}${movie1.poster_path}" loading="lazy" alt="${
-          movie1.title
-        }" class="absolute inset-0 h-full w-full object-cover object-center transition duration-100 group-hover:scale-110" />
+        <a href="movie.html?id=${movie1.id
+          }" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+          <img src="${CDN}${IMAGE_URL}${movie1.poster_path
+          }" loading="lazy" alt="${movie1.title
+          }" class="absolute inset-0 h-full w-full object-cover object-center transition duration-100 group-hover:scale-110" />
           <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-70">
           <button class="opacity-0 group-hover:opacity-100 transition duration-100">
 
@@ -173,13 +175,17 @@ function fetchnowplayingMovies(page) {
           </button>
         </div>
           <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>  
-          <span class="relative flex items-center gap-1.5 text-${getColor(movie1.vote_average)}-600  mr-3 mb-3 inline-block rounded-lg  px-[3px] py-[3px] ${
+          <span class="relative flex items-center gap-1.5 text-${getColor(
             movie1.vote_average
-          } font-bold text-md bg-${getColor(movie1.vote_average)}-100 border-[2px] border-${getColor(movie1.vote_average)}-300 backdrop-blur md:px-3 "><svg aria-hidden="true" class="w-5 h-5  text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>${
-          Math.round(movie1.vote_average * 10)
+          )}-600  mr-3 mb-3 inline-block rounded-lg  px-[3px] py-[3px] ${movie1.vote_average
+          } font-bold text-md bg-${getColor(
+            movie1.vote_average
+          )}-100 border-[2px] border-${getColor(
+            movie1.vote_average
+          )}-300 backdrop-blur md:px-3 "><svg aria-hidden="true" class="w-5 h-5  text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>${Math.round(movie1.vote_average * 10)
             .toString()
             .replace(".", "") / 10
-        }/10
+          }/10
           </span>
         </a>
         
@@ -191,9 +197,8 @@ function fetchnowplayingMovies(page) {
             <span class="text-sm  text-black dark:text-gray-100">${year}</span>
             <div class="flex space-x-5 ">
             <span  class="relative   inline-block rounded-lg border border-blue-500 bg-blue-200 px-2 py-1 text-xs text-blue-700 dark:text-blue-500 backdrop-blur md:px-3 md:text-sm uppercase">MOVIE</span>
-            <span class="relative  inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-black dark:text-gray-100 backdrop-blur md:px-3 md:text-sm uppercase">${
-              movie1.original_language
-            }</span>
+            <span class="relative  inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-black dark:text-gray-100 backdrop-blur md:px-3 md:text-sm uppercase">${movie1.original_language
+          }</span>
     
             </div></div>
         </div>
@@ -238,7 +243,6 @@ nextButton1.addEventListener("click", () => {
   }
 });
 
-
 function upcomingMovies(page) {
   fetch(`${BASE_URL}movie/upcoming?api_key=${API_KEY}&page=${page}`)
     .then((response) => response.json())
@@ -261,16 +265,16 @@ function upcomingMovies(page) {
         const year = releaseDate || "";
 
         // do something with truncatedTitle and year
-      
 
         const movieElement2 = document.createElement("div");
         movieElement2.classList.add("movie2");
         movieElement2.innerHTML = `
         <div class="w-full max-w-xs h-full overflow-hidden bg-white rounded-lg shadow-lg dark:bg-black drop-shadow-lg font-maven">
-        <a href="${movie2.media_type}.html?id=${movie2.id}&type=${movie2.media_type}" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
-          <img src="${CDN}${IMAGE_URL}${movie2.poster_path}" loading="lazy" alt="${
-          movie2.title
-        }" class="absolute inset-0 h-full w-full object-cover object-center transition duration-100 group-hover:scale-110" />
+        <a href="movie.html?id=${movie2.id
+          }" class="group relative flex  items-end justify-end overflow-hidden  bg-gray-100 shadow-lg h-96">
+          <img src="${CDN}${IMAGE_URL}${movie2.poster_path
+          }" loading="lazy" alt="${movie2.title
+          }" class="absolute inset-0 h-full w-full object-cover object-center transition duration-100 group-hover:scale-110" />
           <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-70">
           <button class="opacity-0 group-hover:opacity-100 transition duration-100">
 
@@ -278,13 +282,17 @@ function upcomingMovies(page) {
           </button>
         </div>
           <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>  
-          <span class="relative flex items-center gap-1.5 text-${getColor(movie2.vote_average)}-600  mr-3 mb-3 inline-block rounded-lg  px-[3px] py-[3px] ${
+          <span class="relative flex items-center gap-1.5 text-${getColor(
             movie2.vote_average
-          } font-bold text-md bg-${getColor(movie2.vote_average)}-100 border-[2px] border-${getColor(movie2.vote_average)}-300 backdrop-blur md:px-3 "><svg aria-hidden="true" class="w-5 h-5  text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>${
-          Math.round(movie2.vote_average * 10)
+          )}-600  mr-3 mb-3 inline-block rounded-lg  px-[3px] py-[3px] ${movie2.vote_average
+          } font-bold text-md bg-${getColor(
+            movie2.vote_average
+          )}-100 border-[2px] border-${getColor(
+            movie2.vote_average
+          )}-300 backdrop-blur md:px-3 "><svg aria-hidden="true" class="w-5 h-5  text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>${Math.round(movie2.vote_average * 10)
             .toString()
             .replace(".", "") / 10
-        }/10
+          }/10
           </span>
         </a>
         
@@ -296,9 +304,8 @@ function upcomingMovies(page) {
             <span class="text-sm  text-black dark:text-gray-100">${year}</span>
             <div class="flex space-x-5 ">
             <span  class="relative   inline-block rounded-lg border border-blue-500 bg-blue-200 px-2 py-1 text-xs text-blue-700 dark:text-blue-500 backdrop-blur md:px-3 md:text-sm uppercase">MOVIE</span>
-            <span class="relative  inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-black dark:text-gray-100 backdrop-blur md:px-3 md:text-sm uppercase">${
-              movie2.original_language
-            }</span>
+            <span class="relative  inline-block rounded-lg border border-gray-500 px-2 py-1 text-xs text-black dark:text-gray-100 backdrop-blur md:px-3 md:text-sm uppercase">${movie2.original_language
+          }</span>
     
             </div></div>
         </div>
@@ -343,7 +350,6 @@ nextButton2.addEventListener("click", () => {
   }
 });
 
-
 // Search for movies
 function getColor(vote) {
   if (vote >= 7) {
@@ -354,7 +360,6 @@ function getColor(vote) {
     return "red";
   }
 }
-
 
 searchButton.addEventListener("click", () => {
   const searchTerm = searchInput.value;

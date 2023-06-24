@@ -1,0 +1,5 @@
+import './tailwind.css'
+// import './src/js/footer.js'
+// import './public/assets/darkmode.js'
+import './src/js/loading-homepage.js'
+import './src/js/homepage-movies.js'
