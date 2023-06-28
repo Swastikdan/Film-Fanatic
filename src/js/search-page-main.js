@@ -305,7 +305,7 @@ ${innerHtml}
           movies[i].poster_path;
           if (movies[i].poster_path === undefined) {
             imagePath =
-              CDN + "https://via.placeholder.com/300x450?text=Image+Not+Found";
+              "https://via.placeholder.com/300x450?text=Image+Not+Found";
           } else {
             imagePath = CDN + IMG_URL + movies[i].poster_path;
           }
