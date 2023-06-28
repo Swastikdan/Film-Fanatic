@@ -130,8 +130,7 @@ function showMovies(movies) {
     let displayMediatype;
     movies[0].poster_path;
     if (movies[0].poster_path === undefined) {
-      imagePath =
-        CDN + "https://via.placeholder.com/300x450?text=Image+Not+Found";
+      imagePath = "https://via.placeholder.com/300x450?text=Image+Not+Found";
     } else {
       imagePath = CDN + IMG_URL + movies[0].poster_path;
     }
