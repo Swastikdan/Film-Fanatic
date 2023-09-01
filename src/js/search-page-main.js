@@ -1,8 +1,6 @@
 const BASE_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "f6f845f4c051289b806ce5fd5434aac1";
 const IMG_URL = "https://image.tmdb.org/t/p/original";
-const CDN = "https://ik.imagekit.io/swastik/tr:f-auto,pr-true,q-10/";
-
 const urlParams = new URLSearchParams(window.location.search);
 const searchTerm = urlParams.get("query");
 
@@ -132,7 +130,7 @@ function showMovies(movies) {
     if (movies[0].poster_path === undefined) {
       imagePath = "https://via.placeholder.com/300x450?text=Image+Not+Found";
     } else {
-      imagePath = CDN + IMG_URL + movies[0].poster_path;
+      imagePath = IMG_URL + movies[0].poster_path;
     }
     if (movies[0].overview === undefined) {
       overview = "No Description Found";
@@ -307,7 +305,7 @@ ${innerHtml}
             imagePath =
               "https://via.placeholder.com/300x450?text=Image+Not+Found";
           } else {
-            imagePath = CDN + IMG_URL + movies[i].poster_path;
+            imagePath = IMG_URL + movies[i].poster_path;
           }
           if (movies[i].overview === undefined) {
             overview = "No Description Found";
