@@ -1,0 +1,98 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const key = import.meta.env.ApiKeyAuth;
+const url = import.meta.env.ApiUrl;
+export function getStaticPaths() {
+  return [
+    { params: { slug: "trending" } },
+    { params: { slug: "now-playing" } },
+    { params: { slug: "upcoming" } },
+  ];
+}
+export const prerender = true;
+const { slug } = Astro.params;
+
+const page = Astro.url.searchParams.get("page") || "1";
+
+async function trending(page: string) {
+  try {
+    const response = await fetch(
+      `${url}/trending/all/week?sort_by=popularity.desc&api_key=${key}&page=${page}`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function nowplaying(page: string) {
+  try {
+    const response = await fetch(
+      `${url}/movie/now_playing?api_key=${key}&page=${page}`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+async function upcoming(page: string) {
+  try {
+    const response = await fetch(
+      `${url}/movie/upcoming?api_key=${key}&page=${page}`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+let result: any;
+
+try {
+  const slugFunctions = {
+    "trending": trending,
+    "now-playing": nowplaying,
+    "upcoming": upcoming,
+  };
+
+  if (slugFunctions[slug]) {
+    result = JSON.stringify(await slugFunctions[slug](page));
+  } else {
+    throw new Error(`Invalid slug: ${slug}`);
+  }
+} catch (error) {
+  console.error(`There was a problem: ${error.message}`);
+}
+let data = JSON.parse(result);
+let maxPage = Math.min(data.total_pages, 500);
+---
+
+<Layout>
+    {Number(page) > maxPage || Number(page) > 500 ? (
+        <div>Page not found</div>
+    ) : (
+        <>
+            <div>Good slug, {slug}! {page}</div>
+            {
+                Number(page) > 1 ? (
+                    <a href={`/${slug}?page=${Number(page) - 1}`}>Before</a>
+                ) : (
+                    <span>Before</span>
+                )
+            }
+
+            {
+                Number(page) < maxPage ? (
+                    <a href={`/${slug}?page=${Number(page) + 1}`}>Next</a>
+                ) : (
+                    <span>Next</span>
+                )
+            }
+            <div>{JSON.stringify(data)}</div>
+        </>
+    )}
+</Layout>

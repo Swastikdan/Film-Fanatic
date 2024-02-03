@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets";
+import Logo from "../images/logo.svg";
+import Navmenu from "./Navmenu";
+---
+
+<nav>
+  <div>
+    <Image src={Logo} alt="Logo" />
+    <span>Film Fanatic</span>
+  </div>
+
+  <div>
+    <Navmenu client:load />
+  </div>
+</nav>
