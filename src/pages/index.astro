@@ -1,14 +1,11 @@
 ---
+import { MagnifyingGlass } from "@phosphor-icons/react";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
-const key = import.meta.env.ApiKeyAuth;
-const url = import.meta.env.ApiUrl;
-
-const homepagetrending = await fetch(`${url}trending/all/week?sort_by=popularity.desc&api_key=${key}&page=1`).then((res) => res.json());
-
-// console.log(homepagetrending);
-const data = JSON.stringify(homepagetrending);
+import SearchForm from "../components/SearchForm.astro";
+import TrendingMovies from "../components/homepage/TrendingMovies.astro";
 ---
+
 <Layout>
   <!-- <form action="/search">
     <input
@@ -25,5 +22,19 @@ const data = JSON.stringify(homepagetrending);
   <!-- {data} -->
 
   <Navbar />
-  
+  <main>
+    <div class="bg-gray-900 pb-10 md:my-10 md:mx-10 rounded-xl">
+      <div>
+        <h1 class="text-center text-xl lg:text-3xl font-semibold py-10 px-3">
+          Experience the magic of cinema with Film Fanatic
+        </h1>
+      </div>
+      <div class="justify-center mx-auto items-center lg:py-10">
+        <SearchForm />
+      </div>
+    </div>
+    <div class="py-10 mx-auto">
+      <TrendingMovies />
+    </div>
+  </main>
 </Layout>

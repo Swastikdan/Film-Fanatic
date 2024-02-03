@@ -1,0 +1,61 @@
+---
+// interface Props {
+// 	title: string;
+// 	body: string;
+// 	href: string;
+// }
+
+// const { href, title, body } = Astro.props;
+import { Star } from "@phosphor-icons/react";
+import { Image } from "astro:assets";
+const cdn = "https://media.dev.to/cdn-cgi/image/width=300,height=400,fit=cover,gravity=auto,format=auto/"
+const { id ,title, image, rating, year, type , language } = Astro.props;
+const ratingColor = rating > 7 ? "green" : rating > 5 ? "yellow" : "red";
+
+
+---
+
+<a href={`/${type}/${id}`} class="group">
+  <div
+   
+    class=" relative block h-[25rem] overflow-hidden rounded-t-lg "
+  >
+    <Image
+      src={cdn+image}
+      width={500}
+      height={900}
+      decoding="async"
+    loading="lazy"
+      alt="movieImage"
+      class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-105 group-hover:blur-[1px] bg-gray-400"
+    />
+
+    <span
+      class={`absolute left-3 top-3 rounded-lg bg-${ratingColor}-500  px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white flex space-x-2 items-center`}
+    >
+      <Star size={16} weight="fill" />
+      <span>{Number(rating).toFixed(1)}/10</span>
+    </span>
+  </div>
+
+  <div class="bg-white rounded-b-lg">
+    <div class="p-4">
+      <span class="text-xl font-bold text-gray-800 transition duration-100 py-5"></span>
+      <span class="text-xl font-bold text-gray-800 transition duration-100 py-5">{title?.length > 24 ? `${title.substring(0, 24)}...` : title ?? ''}</span>
+      </span>
+      <div class="flex justify-between mt-3">
+        <span class="text-sm text-gray-500 lg:text-base">{new Date(year).getFullYear()}</span>
+        <div class="text-black">
+          <span
+            class="text-sm uppercase mx-2 px-2 py-1 bg-blue-200 text-blue-600 rounded-md"
+            >{type}</span
+          >
+          <span
+            class="text-sm uppercase mx-2 px-2 py-1 bg-gray-200 text-gray-600 rounded-md"
+            >{language}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

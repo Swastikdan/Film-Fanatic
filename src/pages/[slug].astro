@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
+import Navbar from "../components/Navbar.astro";
 const key = import.meta.env.ApiKeyAuth;
 const url = import.meta.env.ApiUrl;
 export function getStaticPaths() {
@@ -72,6 +72,7 @@ let maxPage = Math.min(data.total_pages, 500);
 ---
 
 <Layout>
+  <Navbar />
     {Number(page) > maxPage || Number(page) > 500 ? (
         <div>Page not found</div>
     ) : (

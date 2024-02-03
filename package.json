@@ -15,6 +15,8 @@
     "@astrojs/sitemap": "^3.0.5",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/sora": "^5.0.16",
+    "@fontsource-variable/space-grotesk": "^5.0.16",
+    "@phosphor-icons/react": "^2.0.15",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "astro": "^4.2.6",
