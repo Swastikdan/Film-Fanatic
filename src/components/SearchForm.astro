@@ -1,3 +1,11 @@
+---
+interface Props {
+  quary: string;
+}
+
+const { quary } = Astro.props;
+---
+
 <form action="/search" class="flex max-w-5xl mx-auto items-center px-3 md:px-5">
   <label for="movie-search" class="sr-only">Search</label>
   <div class="relative w-full">
@@ -19,14 +27,14 @@
       type="text"
       id="movie-search"
       name="q"
-      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      placeholder="👁️ What movie or show? Let's find it!"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+      placeholder="👀 What movie or show? Let's find it!" value={quary}
       required
     />
   </div>
   <button
     type="submit"
-    class="inline-flex items-center py-2.5 px-3 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    class="inline-flex items-center py-[9px] px-3 ml-2 text-lg font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
     ><svg
       class="mr-2 -ml-1 w-5 h-5"
       fill="none"

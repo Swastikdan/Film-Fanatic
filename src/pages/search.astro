@@ -1,8 +1,6 @@
 ---
 
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
 import SearchForm from "../components/SearchForm.astro";
 import SearchPageCard from "../components/SearchPageCard.astro";
 const quary = Astro.url.searchParams.get("q");
@@ -42,10 +40,9 @@ if (quary === "") {
 ---
 
 <Layout>
-  <Navbar />
   <main class="">
     <div class="justify-center mx-auto items-center py-10">
-      <SearchForm />
+      <SearchForm quary={quary} />
     </div>
   </main>
 
@@ -68,7 +65,7 @@ if (quary === "") {
                 type={result.media_type}
                 language={result.original_language}
                 genres={result.genre_ids ? result.genre_ids.map(id => id.toString()) : ""}
-                image={`https://image.tmdb.org/t/p/original${result.poster_path}`}
+                image={`https://image.tmdb.org/t/p/original/${result.poster_path}`}
                 />
             ))}
             </div>
@@ -76,5 +73,4 @@ if (quary === "") {
     }
   </div> 
 
-  <Footer />
 </Layout>

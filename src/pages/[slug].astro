@@ -1,7 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
 import SearchForm from "../components/SearchForm.astro";
 import MovieCard from "../components/MovieCard.astro";
 const key = import.meta.env.ApiKeyAuth;
@@ -93,15 +91,16 @@ if (moviedata) {
 } else {
   console.error("moviedata is undefined");
 }
+
 ---
 
 <!-- <div>Good slug, {slug}! {page}</div> -->
-<Layout>
-  <Navbar />
-  <main>
+<Layout >
+  <main >
     <div class="justify-center mx-auto items-center pt-20 pb-10">
-      <SearchForm />
+      <SearchForm quary="" />
     </div>
+    <section>
     {
       Number(page) > maxPage || Number(page) > 500 ? (
         <div class="mx-auto max-w-screen-2xl min-h-[50vh] px-5 md:px-20">
@@ -171,6 +170,7 @@ if (moviedata) {
                                 1,
                                 Number(page) - 1
                               )}`}
+                              aria-label="Previous page"
                               class="px-4 py-2 mx-1 transition-colors duration-300 transform rounded-md bg-gray-800 ext-gray-200 hover:bg-blue-500 hover:text-gray-200"
                             >
                               <div class="flex items-center -mx-1">
@@ -262,6 +262,7 @@ if (moviedata) {
                                 maxPage,
                                 Number(page) + 1
                               )}`}
+                              aria-label="Next page"
                               class="px-4 py-2 mx-1 transition-colors duration-300 transform rounded-md bg-gray-800 ext-gray-200 hover:bg-blue-500 hover:text-gray-200"
                             >
                               <div class="flex items-center -mx-1">
@@ -303,8 +304,8 @@ if (moviedata) {
         </>
       )
     }
+    </section>
   </main>
-  <Footer />
 </Layout>
 
 <!-- {Number(page) > maxPage || Number(page) > 500 ? (

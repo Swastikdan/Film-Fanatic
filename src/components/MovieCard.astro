@@ -14,7 +14,7 @@ interface Props {
 const cdn = "https://media.dev.to/cdn-cgi/image/width=400,height=600,fit=cover,gravity=auto,format=auto/"
 const { id ,title, image, rating, year, type , language } = Astro.props;
 const ratingColor = rating > 7 ? "green" : rating > 5 ? "yellow" : "red";
-const imageUrl = image === 'https://image.tmdb.org/t/p/original/null' ? 'https://via.placeholder.com/300x450?text=Image+Not+Found' : image;
+const imageUrl = (image === 'https://image.tmdb.org/t/p/original/null' || image === 'https://image.tmdb.org/t/p/original/undefined') ? 'https://via.placeholder.com/300x450?text=Image+Not+Found' : image;
 ---
 
 <a href={`/${type}/${id}`} class="group">

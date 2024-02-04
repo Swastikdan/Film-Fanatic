@@ -16,12 +16,12 @@ interface Props {
 const cdn = "https://media.dev.to/cdn-cgi/image/width=400,height=600,fit=cover,gravity=auto,format=auto/"
 const { id , title, date, description, rating, reviews, type, language, genres, image } = Astro.props;
 const ratingColor = Number(rating) > 7 ? "green" : Number(rating) > 5 ? "yellow" : "red";
-const imageUrl = image === 'https://image.tmdb.org/t/p/originalnull' ? 'https://via.placeholder.com/300x450?text=Image+Not+Found' : image;
+const imageUrl = (image === 'https://image.tmdb.org/t/p/original/null' || image === 'https://image.tmdb.org/t/p/original/undefined') ? 'https://via.placeholder.com/300x450?text=Image+Not+Found' : image;
 
 let dateObj = new Date(date);
 let options = { year: 'numeric', month: 'long', day: 'numeric' };
 let formattedDate = dateObj.toLocaleDateString("en-US", options as Intl.DateTimeFormatOptions);
-console.log(genres)
+
 
 function getGenreName(id: string) {
   let genre = genreList.find((genre) => genre.id === id);

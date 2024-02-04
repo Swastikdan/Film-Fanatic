@@ -1,28 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
 import SearchForm from "../components/SearchForm.astro";
 import HomepageTrendingMovies from "../components/homepage/HomepageTrendingMovies.astro";
-import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
-  <!-- <form action="/search">
-    <input
-      class="py=5 px-20"
-      type="text"
-      id="q"
-      name="q"
-      placeholder="search here"
-    />
-
-    <button type="submit">Search</button>
-  </form> -->
-
-  <!-- {data} -->
-
-  <Navbar />
-  <main>
+  <main id="main" >
     <div class="bg-gray-900 pb-10 md:my-10 md:mx-10 rounded-xl">
       <div>
         <h1 class="text-center text-xl lg:text-3xl font-semibold py-10 px-3">
@@ -30,7 +13,7 @@ import Footer from "../components/Footer.astro";
         </h1>
       </div>
       <div class="justify-center mx-auto items-center lg:py-10">
-        <SearchForm />
+        <SearchForm  quary="" />
       </div>
     </div>
     <div class="py-10 mx-auto">
@@ -40,5 +23,4 @@ import Footer from "../components/Footer.astro";
       </div>
     </div>
   </main>
-  <Footer />
 </Layout>
