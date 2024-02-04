@@ -1,9 +1,9 @@
 ---
-import { MagnifyingGlass } from "@phosphor-icons/react";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import SearchForm from "../components/SearchForm.astro";
-import TrendingMovies from "../components/homepage/TrendingMovies.astro";
+import HomepageTrendingMovies from "../components/homepage/HomepageTrendingMovies.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
@@ -34,7 +34,11 @@ import TrendingMovies from "../components/homepage/TrendingMovies.astro";
       </div>
     </div>
     <div class="py-10 mx-auto">
-      <TrendingMovies />
+      <HomepageTrendingMovies />
+
+     
+      </div>
     </div>
   </main>
+  <Footer />
 </Layout>
