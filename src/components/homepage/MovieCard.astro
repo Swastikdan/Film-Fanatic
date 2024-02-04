@@ -6,7 +6,6 @@
 // }
 
 // const { href, title, body } = Astro.props;
-import { Star } from "@phosphor-icons/react";
 import { Image } from "astro:assets";
 const cdn = "https://media.dev.to/cdn-cgi/image/width=300,height=400,fit=cover,gravity=auto,format=auto/"
 const { id ,title, image, rating, year, type , language } = Astro.props;
@@ -33,7 +32,8 @@ const ratingColor = rating > 7 ? "green" : rating > 5 ? "yellow" : "red";
     <span
       class={`absolute left-3 top-3 rounded-lg bg-${ratingColor}-500  px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white flex space-x-2 items-center`}
     >
-      <Star size={16} weight="fill" />
+      
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path></svg>
       <span>{Number(rating).toFixed(1)}/10</span>
     </span>
   </div>
