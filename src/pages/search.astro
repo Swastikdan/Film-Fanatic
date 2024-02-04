@@ -1,33 +1,80 @@
 ---
-import Layout from '../layouts/Layout.astro';
+
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import SearchForm from "../components/SearchForm.astro";
+import SearchPageCard from "../components/SearchPageCard.astro";
 const quary = Astro.url.searchParams.get("q");
 
 const key = import.meta.env.ApiKeyAuth;
 const url = import.meta.env.ApiUrl;
 async function getSearchResults() {
-    try {
-        const response = await fetch(`${url}/search/multi?api_key=${key}&query=${quary}`);
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error(error);
-    }
+  try {
+    const response = await fetch(
+      `${url}/search/multi?api_key=${key}&query=${quary}`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 }
-
 let searchResults: any;
-
 if (quary) {
-    searchResults = JSON.stringify(await getSearchResults());
-    // console.log(searchResults);
+  searchResults = await getSearchResults();
 }
-else {
-    searchResults = null;
+let isError = false;
+
+let errormesssage = "";
+if (quary === "") {
+    isError = true;
+    errormesssage = "Oops! It looks like you forgot to enter a search term.  Please enter a term and try again.";
+} else if (searchResults === undefined || searchResults.success === false) {
+    isError = true;
+    errormesssage = "Sorry, we're experiencing technical difficulties. Please try your search again later.";
+} else if (searchResults.results.length === 0) {
+    isError = true;
+    errormesssage = "We couldn't find any results for your search term. Please try a different keyword.";
+} else {
+    isError = false;
 }
-
-// const data = searchResults ? JSON.parse(searchResults) : {};
-
-
 ---
+
 <Layout>
-  <h1>Search Results for "{searchResults}"</h1>
+  <Navbar />
+  <main class="">
+    <div class="justify-center mx-auto items-center py-10">
+      <SearchForm />
+    </div>
+  </main>
+
+  <div class="flex justify-center items-center px-8">
+    {
+        isError ? (
+            <div class="text-center min-h-[60vh]  py-20">
+            <h1 class=" text-xl lg:text-3xl  text-red-500">{errormesssage}</h1>
+            </div>
+        ) : (
+            <div class="flex flex-col space-y-10 md:gap-5 ">
+            {searchResults && searchResults.results && searchResults.results.map((result: any) => (
+                <SearchPageCard
+                id={result.id}
+                title={result.title || result.name}
+                date={result.release_date || result.first_air_date}
+                description={result.overview}
+                rating={result.vote_average}
+                reviews={result.vote_count}
+                type={result.media_type}
+                language={result.original_language}
+                genres={result.genre_ids ? result.genre_ids.map(id => id.toString()) : ""}
+                image={`https://image.tmdb.org/t/p/original${result.poster_path}`}
+                />
+            ))}
+            </div>
+        )
+    }
+  </div> 
+
+  <Footer />
 </Layout>

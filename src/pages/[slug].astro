@@ -71,7 +71,6 @@ interface MovieData {
 }
 
 let moviedata: MovieData | null = null;
-
 try {
   const slugFunctions = {
     trending: trending,
@@ -100,20 +99,12 @@ if (moviedata) {
 <Layout>
   <Navbar />
   <main>
-    <!-- <div class="bg-gray-900 pb-10 md:my-10 md:mx-10 rounded-xl">
-      <div>
-        <h1 class="text-center text-xl lg:text-3xl font-semibold py-10 px-3">
-          Experience the magic of cinema with Film Fanatic
-        </h1>
-      </div>
-      
-    </div> -->
     <div class="justify-center mx-auto items-center pt-20 pb-10">
       <SearchForm />
     </div>
     {
       Number(page) > maxPage || Number(page) > 500 ? (
-        <div class="mx-auto max-w-screen-2xl px-5 md:px-20">
+        <div class="mx-auto max-w-screen-2xl min-h-[50vh] px-5 md:px-20">
           <div class="flex justify-center items-center">
             <p class="text-center text-red-500 text-2xl md:text-3xl font-medium">
               Page Not Found , It should be less than 
@@ -138,7 +129,7 @@ if (moviedata) {
                   moviedata.results &&
                   moviedata.results.length > 0 ? (
                     <div class="mx-auto max-w-screen-2xl px-5 md:px-20">
-                      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                      <div class="grid  gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                         {moviedata.results.map((movie: any) => (
                           <MovieCard
                             id={movie.id}
@@ -171,7 +162,7 @@ if (moviedata) {
                                   />
                                 </svg>
 
-                                <span class="mx-1">Prev</span>
+                                
                               </div>
                             </div>
                           ) : (
@@ -198,7 +189,7 @@ if (moviedata) {
                                   />
                                 </svg>
 
-                                <span class="mx-1">Prev</span>
+                                
                               </div>
                             </a>
                           )}
@@ -247,7 +238,7 @@ if (moviedata) {
                           {page == maxPage ? (
                             <div class="px-4 py-2 mx-1 transition-colors duration-300 transform rounded-md bg-gray-800 ext-gray-200 disabled cursor-not-allowed opacity-30">
                               <div class="flex items-center -mx-1">
-                                <span class="mx-1">Next</span>
+                                
 
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -274,7 +265,7 @@ if (moviedata) {
                               class="px-4 py-2 mx-1 transition-colors duration-300 transform rounded-md bg-gray-800 ext-gray-200 hover:bg-blue-500 hover:text-gray-200"
                             >
                               <div class="flex items-center -mx-1">
-                                <span class="mx-1">Next</span>
+                                
 
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -297,7 +288,7 @@ if (moviedata) {
                       </div>
                     </div>
                   ) : (
-                    <div class="mx-auto max-w-screen-2xl px-5 md:px-20">
+                    <div class="mx-auto max-w-screen-2xl min-h-[50vh] px-5 md:px-20">
                       <div class="flex justify-center items-center">
                         <p class="text-center text-red-500 text-2xl md:text-3xl font-medium">
                           Something went wrong. Please try again later.
@@ -313,6 +304,7 @@ if (moviedata) {
       )
     }
   </main>
+  <Footer />
 </Layout>
 
 <!-- {Number(page) > maxPage || Number(page) > 500 ? (

@@ -8,25 +8,64 @@ const navlinks = [
 
 ---
 
-<style>
-    #sortbox:checked ~ #sortboxmenu {
-        opacity: 1;
-    }
-</style>
-
-<div class="relative md:hidden ">
-    <input type="checkbox" id="sortbox" class="hidden absolute">
-    <label for="sortbox" class="flex items-center space-x-1 cursor-pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 256 256" data-astro-cid-jd76xofe="true"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"></path></svg>
-    </label>
-
-        <div id="sortboxmenu" class="absolute mt-1 right-1 top-full min-w-max shadow  opacity-0 bg-gray-900  transition-all duration-200 rounded-md  ease-in-out z-10">
-        <ul class="block text-left  ">
-            {navlinks.map((link) => (
+   <li class="toggleable hover:text-white md:hidden">
+        <input type="checkbox" value="selected" id="toggle-one" class="toggle-input">
+          <label for="toggle-one" class="block cursor-pointer text-lg font-bold ring-2 px-2 py-1 ring-white text-center">Menu</label>
+          <div class="py-3 mega-menu mb-16 sm:mb-0 shadow-xl bg-gray-800 z-20 mt-4">
+            <div class="container mx-auto w-full flex flex-wrap justify-between ">
+              <ul class=" w-full  pb-3">
+                 {navlinks.map((link) => (
                 <li>
-                    <a href={link.href} class="block pl-5 pr-10 py-3 text-[22px] text-white font-medium hover:bg-gray-800">{link.name}</a>
+                  <a href={link.href} class="block pl-5 pr-10 py-3 text-[22px] text-white font-medium hover:bg-gray-600">{link.name}</a>
                 </li>
-            ))}
-        </ul>
-    </div>
-</div>
+                ))}
+              </ul>
+             
+              </div>
+            </div>
+          </li>
+
+<style>
+      .mega-menu {
+    display: none;
+    left: 0;
+    position: absolute;
+    text-align: left;
+    width: 100%;
+  }
+
+.toggleable > label:after {
+    content: "\25BC";
+    font-size: 10px;
+    padding-left: 6px;
+    position: relative;
+    top: -1px;
+  }
+
+  .toggle-input {
+    display: none;
+  }
+  .toggle-input:not(checked) ~ .mega-menu {
+    display: none;
+  }
+
+  .toggle-input:checked ~ .mega-menu {
+    display: block;
+  }
+
+  .toggle-input:checked + label {
+    color: white;
+    background: rgb(59, 130 ,246) /*@apply bg-blue-800 */
+  }
+
+  .toggle-input:checked ~ label:after {
+    content: "\25B2";
+    font-size: 10px;
+    padding-left: 6px;
+    position: relative;
+    top: -1px;
+  }
+  li{
+    list-style: none;
+  }
+</style>
