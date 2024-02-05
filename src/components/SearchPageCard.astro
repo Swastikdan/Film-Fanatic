@@ -27,10 +27,11 @@ function getGenreName(id: string) {
   let genre = genreList.find((genre) => genre.id === id);
   return genre?.name;
 }
+const urltitle = title.replace(/ /g, "-").toLowerCase();
 ---
 
 
- <a href={`/${type}/${id}`}
+ <a href={`/${type}/${id}/${urltitle}`}
       class="flex flex-col lg:flex-row max-w-3xl justify-between bg-gray-800 rounded-xl opacity-90 focus:outline-2 outline-white hover:scale-105 transform transition duration-200 ease-in-out"
     >
       <div class="w-full lg:w-1/3 block grid place-items-center p-3">

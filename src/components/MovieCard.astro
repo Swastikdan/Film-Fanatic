@@ -15,12 +15,13 @@ const cdn = "https://media.dev.to/cdn-cgi/image/width=400,height=600,fit=cover,g
 const { id ,title, image, rating, year, type , language } = Astro.props;
 const ratingColor = rating > 7 ? "green" : rating > 5 ? "yellow" : "red";
 const imageUrl = (image === 'https://image.tmdb.org/t/p/original/null' || image === 'https://image.tmdb.org/t/p/original/undefined') ? 'https://via.placeholder.com/300x450?text=Image+Not+Found' : image;
+const urltitle = title.replace(/ /g, "-").toLowerCase();
 ---
 
-<a href={`/${type}/${id}`} class="group">
-  <div
+<a href={`/${type}/${id}/${urltitle}`} class="group">
+  <div 
     class="relative block h-[20rem] overflow-hidden rounded-t-lg ">
-    <Image
+    <Image 
       src={cdn+imageUrl}
       width={500}
       height={900}
@@ -28,6 +29,7 @@ const imageUrl = (image === 'https://image.tmdb.org/t/p/original/null' || image 
     loading="lazy"
       alt="movieImage"
       class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-105 bg-gray-400"
+      transition:name="media-player"
     />
 
     <span
@@ -41,7 +43,7 @@ const imageUrl = (image === 'https://image.tmdb.org/t/p/original/null' || image 
 
   <div class="bg-white rounded-b-lg">
     <div class="p-4">
-        <span class="text-lg font-bold text-gray-800 transition duration-100 py-5">{title?.length > 20 ? `${title.substring(0, 20)}...` : title ?? ''}</span>
+        <span class="hidden md:flex text-lg font-bold text-gray-800 transition duration-100 py-5">{title?.length > 20 ? `${title.substring(0, 20)}...` : title ?? ''}</span>
       <span class="md:hidden text-lg font-bold text-gray-800 transition duration-100 py-5">{title?.length > 24 ? `${title.substring(0, 24)}...` : title ?? ''}</span>
       </span>
       <div class="flex justify-between mt-3">

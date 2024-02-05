@@ -25,15 +25,25 @@ import Footer from "../components/Footer.astro";
 <meta name="theme-color" content="#030712">
     <meta name="generator" content={Astro.generator} />
     <title>Home</title>
-    <ViewTransitions fallback="swap">
+    <ViewTransitions />
   </head>
   <body class="font-sora text-white bg-gray-950">
     
     <Navbar />
+   
+
     
     <slot />
+    
     <Footer />
-
+<script is:inline>
+  document.addEventListener('astro:before-preparation', () => {
+    document.querySelector('#loading').classList.add('opacity-100');
+  });
+  document.addEventListener('astro:after-preparation', () => {
+    document.querySelector('#loading').classList.remove('opacity-100');
+  });
+</script>
     <style is:global>
       * {
         margin: 0;

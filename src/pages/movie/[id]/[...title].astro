@@ -1,16 +1,11 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Navbar from "../../components/Navbar.astro";
-import Footer from "../../components/Footer.astro";
-const {  id } = Astro.params;
+import Layout from "../../../layouts/Layout.astro";
+const { id, title } = Astro.params;
 
-
+const path = Astro.url.pathname;
 ---
 
-<!-- <h1>{type}: {id}</h1> -->
 <Layout>
-  <Navbar />
-
   <main>
     <section class="bg-gray-900 min-h-screen items-start pt-20">
       <div
@@ -28,11 +23,16 @@ const {  id } = Astro.params;
         <h1
           class="mb-4 text-4xl font-bold tracking-tight leading-none lg:mb-6 md:text-5xl xl:text-6xl text-white pt-10"
         >
-          Under Maintenance
+          Under Mentainance
+          <br />
+          <br />
+          <h1 class="text-base font-light">
+            <span class="ring-2 ring-orange-400 text-white px-3 py-2"
+              >path: {path}</span
+            >
+          </h1>
         </h1>
       </div>
     </section>
   </main>
-
-  <Footer />
 </Layout>

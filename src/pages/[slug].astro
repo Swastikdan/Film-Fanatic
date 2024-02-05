@@ -11,7 +11,7 @@ export function getStaticPaths() {
     { params: { slug: "upcoming" } },
   ];
 }
-export const prerender = true;
+// export const prerender = true;
 const { slug } = Astro.params;
 
 const page = Astro.url.searchParams.get("page") || "1";
@@ -127,8 +127,8 @@ if (moviedata) {
                   {moviedata &&
                   moviedata.results &&
                   moviedata.results.length > 0 ? (
-                    <div class="mx-auto max-w-screen-2xl px-5 md:px-20">
-                      <div class="grid  gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                    <div class="mx-auto max-w-screen-2xl ">
+                      <div class="grid  gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 px-7 md:px-20">
                         {moviedata.results.map((movie: any) => (
                           <MovieCard
                             id={movie.id}
