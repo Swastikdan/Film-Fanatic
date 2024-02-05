@@ -1,12 +1,52 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+const key = import.meta.env.ApiKeyAuth;
+const url = import.meta.env.ApiUrl;
 const { id, title } = Astro.params;
-
 const path = Astro.url.pathname;
+async function gettv() {
+  try {
+    const response = await fetch(
+      `${url}/tv/${id}?api_key=${key}&language=en-US&&append_to_response=videos`
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
 
+const tv = await gettv();
+
+if (tv.success === false) {
+  return new Response(null, {
+    status: 404,
+  });
+}
+if (tv.success !== false) {
+  const urltitle =
+    tv.name.replace(/ /g, "-").toLowerCase();
+
+  if (title !== urltitle) {
+    return Astro.redirect(`/movie/${id}/${urltitle}`, 302);
+  }
+}
+const tvtitle: string = tv.title ||tv.name;
+const tvdescription: string =
+  tv.overview.substring(0, 200) ||
+  `Watch ${tvtitle} online for free. ${tvtitle} is a movie from ${
+    tv.release_date || tv.first_air_date
+  }.`;
+const tvogImage: string = tv.poster_path
+  ? `https://media.dev.to/cdn-cgi/image/width=400,height=600,fit=cover,gravity=auto,format=auto/https://image.tmdb.org/t/p/original${tv.poster_path}`
+  : `https://media.dev.to/cdn-cgi/image/width=400,height=600,fit=cover,gravity=auto,format=auto/https://via.placeholder.com/500x750?text=${tvtitle}`;
 ---
 
-<Layout>
+<Layout
+  title={tvtitle}
+  description={tvdescription}
+  ogImage={tvogImage}
+>
   <main>
     <section class="bg-gray-900 min-h-screen items-start pt-20">
       <div
@@ -29,8 +69,8 @@ const path = Astro.url.pathname;
           <br />
           <h1 class="text-base font-light">
             <span class="ring-2 ring-orange-400 text-white px-3 py-2"
-              >path: {path}</span
-            >
+              >path: {path}
+            </span>
           </h1>
         </h1>
       </div>

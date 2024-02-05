@@ -68,6 +68,7 @@ interface MovieData {
   total_pages: number;
 }
 
+
 let moviedata: MovieData | null = null;
 try {
   const slugFunctions = {
@@ -92,10 +93,15 @@ if (moviedata) {
   console.error("moviedata is undefined");
 }
 
+const title:string = slug === "trending"
+  ? "Trending Movies & TV Shows"
+  : slug === "now-playing"
+    ? "Now Playing Movies"
+    : "Upcoming Movies";
+const description = ` Get the latest ${title} and enjoy the best movies and TV shows.`;
 ---
 
-<!-- <div>Good slug, {slug}! {page}</div> -->
-<Layout >
+<Layout title={title} description={description} ogImage="https://media.dev.to/cdn-cgi/image/width=400,height=200,fit=cover,gravity=auto,format=auto/https://film-fanatic.vercel.app/ogimage.jpg" >
   <main >
     <div class="justify-center mx-auto items-center pt-20 pb-10">
       <SearchForm quary="" />
