@@ -43,8 +43,8 @@ const urltitle = title.replace(/ /g, "-").toLowerCase();
 
   <div class="bg-white rounded-b-lg">
     <div class="p-4">
-        <span class="hidden md:flex text-lg font-bold text-gray-800 transition duration-100 py-5">{title?.length > 20 ? `${title.substring(0, 20)}...` : title ?? ''}</span>
-      <span class="md:hidden text-lg font-bold text-gray-800 transition duration-100 py-5">{title?.length > 24 ? `${title.substring(0, 24)}...` : title ?? ''}</span>
+        <!-- <span class="hidden md:flex text-lg font-bold text-gray-800 transition duration-100 py-5">{title?.length > 20 ? `${title.substring(0, 20)}...` : title ?? ''}</span> -->
+      <span class=" text-lg md:text-[16px] font-bold text-gray-800 transition duration-100 py-5">{title?.length > 20 ? `${title.substring(0, 20)} ...` : title ?? ''}</span>
       </span>
       <div class="flex justify-between mt-3">
         <span class="text-sm text-gray-500 lg:text-base">{new Date(year).getFullYear()}</span>
