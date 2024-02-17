@@ -1,0 +1,29 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/jXJxMcVoEuXzym3vFnjqDW4ifo6.jpg",
+            "id": 572802,
+            "title": "Aquaman and the Lost Kingdom",
+            "original_language": "en",
+            "original_title": "Aquaman and the Lost Kingdom",
+            "overview": "Black Manta, still driven by the need to avenge his father's death and wielding the power of the mythic Black Trident, will stop at nothing to take Aquaman down once and for all. To defeat him, Aquaman must turn to his imprisoned brother Orm, the former King of Atlantis, to forge an unlikely alliance in order to save the world from irreversible destruction.",
+            "poster_path": "/8xV47NDrjdZDpkVcCFqkdHa3T0C.jpg",
+            "media_type": "movie",
+            "genre_ids": [
+                28,
+                12,
+                14
+            ],
+            "popularity": 1605.303,
+            "release_date": "2023-12-20",
+            "video": false,
+            "vote_average": 6.539,
+            "vote_count": 304
+        }
+        //other data will be here
+    ],
+    "total_pages": 1000,
+    "total_results": 20000
+}

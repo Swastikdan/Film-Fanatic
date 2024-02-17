@@ -1,0 +1,27 @@
+{
+    "name": "Film Fanatic | Latest Movies, Ratings & Information",
+    "short_name": "Film Fanatic",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "#fafafa",
+    "theme_color": "#fafafa",
+    "display": "standalone",
+    "orientation": "portrait",
+    "description": "Film Fanatic is a web application that provides users with the latest movies, their ratings, and detailed information. We offer a comprehensive database of films to choose from, ensuring movie enthusiasts stay updated with the latest releases and top-rated movies.",
+    "categories": [
+        "entertainment",
+        "movies"
+    ],
+    "lang": "en-US"
+}
