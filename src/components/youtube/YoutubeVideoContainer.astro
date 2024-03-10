@@ -1,0 +1,16 @@
+---
+import { Scroll } from "@phosphor-icons/react"
+import  ScrollContainer from "../ScrollContainer.astro"
+import LazyYoutube from "./LazyYoutube.astro"
+interface Props {
+  youtubekeys : string[]
+  contantainerid: string;
+}
+const { youtubekeys , contantainerid } = Astro.props
+---
+<ScrollContainer contantainerid={contantainerid} >
+  
+    {youtubekeys.map((key) => (
+      <LazyYoutube videoId={key} />
+    ))}
+</ScrollContainer>
