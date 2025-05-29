@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
     inlineCss: true,
     reactCompiler: true,
     optimizeCss: true,
+    ppr: true,
   },
 
   compress: true,
