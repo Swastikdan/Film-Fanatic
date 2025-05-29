@@ -34,7 +34,7 @@ function DesktopNavButton({
     <TooltipProvider delayDuration={100} skipDelayDuration={100}>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Link prefetch={false} href={href} aria-label={label}>
+          <Link href={href} aria-label={label}>
             <Button
               variant={isActive ? "secondary" : "outline"}
               size="icon"
