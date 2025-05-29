@@ -77,7 +77,7 @@ function TrendingWeekMovies() {
 
 function UpcomingMovies() {
   const { data, isFetching, error } = useQuery({
-    queryKey: ["upcoming_movie"],
+    queryKey: ["movies_upcoming"],
     queryFn: async () => await getMedia({ type: "movies_upcoming" }),
     staleTime: 1000 * 60 * 60,
   });
@@ -113,7 +113,7 @@ function UpcomingMovies() {
 
 function PopularMovies() {
   const { data, isFetching, error } = useQuery({
-    queryKey: ["popular_movie"],
+    queryKey: ["movies_popular"],
     queryFn: async () => await getMedia({ type: "movies_popular" }),
     staleTime: 1000 * 60 * 60,
   });
@@ -144,7 +144,7 @@ function PopularMovies() {
 
 function PopularTv() {
   const { data, isFetching, error } = useQuery({
-    queryKey: ["popular_tv"],
+    queryKey: ["tv-shows_popular"],
     queryFn: async () => await getMedia({ type: "tv-shows_popular" }),
     staleTime: 1000 * 60 * 60,
   });
@@ -179,7 +179,7 @@ function PopularTv() {
 
 function TopRatedMovies() {
   const { data, isFetching, error } = useQuery({
-    queryKey: ["top_rated_movies"],
+    queryKey: ["movies_top-rated"],
     queryFn: async () => await getMedia({ type: "movies_top-rated" }),
     staleTime: 1000 * 60 * 60,
   });
@@ -214,7 +214,7 @@ function TopRatedMovies() {
 
 function TopRatedTv() {
   const { data, isFetching, error } = useQuery({
-    queryKey: ["top_rated_tv"],
+    queryKey: ["tv-shows_top-rated"],
     queryFn: async () => await getMedia({ type: "tv-shows_top-rated" }),
     staleTime: 1000 * 60 * 60,
   });
