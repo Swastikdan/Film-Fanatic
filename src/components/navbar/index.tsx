@@ -49,12 +49,7 @@ const DesktopNavMenuItem: React.FC<{
       className="mt-2 w-40 p-2"
     >
       {item.submenu.map((subitem, index) => (
-        <Link
-          prefetch={false}
-          key={index}
-          href={subitem.url}
-          className="cursor-pointer"
-        >
+        <Link key={index} href={subitem.url} className="cursor-pointer">
           <DropdownMenuItem className="h-9 cursor-pointer px-3 text-base">
             {subitem.name}
           </DropdownMenuItem>
@@ -77,12 +72,7 @@ const MobileNavMenuItem: React.FC<{
         {item.name}
       </AccordionTrigger>
       {item.submenu.map((subitem, index) => (
-        <Link
-          prefetch={false}
-          href={subitem.url}
-          key={index}
-          className="cursor-pointer"
-        >
+        <Link href={subitem.url} key={index} className="cursor-pointer">
           <AccordionContent className="hover:bg-accent hover:text-accent-foreground active:bg-accent dark:active:bg-accent/50 dark:hover:bg-accent/50 text-secondary-foreground my-1 flex h-10 items-center justify-center rounded-xl px-4 py-2 text-base font-medium shadow-xs">
             <SheetClose className="w-full items-center justify-center text-left">
               {subitem.name}
@@ -105,12 +95,7 @@ export default function Navbar() {
         role="navigation"
         aria-label="Main Navigation"
       >
-        <Link
-          prefetch={false}
-          href="/"
-          className="flex items-center gap-3"
-          aria-label="Home"
-        >
+        <Link href="/" className="flex items-center gap-3" aria-label="Home">
           <Image
             src="/logo.svg"
             alt="Film Fanatic logo"
