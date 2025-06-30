@@ -132,21 +132,11 @@ export default function Navbar() {
                 {NAV_ITEMS.map((item) => (
                   <MobileNavMenuItem key={item.slug} item={item} />
                 ))}
-<<<<<<< Updated upstream
                 <Link href="/watchlist" className="w-full">
                   <Button className="h-10 w-full justify-start">
                     <Bookmark size={32} className="fill-current" />
                     Watchlist
                   </Button>
-=======
-                <Link prefetch={false} href="/watchlist" className="w-full">
-                  <SheetClose asChild>
-                    <Button className="h-10 w-full justify-start">
-                      <Bookmark size={32} className="fill-current" />
-                      Watchlist
-                    </Button>
-                  </SheetClose>
->>>>>>> Stashed changes
                 </Link>
               </div>
             </SheetContent>
