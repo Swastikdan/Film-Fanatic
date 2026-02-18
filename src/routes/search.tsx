@@ -167,13 +167,13 @@ function SearchPage() {
 					<div className="flex flex-col gap-6 py-6">
 						<h2 className="text-xl font-bold">Trending Now</h2>
 						{isTrendingLoading ? (
-								<div className="grid w-full grid-cols-2 gap-3 sm:gap-4 md:gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+								<div className="grid w-full grid-cols-2 gap-3 sm:gap-4 md:gap-5 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3">
 									{Array.from({ length: 12 }).map((_, index) => (
 										<MediaCardSkeleton key={index} card_type="horizontal" />
 									))}
 								</div>
 							) : (
-								<div className="stagger-grid grid w-full grid-cols-2 gap-3 sm:gap-4 md:gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+								<div className="stagger-grid grid w-full grid-cols-2 gap-3 sm:gap-4 md:gap-5 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3">
 								{trendingData?.map((item) => (
 									<MediaCard
 										key={item.id}
@@ -213,8 +213,8 @@ function SearchPage() {
 							</div>
 							<Skeleton className="h-4 w-20" />
 						</div>
-						<div className="flex min-h-96 w-full items-center justify-center">
-							<div className="grid w-full grid-cols-2 gap-3 sm:gap-4 md:gap-5 py-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+					<div className="flex min-h-96 w-full items-center justify-center">
+						<div className="grid w-full grid-cols-2 gap-3 sm:gap-4 md:gap-5 py-10 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3">
 								{Array.from({ length: 12 }).map((_, index) => (
 									<MediaCardSkeleton key={index} card_type="horizontal" />
 								))}
@@ -345,8 +345,8 @@ function SearchPage() {
 						</span>
 					</div>
 
-					<div className="flex min-h-96 w-full items-center justify-center">
-						<div className="stagger-grid grid w-full grid-cols-2 gap-3 sm:gap-4 md:gap-5 py-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+				<div className="flex min-h-96 w-full items-center justify-center">
+					<div className="stagger-grid grid w-full grid-cols-2 gap-3 sm:gap-4 md:gap-5 py-10 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3">
 							{filteredData.map((item) => (
 								<MediaCard
 									key={item.id}
