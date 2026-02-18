@@ -64,8 +64,8 @@ export const MediaTitleContailer = (props: {
 	useWatchlistCount();
 
 	return (
-		<div className="pt-5 pb-5">
-			<div className="space-y-3 pb-5">
+		<div className="py-4 sm:py-5 md:py-6 lg:py-8">
+			<div className="space-y-3 pb-4 sm:pb-5 md:pb-6">
 				<div className="flex items-center justify-between gap-3">
 					<GoBack title="Back" hideLabelOnMobile />
 					<div className="flex items-center gap-3">

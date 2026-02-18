@@ -71,7 +71,7 @@ const HorizontalCard = (props: MediaCardSpecificProps) => {
 	const year = release_date ? new Date(release_date).getFullYear() : "";
 
 	return (
-		<div className="group relative w-40 md:w-44 lg:w-48">
+		<div className="group relative w-40 sm:w-42 md:w-44 lg:w-48 xl:w-52">
 			<Link
 				// @ts-expect-error - correct link
 				to={`/${media_type}/${id}/${formattedTitle}`}
@@ -161,7 +161,7 @@ const VerticalCard = (props: MediaCardSpecificProps) => {
 
 	return (
 		// Slightly wider card for backdrop images
-		<div className="group relative w-64 md:w-72 lg:w-80">
+		<div className="group relative w-64 sm:w-68 md:w-72 lg:w-80 xl:w-88">
 			<Link
 				// @ts-expect-error - correct link
 				to={`/${media_type}/${id}/${formattedTitle}`}
@@ -239,7 +239,7 @@ const PersonCard = (props: PersonCardSpecificProps) => {
 		<Link
 			to="/person/$id"
 			params={{ id: String(id) }}
-			className="group relative block w-24 md:w-28 lg:w-32 outline-none ring-offset-background transition-all focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+			className="group relative block w-24 sm:w-26 md:w-28 lg:w-32 xl:w-36 outline-none ring-offset-background transition-all focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
 		>
 			<div className="relative aspect-[2/3] w-full overflow-hidden rounded-xl bg-muted shadow-sm transition-all duration-500 group-hover:shadow-md">
 				<Image
@@ -267,7 +267,7 @@ const PersonCard = (props: PersonCardSpecificProps) => {
 const MediaCardSkeleton = (props: MediaCardSkeletonProps) => {
 	if (props.card_type === "horizontal") {
 		return (
-			<div className="w-40 md:w-44 lg:w-48">
+			<div className="w-40 sm:w-42 md:w-44 lg:w-48 xl:w-52">
 				<Skeleton className="aspect-[2/3] w-full rounded-xl" />
 				<div className="mt-3 flex flex-col gap-1">
 					<Skeleton className="h-4 w-3/4 rounded-md" />
@@ -278,7 +278,7 @@ const MediaCardSkeleton = (props: MediaCardSkeletonProps) => {
 	}
 	if (props.card_type === "vertical") {
 		return (
-			<div className="w-64 md:w-72 lg:w-80">
+			<div className="w-64 sm:w-68 md:w-72 lg:w-80 xl:w-88">
 				<Skeleton className="aspect-video w-full rounded-xl" />
 				<div className="mt-3 flex flex-col gap-1">
 					<Skeleton className="h-4 w-3/4 rounded-md" />
@@ -290,7 +290,7 @@ const MediaCardSkeleton = (props: MediaCardSkeletonProps) => {
 
 	// Person skeleton
 	return (
-		<div className="w-24 md:w-28 lg:w-32">
+		<div className="w-24 sm:w-26 md:w-28 lg:w-32 xl:w-36">
 			<Skeleton className="aspect-[2/3] w-full rounded-xl" />
 			<div className="mt-2.5 flex flex-col items-center gap-1.5">
 				<Skeleton className="h-4 w-20 rounded-md" />

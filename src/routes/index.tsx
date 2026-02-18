@@ -20,7 +20,7 @@ function HomePage() {
 	return (
 		<section className="flex flex-col items-center justify-center">
 			<div className="before:-z-[1] before:-translate-x-1/2 before:-translate-y-1/2 relative w-full overflow-hidden before:absolute before:start-1/2 before:top-1/2 before:h-96 before:w-full before:transform before:bg-[url('https://preline.co/assets/svg/component/hyperdrive.svg')] before:bg-center before:bg-no-repeat dark:before:bg-[url('https://preline.co/assets/svg/component-dark/hyperdrive.svg')]">
-				<div className="mx-auto max-w-screen-lg px-4 py-10 pt-5 pb-5 text-center sm:px-6 md:pt-10 lg:px-8 lg:py-14">
+				<div className="mx-auto max-w-screen-lg px-4 py-8 sm:px-6 sm:py-10 md:px-8 md:py-12 lg:py-16 text-center">
 					<div className="py-5">
 						<h1 className="items-center justify-center font-black text-2xl sm:text-5xl md:text-[4rem] lg:text-[5rem] lg:leading-tight">
 							Welcome to
@@ -37,7 +37,7 @@ function HomePage() {
 				</div>
 			</div>
 
-			<div className="mx-auto flex w-full max-w-screen-xl px-5 py-5 pt-5 pb-5 md:pt-10">
+			<div className="mx-auto flex w-full max-w-screen-xl px-4 py-6 sm:px-5 sm:py-8 md:px-6 md:py-10 lg:px-8">
 				<div className="flex w-full flex-col gap-10">
 					<Tabs defaultValue="trending_day">
 						<div className="flex items-center gap-5">

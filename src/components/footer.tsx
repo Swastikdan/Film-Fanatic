@@ -5,7 +5,7 @@ import { SITE_CONFIG } from "@/constants";
 const Footer = () => {
 	return (
 		<footer className="mx-auto flex w-full items-center justify-center border-border border-t-2 font-medium">
-			<section className="flex w-full max-w-screen-xl flex-col items-center justify-between gap-3 px-5 py-5 font-light text-base md:flex-row md:px-10">
+			<section className="flex w-full max-w-screen-xl flex-col items-center justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5 md:px-6 md:py-6 font-light text-base md:flex-row lg:px-8">
 				<p>
 					Made with{" "}
 					<span aria-label="love" role="img">

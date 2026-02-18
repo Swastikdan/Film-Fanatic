@@ -113,13 +113,13 @@ export const MediaContainer = (props: MediaContainerProps) => {
 									<Dialog key={video.key}>
 										<DialogTrigger asChild>
 											<div className="group relative cursor-pointer">
-												<Image
-													alt={video.name}
-													className="bg-foreground/10 aspect-video h-44 w-auto rounded-xl object-cover md:h-52 lg:h-60"
-													height={450}
-													src={`https://img.youtube.com/vi/${video.key}/sddefault.jpg`}
-													width={300}
-												/>
+											<Image
+												alt={video.name}
+												className="bg-foreground/10 aspect-video h-40 w-auto rounded-xl object-cover sm:h-44 md:h-52 lg:h-60 xl:h-64"
+												height={450}
+												src={`https://img.youtube.com/vi/${video.key}/sddefault.jpg`}
+												width={300}
+											/>
 												<span className="absolute top-4 left-4 truncate text-sm text-foreground px-2 py-1 rounded-lg bg-background dark:bg-foreground dark:text-background w-min  turnicate max-w-[250px] md:max-w-[300px] lg:max-w-[400px]">
 													{video.name}
 												</span>
@@ -136,7 +136,7 @@ export const MediaContainer = (props: MediaContainerProps) => {
 											</div>
 										</DialogTrigger>
 										<DialogOverlay className="bg-white/40 backdrop-blur-lg dark:bg-black/0">
-											<DialogContent className="aspect-video w-full max-w-[95vw] sm:max-w-[85vw]  rounded-2xl border-0 bg-transparent p-0 ring-0">
+											<DialogContent className="aspect-video w-full max-w-sm sm:max-w-2xl md:max-w-4xl rounded-2xl border-0 bg-transparent p-0 ring-0">
 												<DialogHeader className="sr-only">
 													<DialogTitle>{video.name}</DialogTitle>
 												</DialogHeader>
@@ -179,14 +179,14 @@ export const MediaContainer = (props: MediaContainerProps) => {
 										<DialogTrigger asChild>
 											<Image
 												alt={title}
-												className="bg-foreground/10 aspect-video h-44 w-auto cursor-pointer rounded-xl object-cover transition-opacity duration-200 ease-in-out hover:opacity-90 md:h-52 lg:h-60 dark:hover:opacity-70"
+												className="bg-foreground/10 aspect-video h-40 w-auto cursor-pointer rounded-xl object-cover transition-opacity duration-200 ease-in-out hover:opacity-90 sm:h-44 md:h-52 lg:h-60 xl:h-64 dark:hover:opacity-70"
 												height={450}
 												src={image.backdrop_image ?? ""}
 												width={300}
 											/>
 										</DialogTrigger>
 										<DialogOverlay className="bg-white/10 backdrop-blur-lg dark:bg-black/0">
-											<DialogContent className="aspect-video w-full max-w-[90vw]  rounded-2xl border-0 bg-secondary p-0 ring-0">
+											<DialogContent className="aspect-video w-full max-w-sm sm:max-w-2xl md:max-w-4xl rounded-2xl border-0 bg-secondary p-0 ring-0">
 												<DialogHeader className="sr-only">
 													<DialogTitle>{title} Backdrop Image</DialogTitle>
 												</DialogHeader>
@@ -229,14 +229,14 @@ export const MediaContainer = (props: MediaContainerProps) => {
 										<DialogTrigger asChild>
 											<Image
 												alt={title}
-												className="bg-foreground/10 aspect-[11/16] h-44 w-auto cursor-pointer rounded-xl object-cover transition-opacity duration-200 ease-in-out hover:opacity-90 md:h-52 lg:h-60 dark:hover:opacity-70 "
+												className="bg-foreground/10 aspect-[2/3] h-40 w-auto cursor-pointer rounded-xl object-cover transition-opacity duration-200 ease-in-out hover:opacity-90 sm:h-44 md:h-52 lg:h-60 xl:h-64 dark:hover:opacity-70 "
 												height={300}
 												src={image.poster_image ?? ""}
 												width={450}
 											/>
 										</DialogTrigger>
 										<DialogOverlay className="bg-white/40 backdrop-blur-lg dark:bg-black/0">
-											<DialogContent className="aspect-[11/16] h-auto max-h-[90vh] w-full max-w-[90vw] rounded-2xl border-0  p-0 ring-0 sm:h-full sm:w-auto bg-secondary">
+											<DialogContent className="aspect-[2/3] h-auto max-h-[90vh] w-full max-w-sm sm:max-w-md md:max-w-lg rounded-2xl border-0  p-0 ring-0 bg-secondary">
 												<DialogHeader className="sr-only">
 													<DialogTitle>{title} Poster Image</DialogTitle>
 												</DialogHeader>

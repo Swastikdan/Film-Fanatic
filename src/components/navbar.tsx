@@ -110,7 +110,7 @@ const Navbar = () => {
 	return (
 		<header className="sticky top-0 z-50 mx-auto flex w-full flex-col items-center border-border border-b-2 bg-background transition-transform duration-300">
 			<nav
-				className="flex w-full max-w-screen-xl items-center justify-between p-3"
+				className="flex w-full max-w-screen-xl items-center justify-between px-4 py-3 sm:px-5 sm:py-3.5 md:px-6 lg:px-8"
 				aria-label="Main Navigation"
 			>
 				<Link to="/" className="flex items-center gap-3" aria-label="Home">

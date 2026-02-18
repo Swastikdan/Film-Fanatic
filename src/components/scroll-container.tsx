@@ -172,9 +172,9 @@ export const ScrollContainer: React.FC<ScrollContainerProps> = ({
 			<section
 				ref={scrollRef}
 				aria-label="Scrollable content"
-				className="scrollbar-hidden relative w-full overflow-x-auto scroll-smooth rounded-md"
+				className="scrollbar-hidden relative w-full overflow-x-auto scroll-smooth rounded-md px-4 sm:px-0"
 			>
-				<div className="flex w-max items-center">{children}</div>
+				<div className="flex w-max items-center gap-2 sm:gap-3 md:gap-4 py-2">{children}</div>
 			</section>
 			{isControlsEnabled && canScrollRight && (
 				<Button

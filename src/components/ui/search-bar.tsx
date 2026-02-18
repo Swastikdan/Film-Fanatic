@@ -184,7 +184,7 @@ const SearchBar = memo(
 						disabled={disabled || isLoading}
 						autoFocus={autoFocus}
 						className={cn(
-							"peer h-12 w-full rounded-xl bg-transparent ps-12 pr-10  sm:h-11 text-[16px] md:text-[16px]",
+							"peer h-10 w-full rounded-xl bg-transparent ps-12 pr-10 sm:h-11 md:h-12 text-[16px]",
 							disabled && "cursor-not-allowed opacity-50",
 						)}
 						aria-label="Search Input"
@@ -212,7 +212,7 @@ const SearchBar = memo(
 SearchBar.displayName = "SearchBar";
 
 const SearchBarSkeleton = memo(function SearchBarSkeleton() {
-	return <Skeleton className="h-12 w-full rounded-xl" />;
+	return <Skeleton className="h-10 w-full rounded-xl sm:h-11 md:h-12" />;
 });
 
 SearchBarSkeleton.displayName = "SearchBarSkeleton";

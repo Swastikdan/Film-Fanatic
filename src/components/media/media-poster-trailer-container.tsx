@@ -42,7 +42,7 @@ export function MediaPosterTrailerContainer(props: {
 			<div className="relative group shrink-0 w-full sm:w-auto overflow-hidden rounded-xl">
 				<Image
 					alt={title}
-					className="bg-accent h-full w-full rounded-xl object-center sm:h-56 sm:w-auto md:h-70 lg:h-80"
+					className="bg-accent aspect-[2/3] h-auto w-full rounded-xl object-cover sm:h-56 sm:w-44 md:h-64 md:w-52 lg:h-80 lg:w-64"
 					height={450}
 					src={image}
 					width={300}
@@ -88,7 +88,7 @@ export function MediaPosterTrailerContainer(props: {
 									</button>
 								</DialogTrigger>
 								<DialogOverlay className="bg-black/80 backdrop-blur-md">
-									<DialogContent className="aspect-video w-full max-w-[95vw] sm:max-w-[85vw] rounded-xl border-0 p-0 ring-0">
+									<DialogContent className="aspect-video w-full max-w-sm sm:max-w-2xl md:max-w-4xl rounded-xl border-0 p-0 ring-0">
 										<DialogHeader className="sr-only">
 											<DialogTitle>{video.name}</DialogTitle>
 										</DialogHeader>
