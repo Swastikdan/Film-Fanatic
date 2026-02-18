@@ -416,7 +416,7 @@ function EpisodeCard({
 
 				{/* Description with Read More toggle */}
 				{episode.overview ? (
-					<div className="mt-0.5 hidden sm:block">
+					<div className="mt-0.5 hidden md:block">
 						<p className="text-xs leading-relaxed text-muted-foreground">
 							{expanded || !hasLongOverview
 								? episode.overview

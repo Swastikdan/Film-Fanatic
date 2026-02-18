@@ -162,18 +162,18 @@ function SearchPage() {
 	if (!query) {
 		return (
 			<section className="flex w-full justify-center">
-				<div className="mx-auto w-full max-w-screen-xl p-5">
+				<div className="mx-auto w-full max-w-screen-xl px-4 py-4 sm:px-5 sm:py-5 md:px-6 lg:px-8">
 					<SearchBar query={query} updateUrlOnChange />
-					<div className="flex flex-col gap-5 py-5">
+					<div className="flex flex-col gap-6 py-6">
 						<h2 className="text-xl font-bold">Trending Now</h2>
 						{isTrendingLoading ? (
-							<div className="grid w-full grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-								{Array.from({ length: 12 }).map((_, index) => (
-									<MediaCardSkeleton key={index} card_type="horizontal" />
-								))}
-							</div>
-						) : (
-							<div className="stagger-grid grid w-full grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+								<div className="grid w-full grid-cols-2 gap-3 sm:gap-4 md:gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+									{Array.from({ length: 12 }).map((_, index) => (
+										<MediaCardSkeleton key={index} card_type="horizontal" />
+									))}
+								</div>
+							) : (
+								<div className="stagger-grid grid w-full grid-cols-2 gap-3 sm:gap-4 md:gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
 								{trendingData?.map((item) => (
 									<MediaCard
 										key={item.id}
@@ -202,9 +202,9 @@ function SearchPage() {
 	if (isLoadingState) {
 		return (
 			<section className="flex w-full justify-center">
-				<div className="mx-auto w-full max-w-screen-xl p-5">
+				<div className="mx-auto w-full max-w-screen-xl px-4 py-4 sm:px-5 sm:py-5 md:px-6 lg:px-8">
 					<SearchBar query={query} updateUrlOnChange />
-					<div className="flex h-full flex-col gap-5 py-5">
+					<div className="flex h-full flex-col gap-6 py-6">
 						<div className="flex h-10 items-center justify-between">
 							<div className="flex items-center gap-2">
 								{Array.from({ length: 3 }).map((_, index) => (
@@ -214,7 +214,7 @@ function SearchPage() {
 							<Skeleton className="h-4 w-20" />
 						</div>
 						<div className="flex min-h-96 w-full items-center justify-center">
-							<div className="grid w-full grid-cols-2 gap-5 py-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+							<div className="grid w-full grid-cols-2 gap-3 sm:gap-4 md:gap-5 py-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
 								{Array.from({ length: 12 }).map((_, index) => (
 									<MediaCardSkeleton key={index} card_type="horizontal" />
 								))}
@@ -230,7 +230,7 @@ function SearchPage() {
 	if (error) {
 		return (
 			<section className="flex w-full justify-center">
-				<div className="mx-auto w-full max-w-screen-xl p-5">
+				<div className="mx-auto w-full max-w-screen-xl px-4 py-4 sm:px-5 sm:py-5 md:px-6 lg:px-8">
 					<SearchBar query={query} updateUrlOnChange />
 					<DefaultEmptyState
 						onReset={() => {
@@ -253,7 +253,7 @@ function SearchPage() {
 	if (filteredData.length === 0) {
 		return (
 			<section className="flex w-full justify-center">
-				<div className="mx-auto w-full max-w-screen-xl p-5">
+				<div className="mx-auto w-full max-w-screen-xl px-4 py-4 sm:px-5 sm:py-5 md:px-6 lg:px-8">
 					<SearchBar query={query} updateUrlOnChange />
 					<DefaultEmptyState
 						onReset={() => {
@@ -282,11 +282,11 @@ function SearchPage() {
 
 	return (
 		<section className="flex w-full justify-center">
-			<div className="mx-auto w-full max-w-screen-xl p-5">
+			<div className="mx-auto w-full max-w-screen-xl px-4 py-4 sm:px-5 sm:py-5 md:px-6 lg:px-8">
 				<SearchBar query={query} updateUrlOnChange />
-				<div className="flex h-full flex-col gap-5 py-5">
+				<div className="flex h-full flex-col gap-6 py-6">
 					{/* Filter Row */}
-					<div className="flex flex-wrap items-center gap-3">
+					<div className="flex flex-wrap items-center gap-4">
 						{/* Media type toggle */}
 						<div className="flex gap-1 rounded-xl bg-secondary/30 p-1">
 							<button
@@ -346,7 +346,7 @@ function SearchPage() {
 					</div>
 
 					<div className="flex min-h-96 w-full items-center justify-center">
-						<div className="stagger-grid grid w-full grid-cols-2 gap-5 py-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+						<div className="stagger-grid grid w-full grid-cols-2 gap-3 sm:gap-4 md:gap-5 py-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
 							{filteredData.map((item) => (
 								<MediaCard
 									key={item.id}

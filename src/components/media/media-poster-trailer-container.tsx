@@ -42,7 +42,7 @@ export function MediaPosterTrailerContainer(props: {
 			<div className="relative group shrink-0 w-full sm:w-auto overflow-hidden rounded-xl">
 				<Image
 					alt={title}
-					className="bg-accent aspect-[2/3] h-auto w-full rounded-xl object-cover sm:h-56 sm:w-44 md:h-64 md:w-52 lg:h-80 lg:w-64"
+					className="bg-accent aspect-[2/3] h-auto w-full rounded-xl object-cover sm:h-56 sm:w-44 md:h-72 md:w-60 lg:h-96 lg:w-72 xl:h-[28rem] xl:w-80"
 					height={450}
 					src={image}
 					width={300}
