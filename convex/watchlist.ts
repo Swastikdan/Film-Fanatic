@@ -172,17 +172,17 @@ export const syncShowProgress = mutation({
     if (!user) throw new Error("User not found");
 
     // Determine status and progress based on counts
-    let status = "watching";
+    let derivedStatus = "watching";
     let progress = 0;
 
     if (args.watchedEpisodesCount === 0) {
-        status = "plan-to-watch";
+        derivedStatus = "plan-to-watch";
         progress = 0;
     } else if (args.watchedEpisodesCount >= args.totalEpisodes && args.totalEpisodes > 0) {
-        status = "completed";
+        derivedStatus = "completed";
         progress = 100;
     } else {
-        status = "watching";
+        derivedStatus = "watching";
         progress = Math.floor((args.watchedEpisodesCount / args.totalEpisodes) * 100);
     }
 
@@ -196,11 +196,14 @@ export const syncShowProgress = mutation({
     const now = Date.now();
     
     if (existing) {
+        const shouldPreserveManualStatus =
+          existing.status === "liked" || existing.status === "dropped";
+
         // Only update if status or progress is different to avoid churn? 
         // Or just update always. safely.
         await ctx.db.patch(existing._id, {
             progress,
-            status,
+            status: shouldPreserveManualStatus ? existing.status : derivedStatus,
             updatedAt: now,
         });
     } else {
@@ -209,7 +212,7 @@ export const syncShowProgress = mutation({
             tmdbId: args.tmdbId,
             mediaType: "tv",
             progress,
-            status,
+            status: derivedStatus,
             updatedAt: now,
         });
     }

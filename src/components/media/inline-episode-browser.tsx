@@ -54,7 +54,7 @@ export function InlineEpisodeBrowser({
 	useEffect(() => {
 		if (totalEpisodes === 0) return;
 
-		// "Completed" -> Mark all episodes (User manually set Completed)
+		// "Completed" -> Mark all episodes watched.
 		if (currentStatus === "completed" && watchedCount < totalEpisodes) {
 			const seasonsToMark = seasons.filter((s) => s.season_number > 0);
 			seasonsToMark.forEach((s) => {
@@ -71,15 +71,28 @@ export function InlineEpisodeBrowser({
 				}
 			});
 		}
-	}, [
-		watchedCount,
-		totalEpisodes,
-		currentStatus,
-		syncShowProgress,
-		tvId,
-		seasons,
-		episodeTracker,
-	]);
+
+		// "Plan to Watch" -> Reset all episodes to unwatched.
+		if (currentStatus === "plan-to-watch" && watchedCount > 0) {
+			const seasonsToReset = seasons.filter((s) => s.season_number > 0);
+			seasonsToReset.forEach((s) => {
+				const epNums = Array.from({ length: s.episode_count }, (_, i) => i + 1);
+				episodeTracker.unmarkSeasonWatched(s.season_number, epNums);
+			});
+		}
+	}, [watchedCount, totalEpisodes, currentStatus, seasons, episodeTracker]);
+
+	useEffect(() => {
+		if (totalEpisodes === 0) return;
+		if (currentStatus === "liked" || currentStatus === "dropped") return;
+
+		syncShowProgress({
+			tmdbId: tvId,
+			mediaType: "tv",
+			totalEpisodes,
+			watchedEpisodesCount: watchedCount,
+		});
+	}, [currentStatus, syncShowProgress, totalEpisodes, tvId, watchedCount]);
 
 	return (
 		<div className="animate-fade-in-up pb-8">

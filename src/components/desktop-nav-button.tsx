@@ -61,21 +61,43 @@ const DesktopNavButtons = () => {
 			/>
 			<ThemeSwitch />
 			<ClerkLoading>
-				<Skeleton className="h-9 w-20 rounded-[calc(var(--radius-md)+3px)]" />
+				<Skeleton className="size-10 rounded-full" />
 			</ClerkLoading>
 			<ClerkLoaded>
 				<SignedOut>
 					<SignInButton mode="modal">
 						<Button
 							variant="outline"
-							className="rounded-[calc(var(--radius-md)+3px)] h-9 w-20 hidden md:block"
+							size="icon"
+							className="size-10 rounded-full"
+							aria-label="Sign in"
 						>
-							Sign In
+							<svg
+								className="size-4"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								strokeWidth="2"
+							>
+								<title>Sign in</title>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									d="M15.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+								/>
+							</svg>
 						</Button>
 					</SignInButton>
 				</SignedOut>
 				<SignedIn>
-					<UserButton />
+					<UserButton
+						appearance={{
+							elements: {
+								avatarBox: "size-10",
+								userButtonTrigger: "size-10 rounded-full",
+							},
+						}}
+					/>
 				</SignedIn>
 			</ClerkLoaded>
 		</>

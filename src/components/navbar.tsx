@@ -1,8 +1,10 @@
 import {
 	ClerkLoaded,
 	ClerkLoading,
+	SignedIn,
 	SignedOut,
 	SignInButton,
+	UserButton,
 	useUser,
 } from "@clerk/clerk-react";
 import { Link } from "@tanstack/react-router";
@@ -174,16 +176,43 @@ const Navbar = () => {
 									</Button>
 								)}
 								<ClerkLoading>
-									<Skeleton className="h-10 w-full rounded-[calc(var(--radius-md)+3px)]" />
+									<Skeleton className="size-10 rounded-full" />
 								</ClerkLoading>
 								<ClerkLoaded>
+									<SignedIn>
+										<div className="flex justify-start">
+											<UserButton
+												appearance={{
+													elements: {
+														avatarBox: "size-10",
+														userButtonTrigger: "size-10 rounded-full",
+													},
+												}}
+											/>
+										</div>
+									</SignedIn>
 									<SignedOut>
 										<SignInButton mode="modal">
 											<Button
-												variant="secondary"
-												className="h-10 w-full justify-start"
+												variant="outline"
+												size="icon"
+												className="size-10 rounded-full"
+												aria-label="Sign in"
 											>
-												Sign In
+												<svg
+													className="size-4"
+													fill="none"
+													viewBox="0 0 24 24"
+													stroke="currentColor"
+													strokeWidth="2"
+												>
+													<title>Sign in</title>
+													<path
+														strokeLinecap="round"
+														strokeLinejoin="round"
+														d="M15.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+													/>
+												</svg>
 											</Button>
 										</SignInButton>
 									</SignedOut>
