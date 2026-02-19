@@ -7,17 +7,16 @@ import type { WatchlistStatus } from "@/types";
 import { api } from "../../convex/_generated/api";
 import type { Id } from "../../convex/_generated/dataModel";
 
-/* --- Types --- */
 export type WatchlistItem = {
 	title: string;
 	type: "tv" | "movie";
-	external_id: string; // cast from number to string for frontend compatibility
+	external_id: string;
 	image: string;
-	rating: number; // 0-10
+	rating: number;
 	release_date: string;
 	overview?: string;
-	updated_at: number; // timestamp
-	created_at: number; // timestamp
+	updated_at: number;
+	created_at: number;
 	status: WatchlistStatus;
 };
 
@@ -51,9 +50,6 @@ export const useWatchlistStore = create<WatchlistStore>()(
 	),
 );
 
-/* --- Hooks --- */
-
-/** Returns { watchlist, loading }. Loading tracks query state. */
 export function useWatchlist() {
 	const { isSignedIn, isLoaded } = useUser();
 	const convexWatchlistData = useQuery(api.watchlist.getWatchlist);
@@ -75,25 +71,18 @@ export function useWatchlist() {
 				status: (item.status as WatchlistStatus) ?? "plan-to-watch",
 			}));
 		}
-		// If not signed in, use local store
 		return localWatchlist;
 	}, [isSignedIn, convexWatchlistData, localWatchlist]);
 
-	// If signed in, loading is true until data arrives.
-	// If not signed in, loading is false (local data is synchronous).
-	// If Clerk is not loaded yet, we might want to say loading is true?
-	// User asked "when not logged in ... work as usual".
 	const loading =
 		!isLoaded || (isSignedIn && convexWatchlistData === undefined);
 
 	return { watchlist, loading };
 }
 
-/** Toggle watchlist item. Call with media object. */
 export function useToggleWatchlistItem() {
 	const { isSignedIn } = useUser();
 
-	// Convex Mutations
 	const upsertItem = useMutation(
 		api.watchlist.upsertWatchlistItem,
 	).withOptimisticUpdate((localStore, args) => {
@@ -152,7 +141,6 @@ export function useToggleWatchlistItem() {
 		localStore.setQuery(api.watchlist.getWatchlist, {}, newItems);
 	});
 
-	// Local Store Actions
 	const addToLocal = useWatchlistStore((state) => state.addToWatchlist);
 	const removeFromLocal = useWatchlistStore(
 		(state) => state.removeFromWatchlist,
@@ -190,7 +178,6 @@ export function useToggleWatchlistItem() {
 					});
 				}
 			} else {
-				// Local Toggle
 				if (exists) {
 					removeFromLocal(item.id);
 				} else {
@@ -220,11 +207,9 @@ export function useToggleWatchlistItem() {
 	);
 }
 
-/** Set item status. Call with id and status object. */
 export function useSetItemStatus() {
 	const { isSignedIn } = useUser();
 
-	// Convex
 	const upsertItem = useMutation(
 		api.watchlist.upsertWatchlistItem,
 	).withOptimisticUpdate((localStore, args) => {
@@ -251,7 +236,6 @@ export function useSetItemStatus() {
 		}
 	});
 
-	// Local
 	const updateLocalStatus = useWatchlistStore((state) => state.updateStatus);
 	const { watchlist } = useWatchlist();
 
@@ -274,7 +258,6 @@ export function useSetItemStatus() {
 	);
 }
 
-/** Returns { isOnWatchList } for a given external_id. */
 export function useWatchlistItem(id: string) {
 	const { watchlist } = useWatchlist();
 	const isOnWatchList = useMemo(
@@ -284,27 +267,22 @@ export function useWatchlistItem(id: string) {
 	return { isOnWatchList };
 }
 
-/** Get watchlist count */
 export function useWatchlistCount() {
 	const { watchlist } = useWatchlist();
 	return watchlist.length;
 }
 
-/** Check if item exists without subscribing to the entire watchlist - optimization */
-// For now, reusing the main hook as Convex query subscription is efficient enough
 export function useIsInWatchlist(id: string) {
 	const { watchlist } = useWatchlist();
 	return watchlist.some((item) => item.external_id === id);
 }
 
-/** Get item status */
 export function useWatchlistItemStatus(id: string) {
 	const { watchlist } = useWatchlist();
 	const item = watchlist.find((item) => item.external_id === id);
 	return item?.status ?? null;
 }
 
-/** Mock hydration hook for compatibility */
 export function useHydration() {
 	return true;
 }

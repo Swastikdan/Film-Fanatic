@@ -29,7 +29,15 @@ interface MinimalImage {
 	vote_average?: number;
 }
 
-// Keep all media data shaping in one place so route files stay focused on UI structure.
+type MovieReleaseDate = {
+	certification?: string;
+};
+
+type MovieRelease = {
+	iso_3166_1: string;
+	release_dates?: MovieReleaseDate[] | null;
+};
+
 export const mapGenres = (genres?: MinimalGenre[] | null) => {
 	if (!genres) {
 		return [];
@@ -63,7 +71,9 @@ export const splitVideos = (videos?: MinimalVideo[] | null) => {
 				return a.type === "Featurette" ? -1 : 1;
 			}
 
-			return new Date(b.published_at).getTime() - new Date(a.published_at).getTime();
+			return (
+				new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
+			);
 		})
 		.slice(0, FEATURED_ITEMS_LIMIT);
 
@@ -115,15 +125,10 @@ export const mapPosters = (posters?: MinimalImage[] | null) =>
 		}))
 		.slice(0, FEATURED_ITEMS_LIMIT) ?? [];
 
-export const getMovieCertification = (
-	releaseDates?:
-		| {
-				iso_3166_1: string;
-				release_dates?: { certification?: string }[] | null;
-		  }[]
-		| null,
-) => {
-	const usRelease = releaseDates?.find((release) => release.iso_3166_1 === "US");
+export const getMovieCertification = (releaseDates?: MovieRelease[] | null) => {
+	const usRelease = releaseDates?.find(
+		(release) => release.iso_3166_1 === "US",
+	);
 
 	if (!usRelease?.release_dates) {
 		return "NR";

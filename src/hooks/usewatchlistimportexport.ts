@@ -8,6 +8,15 @@ type ImportError = {
 	invalidItems?: number;
 };
 
+const MAX_IMPORT_FILE_SIZE_BYTES = 10 * 1024 * 1024;
+const IMPORT_FILE_EXTENSION = ".json";
+
+const resetFileInput = (input: HTMLInputElement | null) => {
+	if (input) {
+		input.value = "";
+	}
+};
+
 export const useWatchlistImportExport = () => {
 	const [importLoading, setImportLoading] = useState(false);
 	const [exportLoading, setExportLoading] = useState(false);
@@ -21,13 +30,11 @@ export const useWatchlistImportExport = () => {
 			if (typeof item !== "object" || item === null) return false;
 
 			const obj = item as Record<string, unknown>;
-			// Basic validation
-			const hasRequiredFields =
+			return (
 				typeof obj.title === "string" &&
 				typeof obj.external_id === "string" &&
-				(obj.type === "tv" || obj.type === "movie");
-
-			return hasRequiredFields;
+				(obj.type === "tv" || obj.type === "movie")
+			);
 		},
 		[],
 	);
@@ -69,13 +76,12 @@ export const useWatchlistImportExport = () => {
 			const file = event.target.files?.[0];
 			if (!file) return;
 
-			if (!file.name.endsWith(".json")) {
+			if (!file.name.endsWith(IMPORT_FILE_EXTENSION)) {
 				setError({ message: "Please select a valid JSON file." });
 				return;
 			}
 
-			const MAX_FILE_SIZE = 10 * 1024 * 1024;
-			if (file.size > MAX_FILE_SIZE) {
+			if (file.size > MAX_IMPORT_FILE_SIZE_BYTES) {
 				setError({ message: "File size exceeds 10MB limit." });
 				return;
 			}
@@ -102,7 +108,6 @@ export const useWatchlistImportExport = () => {
 					const validatedList: WatchlistItem[] = [];
 
 					for (const item of importedData) {
-						// Relaxed validation for import
 						if (isValidWatchlistItem(item)) {
 							validatedList.push({
 								title: item.title,
@@ -125,8 +130,6 @@ export const useWatchlistImportExport = () => {
 						throw new Error("No valid items found in the watchlist file.");
 					}
 
-					// Import items sequentially to avoid rate limits or overload
-					// Ideally this should be a bulk mutation
 					for (const item of validatedList) {
 						await upsertWatchlistItem({
 							tmdbId: Number(item.external_id),
@@ -145,9 +148,6 @@ export const useWatchlistImportExport = () => {
 							message: `Successfully imported ${validatedList.length} items. ${invalidItemCount} invalid items were skipped.`,
 							invalidItems: invalidItemCount,
 						});
-					} else {
-						// Success message?
-						// No logic previously for success toast, just clears loading
 					}
 				} catch (err) {
 					const errorMessage =
@@ -158,18 +158,14 @@ export const useWatchlistImportExport = () => {
 					console.error("Import error:", err);
 				} finally {
 					setImportLoading(false);
-					if (fileInputRef.current) {
-						fileInputRef.current.value = "";
-					}
+					resetFileInput(fileInputRef.current);
 				}
 			};
 
 			reader.onerror = () => {
 				setError({ message: "Error reading file. Please try again." });
 				setImportLoading(false);
-				if (fileInputRef.current) {
-					fileInputRef.current.value = "";
-				}
+				resetFileInput(fileInputRef.current);
 			};
 
 			reader.readAsText(file);
@@ -193,15 +189,12 @@ export const useWatchlistImportExport = () => {
 	);
 
 	return {
-		// State
 		importLoading,
 		exportLoading,
 		error,
 		loading,
 		watchlist,
 		fileInputRef,
-
-		// Actions
 		exportWatchlist,
 		importWatchlist,
 		handleImportClick,
