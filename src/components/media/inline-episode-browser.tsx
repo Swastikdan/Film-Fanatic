@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { useMutation } from "convex/react";
 import { useEffect, useState } from "react";
 import {
 	Accordion,
@@ -20,7 +19,6 @@ import {
 import { useWatchlistItemStatus } from "@/hooks/usewatchlist";
 import { getTvSeasonDetails } from "@/lib/queries";
 import type { SeasonInfo, TvEpisodeDetail } from "@/types";
-import { api } from "../../../convex/_generated/api";
 
 interface InlineEpisodeBrowserProps {
 	tvId: number;
@@ -44,12 +42,18 @@ export function InlineEpisodeBrowser({
 	const hasMoreSeasons = allSeasons.length > 3;
 
 	const episodeTracker = useEpisodeWatched(tvId);
+	const {
+		getSeasonWatchedCount,
+		isSeasonFullyWatched,
+		markSeasonWatched,
+		syncShowStatusFromEpisodes,
+		unmarkSeasonWatched,
+		watchedCount,
+	} = episodeTracker;
 	const currentStatus = useWatchlistItemStatus(String(tvId));
-	const syncShowProgress = useMutation(api.watchlist.syncShowProgress);
 
 	// Automatically mark show status based on episode progress
 	const totalEpisodes = seasons.reduce((acc, s) => acc + s.episode_count, 0);
-	const watchedCount = episodeTracker.watchedCount;
 
 	useEffect(() => {
 		if (totalEpisodes === 0) return;
@@ -58,7 +62,7 @@ export function InlineEpisodeBrowser({
 		if (currentStatus === "completed" && watchedCount < totalEpisodes) {
 			const seasonsToMark = seasons.filter((s) => s.season_number > 0);
 			seasonsToMark.forEach((s) => {
-				const isFullyWatched = episodeTracker.isSeasonFullyWatched(
+				const isFullyWatched = isSeasonFullyWatched(
 					s.season_number,
 					s.episode_count,
 				);
@@ -67,7 +71,7 @@ export function InlineEpisodeBrowser({
 						{ length: s.episode_count },
 						(_, i) => i + 1,
 					);
-					episodeTracker.markSeasonWatched(s.season_number, epNums);
+					markSeasonWatched(s.season_number, epNums);
 				}
 			});
 		}
@@ -77,22 +81,24 @@ export function InlineEpisodeBrowser({
 			const seasonsToReset = seasons.filter((s) => s.season_number > 0);
 			seasonsToReset.forEach((s) => {
 				const epNums = Array.from({ length: s.episode_count }, (_, i) => i + 1);
-				episodeTracker.unmarkSeasonWatched(s.season_number, epNums);
+				unmarkSeasonWatched(s.season_number, epNums);
 			});
 		}
-	}, [watchedCount, totalEpisodes, currentStatus, seasons, episodeTracker]);
+	}, [
+		currentStatus,
+		isSeasonFullyWatched,
+		markSeasonWatched,
+		seasons,
+		totalEpisodes,
+		unmarkSeasonWatched,
+		watchedCount,
+	]);
 
 	useEffect(() => {
 		if (totalEpisodes === 0) return;
 		if (currentStatus === "liked" || currentStatus === "dropped") return;
-
-		syncShowProgress({
-			tmdbId: tvId,
-			mediaType: "tv",
-			totalEpisodes,
-			watchedEpisodesCount: watchedCount,
-		});
-	}, [currentStatus, syncShowProgress, totalEpisodes, tvId, watchedCount]);
+		syncShowStatusFromEpisodes(totalEpisodes);
+	}, [currentStatus, syncShowStatusFromEpisodes, totalEpisodes]);
 
 	return (
 		<div className="animate-fade-in-up pb-8">
@@ -105,11 +111,11 @@ export function InlineEpisodeBrowser({
 			{/* Accordion-based Season Browser */}
 			<Accordion type="single" collapsible className="w-full space-y-2">
 				{displayedSeasons.map((s) => {
-					const seenAll = episodeTracker.isSeasonFullyWatched(
+					const seenAll = isSeasonFullyWatched(
 						s.season_number,
 						s.episode_count,
 					);
-					const watchedCount = episodeTracker.getSeasonWatchedCount(
+					const watchedCount = getSeasonWatchedCount(
 						s.season_number,
 						s.episode_count,
 					);
@@ -160,15 +166,9 @@ export function InlineEpisodeBrowser({
 												(_, i) => i + 1,
 											);
 											if (seenAll) {
-												episodeTracker.unmarkSeasonWatched(
-													s.season_number,
-													epNums,
-												);
+												unmarkSeasonWatched(s.season_number, epNums);
 											} else {
-												episodeTracker.markSeasonWatched(
-													s.season_number,
-													epNums,
-												);
+												markSeasonWatched(s.season_number, epNums);
 											}
 										}}
 										className="pressable-small text-[11px] font-medium text-muted-foreground hover:text-foreground hover:no-underline transition-colors z-10 relative"
@@ -222,6 +222,8 @@ function SeasonEpisodeList({
 	});
 
 	const episodes = seasonData?.episodes ?? [];
+	const isEpisodeWatched = episodeTracker.isEpisodeWatched;
+	const toggleEpisodeWatched = episodeTracker.toggleEpisodeWatched;
 
 	if (isLoading) {
 		return (
@@ -257,15 +259,9 @@ function SeasonEpisodeList({
 					showName={showName}
 					tvId={tvId}
 					seasonNumber={seasonNumber}
-					isWatched={episodeTracker.isEpisodeWatched(
-						seasonNumber,
-						episode.episode_number,
-					)}
+					isWatched={isEpisodeWatched(seasonNumber, episode.episode_number)}
 					onToggleWatched={() =>
-						episodeTracker.toggleEpisodeWatched(
-							seasonNumber,
-							episode.episode_number,
-						)
+						toggleEpisodeWatched(seasonNumber, episode.episode_number)
 					}
 				/>
 			))}
@@ -334,55 +330,6 @@ function EpisodeCard({
 							{episode.name}
 						</h3>
 					</div>
-
-					{/* Mark as watched toggle */}
-					<button
-						type="button"
-						onClick={onToggleWatched}
-						className={`pressable-small shrink-0 rounded-lg border p-1.5 text-[10px] font-medium transition-all ${
-							isWatched
-								? "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
-								: "border-border/50 bg-transparent text-muted-foreground hover:border-foreground/20 hover:text-foreground"
-						}`}
-						title={isWatched ? "Mark as unwatched" : "Mark as watched"}
-					>
-						{isWatched ? (
-							<svg
-								className="size-3.5"
-								fill="none"
-								viewBox="0 0 24 24"
-								strokeWidth={2.5}
-								stroke="currentColor"
-							>
-								<title>Mark as unwatched</title>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									d="M4.5 12.75l6 6 9-13.5"
-								/>
-							</svg>
-						) : (
-							<svg
-								className="size-3.5"
-								fill="none"
-								viewBox="0 0 24 24"
-								strokeWidth={2}
-								stroke="currentColor"
-							>
-								<title>Mark as watched</title>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
-								/>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-								/>
-							</svg>
-						)}
-					</button>
 				</div>
 
 				<div className="flex flex-wrap items-center gap-2">
@@ -425,6 +372,20 @@ function EpisodeCard({
 							{episode.runtime}m
 						</span>
 					)}
+					<button
+						type="button"
+						onClick={onToggleWatched}
+						className={`pressable-small ml-auto shrink-0 rounded-lg border px-2 py-1 text-[10px] font-medium transition-all ${
+							isWatched
+								? "border-emerald-500/35 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
+								: "border-border/50 bg-transparent text-muted-foreground hover:border-foreground/20 hover:text-foreground"
+						}`}
+						title={isWatched ? "Mark as unwatched" : "Mark as watched"}
+					>
+						<span className="inline-flex items-center gap-1">
+							{isWatched ? "✓ Watched" : "Mark watched"}
+						</span>
+					</button>
 				</div>
 
 				{/* Description with Read More toggle */}
