@@ -196,8 +196,7 @@ export const syncShowProgress = mutation({
     const now = Date.now();
     
     if (existing) {
-        const shouldPreserveManualStatus =
-          existing.status === "liked" || existing.status === "dropped";
+        const shouldPreserveManualStatus = ["liked", "dropped"].includes(existing.status);
 
         // Only update if status or progress is different to avoid churn? 
         // Or just update always. safely.
