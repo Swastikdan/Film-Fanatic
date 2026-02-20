@@ -197,15 +197,15 @@ function WatchlistPage() {
 				)}
 
 				<div className="mb-6 flex flex-col gap-4">
-					<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-						<div className="scrollbar-hidden flex gap-2 overflow-x-auto">
+					<div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+						<div className="scrollbar-hidden -mx-1 flex gap-2 overflow-x-auto px-1 pb-1 sm:mx-0 sm:px-0 sm:pb-0">
 							{(["all", "want-to-watch", "watching", "finished"] as const).map(
 								(filter) => (
 									<button
 										key={filter}
 										type="button"
 										onClick={() => setActiveFilter(filter)}
-										className={`pressable-small whitespace-nowrap rounded-xl items-center px-4 py-1.5 text-sm font-medium transition-all duration-300 ${
+										className={`pressable-small whitespace-nowrap rounded-xl items-center px-3 py-1.5 text-xs font-medium transition-all duration-300 sm:px-4 sm:text-sm ${
 											activeFilter === filter
 												? "bg-foreground text-background "
 												: "bg-secondary/40 text-foreground/70 hover:bg-secondary/70"
@@ -220,10 +220,10 @@ function WatchlistPage() {
 							)}
 						</div>
 
-						<div className="flex gap-3">
+						<div className="grid grid-cols-2 gap-2 sm:flex sm:gap-3">
 							{(watchlistData?.length ?? 0) > 0 && (
 								<Button
-									className="gap-2 rounded-xl"
+									className="h-9 gap-2 rounded-xl"
 									disabled={exportLoading || importLoading}
 									variant="secondary"
 									onClick={exportWatchlist}
@@ -238,7 +238,7 @@ function WatchlistPage() {
 								</Button>
 							)}
 							<Button
-								className="gap-2 rounded-xl"
+								className="h-9 gap-2 rounded-xl"
 								disabled={importLoading || exportLoading}
 								variant="secondary"
 								onClick={handleImportClick}
@@ -264,14 +264,14 @@ function WatchlistPage() {
 						</div>
 					</div>
 
-					<div className="flex flex-wrap items-center gap-3">
-						<div className="flex gap-1 rounded-xl bg-secondary/30 p-1">
+					<div className="grid grid-cols-1 gap-2 sm:grid-cols-[auto_1fr_1fr] sm:items-center">
+						<div className="scrollbar-hidden -mx-1 flex gap-1 overflow-x-auto rounded-xl bg-secondary/30 p-1 sm:mx-0">
 							{(["all", "movie", "tv"] as const).map((mf) => (
 								<button
 									key={mf}
 									type="button"
 									onClick={() => setMediaFilter(mf)}
-									className={`pressable-small rounded-lg px-3 py-1.5 text-xs font-medium transition-all ${
+									className={`pressable-small whitespace-nowrap rounded-lg px-2.5 py-1.5 text-[11px] font-medium transition-all sm:px-3 sm:text-xs ${
 										mediaFilter === mf
 											? "bg-foreground text-background "
 											: "text-foreground/60 hover:text-foreground"
@@ -288,7 +288,7 @@ function WatchlistPage() {
 								setReactionFilter(value as ReactionFilter)
 							}
 						>
-							<SelectTrigger className="h-8 gap-2 rounded-xl border-default bg-secondary/30 px-3 text-xs font-medium">
+							<SelectTrigger className="h-9 w-full gap-2 rounded-xl border-default bg-secondary/30 px-3 text-xs font-medium">
 								<SelectValue placeholder="Mood" />
 							</SelectTrigger>
 							<SelectContent className="rounded-xl">
@@ -317,7 +317,7 @@ function WatchlistPage() {
 							value={sortBy}
 							onValueChange={(value) => setSortBy(value as SortType)}
 						>
-							<SelectTrigger className="h-8 gap-2 rounded-xl border-default bg-secondary/30 px-3 text-xs font-medium">
+							<SelectTrigger className="h-9 w-full gap-2 rounded-xl border-default bg-secondary/30 px-3 text-xs font-medium">
 								<SelectValue />
 							</SelectTrigger>
 							<SelectContent className="rounded-xl">
@@ -448,12 +448,12 @@ function WatchlistCard({
 					</div>
 
 					<div className="flex items-center justify-between gap-2 pt-1">
-						<div className="flex flex-row gap-1">
-							<div className="inline-flex items-center gap-2 h-7 rounded-lg border px-2.5 py-1.5 text-[11px] font-semibold">
+						<div className="flex flex-wrap items-center gap-1.5">
+							<div className="inline-flex h-6 items-center gap-1.5 rounded-md border px-2 py-1 text-[10px] font-semibold sm:h-7 sm:gap-2 sm:px-2.5 sm:text-[11px]">
 								<ProgressIcon size={14} />
 								<span>{progressOption.label}</span>
 							</div>
-							<div className="inline-flex items-center h-7 gap-2 rounded-lg border px-2.5 py-1.5 text-[11px] font-semibold">
+							<div className="inline-flex h-6 items-center gap-1.5 rounded-md border px-2 py-1 text-[10px] font-semibold sm:h-7 sm:gap-2 sm:px-2.5 sm:text-[11px]">
 								{reactionOption ? (
 									<>
 										{ReactionIcon && <ReactionIcon size={14} />}
