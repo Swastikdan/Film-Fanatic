@@ -371,7 +371,7 @@ function RecommendationsContent() {
 			<div className="space-y-3">
 				{/* Row 1: Mode + Media type + Count + Generate */}
 				<div className="flex flex-wrap items-center gap-2">
-					<div className="flex gap-0.5 rounded-lg bg-secondary/40 p-0.5 h-9 items-center ring-1 ring-border/40">
+					<div className="order-1 flex gap-0.5 rounded-lg bg-secondary/40 p-0.5 h-9 items-center ring-1 ring-border/40">
 						<Button
 							className="h-8 px-4 text-xs font-semibold rounded-md"
 							variant={genMode === "watchlist" ? "default" : "ghost"}
@@ -388,7 +388,7 @@ function RecommendationsContent() {
 						</Button>
 					</div>
 
-					<div className="flex gap-0.5 rounded-lg bg-secondary/40 p-0.5 h-9 items-center ring-1 ring-border/40">
+					<div className="order-3 w-full sm:w-auto flex gap-0.5 rounded-lg bg-secondary/40 p-0.5 h-9 items-center ring-1 ring-border/40">
 						<Button
 							className="h-8 px-3 text-xs font-semibold rounded-md"
 							variant={!mediaType ? "default" : "ghost"}
@@ -419,11 +419,29 @@ function RecommendationsContent() {
 					<Button
 						type="button"
 						variant={showAdvancedOptions ? "default" : "ghost"}
-						className="gap-1.5 h-9 text-xs"
+						className="order-4 gap-1.5 h-9 w-[132px] text-xs justify-center"
 						onClick={() => setShowAdvancedOptions((prev) => !prev)}
 					>
 						<SlidersHorizontal className="size-3.5" />
-						{showAdvancedOptions ? "Simple" : "Full options"}
+						<span className="relative inline-flex w-[72px] justify-center">
+							<span
+								className={cn(
+									"absolute inset-0 transition-opacity",
+									showAdvancedOptions ? "opacity-100" : "opacity-0",
+								)}
+							>
+								Simple
+							</span>
+							<span
+								className={cn(
+									"absolute inset-0 transition-opacity",
+									showAdvancedOptions ? "opacity-0" : "opacity-100",
+								)}
+							>
+								Full options
+							</span>
+							<span className="invisible">Full options</span>
+						</span>
 					</Button>
 
 					<Button
@@ -435,7 +453,7 @@ function RecommendationsContent() {
 								watchlist.length === 0)
 						}
 						variant="secondary"
-						className="gap-2 h-9"
+						className="order-2 sm:order-none ml-auto gap-2 h-9"
 					>
 						{isGenerating ? (
 							<RefreshCw className="size-4 animate-spin" />
@@ -512,7 +530,7 @@ function RecommendationsContent() {
 					)}
 
 				{/* Genre chips — only visible in "By Genre" mode */}
-				{showAdvancedOptions && genMode === "genre" && (
+				{genMode === "genre" && (
 					<div className="flex flex-wrap gap-1.5">
 						{POPULAR_GENRES.map((genre) => (
 							<button
