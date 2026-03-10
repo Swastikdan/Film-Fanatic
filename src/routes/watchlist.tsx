@@ -417,9 +417,10 @@ function WatchlistTabContent() {
 							filtersOpen || activeSecondaryCount > 0 ? "default" : "ghost"
 						}
 						size="sm"
-						className="gap-1.5 rounded-lg text-xs md:hidden"
+						className="gap-1.5 rounded-lg text-xs"
 					>
 						<SlidersHorizontal size={13} />
+						<span>{filtersOpen ? "Simple" : "Full options"}</span>
 						{activeSecondaryCount > 0 && (
 							<span className="text-[10px] opacity-70">
 								{activeSecondaryCount}
@@ -431,7 +432,7 @@ function WatchlistTabContent() {
 				<div
 					className={cn(
 						"flex-1 items-center gap-2 scrollbar-hidden overflow-x-auto",
-						filtersOpen ? "flex" : "hidden md:flex",
+						filtersOpen ? "flex" : "hidden",
 					)}
 				>
 					<Select
